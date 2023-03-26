@@ -97,17 +97,9 @@ session()->root = $root;
 
         <!-- Nav Items - remorques -->
         <li class="nav-item <?= (session()->has('position') and session()->position == 'remorques') ? 'active' : '' ?>">
-          <a class="nav-link collapsed" href="<?= base_url($root . '/remorques') ?>" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
+          <a class="nav-link" href="<?= base_url($root . '/remorques') ?>">
             <i class="fas fa-fw fa-trailer"></i>
-            <span>Remorques</span>
-          </a>
-          <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Actions rapides:</h6>
-              <a class="collapse-item" href="buttons.html">Liste des remorques</a>
-              <a class="collapse-item" href="cards.html">Ajouter une remorques</a>
-            </div>
-          </div>
+            <span>Remorques</span></a>
         </li>
 
         <!-- Divider -->

@@ -53,6 +53,12 @@ $routes->group('',['filter' => 'session-check'], function($routes)
         $routes->get('tracteurs','SuperAdmin::liste_tracteurs');
         $routes->post('tracteurs/nouveau','SuperAdmin::nouveau_tracteur');
         $routes->get('tracteurs/supprimer/(:segment)','SuperAdmin::supprimer_tracteur/$1');
+
+        $routes->get('remorques','SuperAdmin::liste_remorques');
+        $routes->post('remorques/nouveau','SuperAdmin::nouveau_remorque');
+        $routes->get('remorques/supprimer/(:segment)','SuperAdmin::supprimer_remorque/$1');
+
+        
     });
 
     //Admin Filter

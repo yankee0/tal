@@ -143,4 +143,41 @@ class SuperAdmin extends BaseController
 
         }
     }
+
+    public function liste_remorques()
+    {
+        session()->position = 'remorques';
+        $donnees = [
+            'remorques' => (new ModelRemorque())->findAll(),
+        ];
+        return view('utils/remorques/liste', $donnees);
+    }
+
+    public function nouveau_remorque()
+    {
+
+        $donnees = [
+            'chrono' => strtoupper(''.$this->request->getPost('chrono')),
+        ];
+
+        $model = new ModelRemorque();
+        $model->insert($donnees);
+
+        if ($model->first($donnees['chrono'])) {
+            return redirect()->back()->with('success',true);
+        } else {
+            return redirect()->back()->withInput()->with('error',true);
+        }
+
+    }
+
+    public function supprimer_remorque($matricule = null){
+        $model = new ModelRemorque();
+        if ($model->delete($matricule)) {
+            return redirect()->to(session()->root.'/remorques#tableau')->with('deleted',true);
+        } else {
+            return redirect()->to(session()->root.'/remorques#tableau')->with('deleted',false);
+
+        }
+    }
 }
