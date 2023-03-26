@@ -28,17 +28,17 @@ Super Admin - Remorques - Liste
       </div>
       <form autocomplete="off" action="<?= base_url(session()->root . '/remorques/nouveau') ?>" method="post" id="formu" class="row">
         <?= csrf_field() ?>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <div class="form-floating mb-3">
             <input value="<?= set_value('chrono') ?>" type="text" class="form-control" name="chrono" id="chrono" placeholder="chrono" required>
             <label for="chrono">Chrono</label>
           </div>
         </div>
         
-        <div class="m-auto col-md-4 d-grid">
+        <div class="m-auto col-md d-grid">
           <button form="formu" type="submit" class="btn mb-3 py-3  btn-primary">Ajouter</button>
         </div>
-        <div class="m-auto col-md-4 d-grid">
+        <div class="m-auto col-md d-grid">
           <button form="formu" type="reset" class="btn  mb-3 py-3 btn-secondary">Effacer</button>
         </div>
 
@@ -69,7 +69,6 @@ Super Admin - Remorques - Liste
                 <button type="button" value="<?= $r['chrono'] ?>" class="del w-100 mx-1 btn btn-danger btn-sm" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></button>
               </td>
             </tr>
-
           <?php endforeach ?>
         </tbody>
       </table>

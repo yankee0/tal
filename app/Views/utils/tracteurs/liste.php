@@ -52,11 +52,13 @@ Super Admin - Tracteurs - Liste
             <label for="genre">Genre</label>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="form-floating mb-3">
-            <input value="<?= set_value('numero_chassis') ?>" type="text" class="form-control" name="numero_chassis" id="numero_chassis" placeholder="numero_chassis" required>
-            <label for="numero_chassis">Numéro chassis</label>
-          </div>
+        <div class="col-md form-floating">
+          <select class="form-select mb-3" id="numero_chassis" name="numero_chassis" aria-label="numero_chassis">
+            <?php foreach ($remorques as $r) : ?>
+              <option <?= set_select('numero_chassis') ?> value="<?= $r['chrono'] ?>"><?= $r['chrono'] ?></option>
+            <?php endforeach ?>
+          </select>
+          <label for="profil">Sélectionner une remorque</label>
         </div>
         <div class="col-md-4">
           <div class="form-floating mb-3">

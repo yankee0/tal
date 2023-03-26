@@ -107,6 +107,7 @@ class SuperAdmin extends BaseController
         session()->position = 'tracteurs';
         $donnees = [
             'tracteurs' => (new ModelTracteur())->findAll(),
+            'remorques' => (new ModelRemorque())->findAll(),
         ];
         return view('utils/tracteurs/liste', $donnees);
     }
