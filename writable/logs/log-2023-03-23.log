@@ -1,0 +1,293 @@
+ERROR - 2023-03-23 06:42:02 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:173
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(173): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'TALDB', 8889, '', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1408): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#4 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1427): CodeIgniter\Database\BaseConnection->listTables()
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:218
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1408): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1427): CodeIgniter\Database\BaseConnection->listTables()
+#4 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-03-23 06:42:48 --> Error connecting to the database: mysqli_sql_exception: Operation timed out in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:173
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(173): mysqli->real_connect('120.0.0.1', 'root', Object(SensitiveParameterValue), 'TALDB', 8889, '', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1408): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#4 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1427): CodeIgniter\Database\BaseConnection->listTables()
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Operation timed out in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:218
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1408): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1427): CodeIgniter\Database\BaseConnection->listTables()
+#4 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(768): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(168): CodeIgniter\Database\MigrationRunner->ensureTable()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-03-23 06:43:53 --> mysqli_sql_exception: All parts of a PRIMARY KEY must be NOT NULL; if you need NULL in a key, use UNIQUE instead in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `t...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `t...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `t...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `t...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-063657_Tracteurs.php(49): CodeIgniter\Database\Forge->createTable('tracteurs')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\Tracteurs->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-03-23 07:01:57 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`T`.`s` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`chrono_tracteur` VA' at line 1 in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `C...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `C...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `C...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `C...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-070111_Cats.php(34): CodeIgniter\Database\Forge->createTable('C.A.T.s')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\Cats->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-23 07:29:04 --> mysqli_sql_exception: Can't write; duplicate key in table 'assurances' in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `a...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `a...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `a...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `a...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-070009_Assurances.php(34): CodeIgniter\Database\Forge->createTable('assurances')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\Assurances->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-23 07:34:05 --> mysqli_sql_exception: Cannot add foreign key constraint in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `i...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `i...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `i...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `i...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-072151_ImplicationsChauffeurs.php(32): CodeIgniter\Database\Forge->createTable('implication_cha...')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\ImplicationsChauffeurs->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-23 07:34:29 --> mysqli_sql_exception: Cannot add foreign key constraint in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `i...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `i...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `i...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `i...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-072151_ImplicationsChauffeurs.php(32): CodeIgniter\Database\Forge->createTable('implication_cha...')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\ImplicationsChauffeurs->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-23 07:35:01 --> mysqli_sql_exception: Cannot add foreign key constraint in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `i...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `i...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `i...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `i...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-072151_ImplicationsChauffeurs.php(30): CodeIgniter\Database\Forge->createTable('implication_cha...')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\ImplicationsChauffeurs->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-23 07:35:42 --> mysqli_sql_exception: Cannot add foreign key constraint in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `i...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `i...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `i...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `i...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-072151_ImplicationsChauffeurs.php(32): CodeIgniter\Database\Forge->createTable('implication_cha...')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\ImplicationsChauffeurs->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-23 07:36:25 --> mysqli_sql_exception: Cannot add foreign key constraint in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `i...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `i...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `i...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `i...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-072151_ImplicationsChauffeurs.php(32): CodeIgniter\Database\Forge->createTable('implication_cha...')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\ImplicationsChauffeurs->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-23 07:39:30 --> mysqli_sql_exception: Cannot add foreign key constraint in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `i...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `i...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `i...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `i...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-072151_ImplicationsChauffeurs.php(30): CodeIgniter\Database\Forge->createTable('implication_cha...')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\ImplicationsChauffeurs->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-23 07:41:38 --> mysqli_sql_exception: Cannot add foreign key constraint in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `i...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `i...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `i...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `i...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-072151_ImplicationsChauffeurs.php(30): CodeIgniter\Database\Forge->createTable('implication_cha...')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\ImplicationsChauffeurs->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-23 07:42:49 --> mysqli_sql_exception: Cannot add foreign key constraint in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `i...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `i...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `i...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `i...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-072151_ImplicationsChauffeurs.php(31): CodeIgniter\Database\Forge->createTable('implication_cha...')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\ImplicationsChauffeurs->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-23 07:57:34 --> mysqli_sql_exception: Cannot add foreign key constraint in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `i...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `i...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `i...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `i...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-075617_ImplicationsCamionsLivraisons.php(32): CodeIgniter\Database\Forge->createTable('implication_cam...')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\ImplicationsCamionsLivraisons->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-23 07:58:39 --> mysqli_sql_exception: Cannot add foreign key constraint in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `i...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `i...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `i...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `i...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-075617_ImplicationsCamionsLivraisons.php(32): CodeIgniter\Database\Forge->createTable('implication_cam...')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\ImplicationsCamionsLivraisons->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
+ERROR - 2023-03-23 07:59:13 --> mysqli_sql_exception: Cannot add foreign key constraint in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `i...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `i...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `i...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `i...')
+#4 /Users/yankee/Documents/code/TAL/app/Database/Migrations/2023-03-23-075617_ImplicationsCamionsLivraisons.php(32): CodeIgniter\Database\Forge->createTable('implication_cam...')
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(877): App\Database\Migrations\ImplicationsCamionsLivraisons->up()
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/BaseCommand.php(114): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Database/MigrateRefresh.php(85): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 /Users/yankee/Documents/code/TAL/spark(97): CodeIgniter\CLI\Console->run()
+#14 {main}
