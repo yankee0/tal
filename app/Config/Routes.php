@@ -41,6 +41,8 @@ $routes->group('',['filter' => 'session-check'], function($routes)
     $routes->group('super-admin',['filter' => 'super-admin'], function($routes)
     {
         $routes->get('/','SuperAdmin::index');
+        $routes->get('utilisateurs','SuperAdmin::liste_utilisateurs');
+        $routes->post('utilisateurs/nouveau','SuperAdmin::nouvel_utilisateur');
     });
 
     //Admin Filter
