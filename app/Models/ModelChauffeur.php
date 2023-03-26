@@ -8,12 +8,12 @@ class ModelChauffeur extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'chauffeurs';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'matricule';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
+    protected $protectFields    = false;
     protected $allowedFields    = [];
 
     // Dates

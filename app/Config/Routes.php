@@ -44,6 +44,9 @@ $routes->group('',['filter' => 'session-check'], function($routes)
         $routes->get('utilisateurs','SuperAdmin::liste_utilisateurs');
         $routes->post('utilisateurs/nouveau','SuperAdmin::nouvel_utilisateur');
         $routes->get('utilisateurs/supprimer/(:segment)','SuperAdmin::supprimer_utilisateur/$1');
+        $routes->get('chauffeurs','SuperAdmin::liste_chauffeurs');
+        $routes->post('chauffeurs/nouveau','SuperAdmin::nouveau_chauffeur');
+        $routes->get('chauffeurs/supprimer/(:segment)','SuperAdmin::supprimer_chauffeur/$1');
     });
 
     //Admin Filter

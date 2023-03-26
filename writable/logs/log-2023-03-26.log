@@ -872,3 +872,161 @@ INFO - 2023-03-26 18:21:46 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-03-26 18:21:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-03-26 18:21:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-03-26 18:21:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:37:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:37:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:38:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:38:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:39:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-26 18:39:44 --> Allowed fields must be specified for model: "App\Models\ModelChauffeur"
+in SYSTEMPATH/BaseModel.php on line 1242.
+ 1 SYSTEMPATH/BaseModel.php(1242): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\ModelChauffeur')
+ 2 SYSTEMPATH/BaseModel.php(757): CodeIgniter\BaseModel->doProtectFields([...])
+ 3 SYSTEMPATH/Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 4 APPPATH/Controllers/SuperAdmin.php(86): CodeIgniter\Model->insert([...])
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\SuperAdmin->nouveau_chauffeur()
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdmin))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/yankee/Documents/code/TAL/public/index.php')
+INFO - 2023-03-26 18:40:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-03-26 18:40:02 --> mysqli_sql_exception: Unknown column 'profil' in 'field list' in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `ch...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ch...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ch...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ch...', Array, false)
+#4 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 /Users/yankee/Documents/code/TAL/app/Controllers/SuperAdmin.php(86): CodeIgniter\Model->insert(Array)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\SuperAdmin->nouveau_chauffeur()
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdmin))
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Users/yankee/Documents/code/TAL/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Users/yankee/D...')
+#13 {main}
+CRITICAL - 2023-03-26 18:40:02 --> Unknown column 'profil' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `chauffeurs` (`prenom`, `nom`, `profil`, `mot_de_passe`) VALUES (\'Y\', \'S\', NULL, \'fae26a66f36495786f450ec7f8501112cc4ce61e\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `chauffeurs` (`prenom`, `nom`, `profil`, `mot_de_passe`) VALUES (\'Y\', \'S\', NULL, \'fae26a66f36495786f450ec7f8501112cc4ce61e\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `chauffeurs` (`prenom`, `nom`, `profil`, `mot_de_passe`) VALUES (\'Y\', \'S\', NULL, \'fae26a66f36495786f450ec7f8501112cc4ce61e\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `chauffeurs` (`prenom`, `nom`, `profil`, `mot_de_passe`) VALUES (:prenom:, :nom:, :profil:, :mot_de_passe:)', [...], false)
+ 5 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH/Controllers/SuperAdmin.php(86): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\SuperAdmin->nouveau_chauffeur()
+10 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdmin))
+11 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/yankee/Documents/code/TAL/public/index.php')
+INFO - 2023-03-26 18:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-03-26 18:40:19 --> mysqli_sql_exception: Unknown column 'mot_de_passe' in 'field list' in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `ch...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ch...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ch...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ch...', Array, false)
+#4 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 /Users/yankee/Documents/code/TAL/app/Controllers/SuperAdmin.php(86): CodeIgniter\Model->insert(Array)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\SuperAdmin->nouveau_chauffeur()
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdmin))
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Users/yankee/Documents/code/TAL/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Users/yankee/D...')
+#13 {main}
+CRITICAL - 2023-03-26 18:40:19 --> Unknown column 'mot_de_passe' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `chauffeurs` (`prenom`, `nom`, `matricule`, `mot_de_passe`) VALUES (\'Y\', \'S\', \'TAL\', \'fae26a66f36495786f450ec7f8501112cc4ce61e\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `chauffeurs` (`prenom`, `nom`, `matricule`, `mot_de_passe`) VALUES (\'Y\', \'S\', \'TAL\', \'fae26a66f36495786f450ec7f8501112cc4ce61e\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `chauffeurs` (`prenom`, `nom`, `matricule`, `mot_de_passe`) VALUES (\'Y\', \'S\', \'TAL\', \'fae26a66f36495786f450ec7f8501112cc4ce61e\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `chauffeurs` (`prenom`, `nom`, `matricule`, `mot_de_passe`) VALUES (:prenom:, :nom:, :matricule:, :mot_de_passe:)', [...], false)
+ 5 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH/Controllers/SuperAdmin.php(86): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\SuperAdmin->nouveau_chauffeur()
+10 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdmin))
+11 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/yankee/Documents/code/TAL/public/index.php')
+INFO - 2023-03-26 18:46:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:46:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-03-26 18:46:33 --> mysqli_sql_exception: Unknown column 'mot_de_passe' in 'field list' in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `ch...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ch...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ch...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ch...', Array, false)
+#4 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/BaseModel.php(782): CodeIgniter\Model->doInsert(Array)
+#6 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Model.php(730): CodeIgniter\BaseModel->insert(Array, true)
+#7 /Users/yankee/Documents/code/TAL/app/Controllers/SuperAdmin.php(86): CodeIgniter\Model->insert(Array)
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\SuperAdmin->nouveau_chauffeur()
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdmin))
+#10 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Users/yankee/Documents/code/TAL/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#12 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Users/yankee/D...')
+#13 {main}
+CRITICAL - 2023-03-26 18:46:33 --> Unknown column 'mot_de_passe' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `chauffeurs` (`prenom`, `nom`, `matricule`, `mot_de_passe`) VALUES (\'S\', \'S\', \'S\', \'fae26a66f36495786f450ec7f8501112cc4ce61e\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `chauffeurs` (`prenom`, `nom`, `matricule`, `mot_de_passe`) VALUES (\'S\', \'S\', \'S\', \'fae26a66f36495786f450ec7f8501112cc4ce61e\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `chauffeurs` (`prenom`, `nom`, `matricule`, `mot_de_passe`) VALUES (\'S\', \'S\', \'S\', \'fae26a66f36495786f450ec7f8501112cc4ce61e\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `chauffeurs` (`prenom`, `nom`, `matricule`, `mot_de_passe`) VALUES (:prenom:, :nom:, :matricule:, :mot_de_passe:)', [...], false)
+ 5 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(782): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(730): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH/Controllers/SuperAdmin.php(86): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\SuperAdmin->nouveau_chauffeur()
+10 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdmin))
+11 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/yankee/Documents/code/TAL/public/index.php')
+INFO - 2023-03-26 18:46:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:46:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:46:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:48:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:48:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:48:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-03-26 18:48:25 --> mysqli_sql_exception: Unknown column 'id' in 'where clause' in /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(295): mysqli->query('DELETE FROM `ch...', 0)
+#1 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `ch...')
+#2 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `ch...')
+#3 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `ch...', Array, false)
+#4 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+#5 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/BaseModel.php(1065): CodeIgniter\Model->doDelete(Array, false)
+#6 /Users/yankee/Documents/code/TAL/app/Controllers/SuperAdmin.php(97): CodeIgniter\BaseModel->delete(Array)
+#7 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\SuperAdmin->supprimer_chauffeur('S')
+#8 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdmin))
+#9 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/yankee/Documents/code/TAL/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /Users/yankee/Documents/code/TAL/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('/Users/yankee/D...')
+#12 {main}
+CRITICAL - 2023-03-26 18:48:25 --> Unknown column 'id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('DELETE FROM `chauffeurs`
+WHERE `id` IN (\'S\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `chauffeurs`
+WHERE `id` IN (\'S\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `chauffeurs`
+WHERE `id` IN (\'S\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2791): CodeIgniter\Database\BaseConnection->query('DELETE FROM `chauffeurs`
+WHERE `id` IN :id:', [...], false)
+ 5 SYSTEMPATH/Model.php(456): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH/BaseModel.php(1065): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH/Controllers/SuperAdmin.php(97): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\SuperAdmin->supprimer_chauffeur('S')
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdmin))
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/yankee/Documents/code/TAL/public/index.php')
+INFO - 2023-03-26 18:49:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:49:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:49:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:49:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:49:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-26 18:49:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

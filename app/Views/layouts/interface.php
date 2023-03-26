@@ -76,24 +76,16 @@ session()->root = $root;
 
         <!-- Nav Items - utilisateurs -->
         <li class="nav-item <?= (session()->has('position') and session()->position == 'utilisateurs') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url($root.'/utilisateurs') ?>">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Utilisateurs</span></a>
-      </li>
+          <a class="nav-link" href="<?= base_url($root . '/utilisateurs') ?>">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Utilisateurs</span></a>
+        </li>
 
         <!-- Nav Items - chauffeurs -->
         <li class="nav-item <?= (session()->has('position') and session()->position == 'chauffeurs') ? 'active' : '' ?>">
-          <a class="nav-link collapsed" href="<?= base_url($root . '/chauffeurs') ?>" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+          <a class="nav-link" href="<?= base_url($root . '/chauffeurs') ?>">
             <i class="fas fa-fw fa-user-tie"></i>
-            <span>Chauffeurs</span>
-          </a>
-          <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Actions rapides:</h6>
-              <a class="collapse-item" href="buttons.html">Liste des chauffeurs</a>
-              <a class="collapse-item" href="cards.html">Ajouter un chauffeur</a>
-            </div>
-          </div>
+            <span>Chauffeurs</span></a>
         </li>
 
         <!-- Nav Items - tracteurs -->
@@ -226,7 +218,7 @@ session()->root = $root;
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= session()->donnees_utilisateur['prenom'] . ' ' . session()->donnees_utilisateur['nom'] ?></span>
-                <img class="img-profile rounded-circle" src="<?=base_url('img/profil.png')?>" />
+                <img class="img-profile rounded-circle" src="<?= base_url('img/profil.png') ?>" />
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -246,14 +238,14 @@ session()->root = $root;
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          
 
-          
 
-          <?= $this->renderSection('contenu') ;?>
-          
 
-          
+
+          <?= $this->renderSection('contenu'); ?>
+
+
+
         </div>
         <!-- /.container-fluid -->
       </div>
@@ -305,7 +297,7 @@ session()->root = $root;
   <!-- Bootstrap core JavaScript-->
   <script src="<?= base_url('vendor/jquery/jquery.min.js') ?>"></script>
   <script src="<?= base_url('vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-  
+
   <!-- Core plugin JavaScript-->
   <script src="<?= base_url('vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
 

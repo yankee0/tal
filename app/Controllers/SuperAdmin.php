@@ -63,11 +63,42 @@ class SuperAdmin extends BaseController
         }
     }
 
-    public function liste_chauffeurs(){
-        $donnees = [
-            'chauffeurs' => (new ModelChauffeur())->findAll()
-        ];
+    public function liste_chauffeurs()
+    {
         session()->position = 'chauffeurs';
-        return view('');
+        $donnees = [
+            'chauffeurs' => (new ModelChauffeur())->findAll(),
+        ];
+        return view('utils/chauffeurs/liste', $donnees);
+    }
+
+    public function nouveau_chauffeur()
+    {
+
+        $donnees = [
+            'prenom' => ucwords(''.$this->request->getPost('prenom')),
+            'nom' => ucwords(''.$this->request->getPost('nom')),
+            'matricule' => strtoupper(''.$this->request->getPost('matricule')),
+        ];
+
+        $model = new ModelChauffeur();
+        $model->insert($donnees);
+
+        if ($model->first($donnees['matricule'])) {
+            return redirect()->back()->with('success',true);
+        } else {
+            return redirect()->back()->withInput()->with('error',true);
+        }
+
+    }
+
+    public function supprimer_chauffeur($matricule = null){
+        $model = new ModelChauffeur();
+        if ($model->delete($matricule)) {
+            return redirect()->to(session()->root.'/chauffeurs#tableau')->with('deleted',true);
+        } else {
+            return redirect()->to(session()->root.'/chauffeurs#tableau')->with('deleted',false);
+
+        }
     }
 }
