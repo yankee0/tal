@@ -33,6 +33,7 @@ class SuperAdmin extends BaseController
 
     public function nouvel_utilisateur()
     {
+
         $donnees = [
             'prenom' => ucwords(''.$this->request->getPost('prenom')),
             'nom' => ucwords(''.$this->request->getPost('nom')),
@@ -41,12 +42,32 @@ class SuperAdmin extends BaseController
             'mot_de_passe' => sha1('TALSA1234')
         ];
 
-        $success = (new ModelUtilisateur())->insert($donnees);
-        if ($success == 0) {
+        $model = new ModelUtilisateur();
+        $model->insert($donnees);
+
+        if ($model->first($donnees['matricule'])) {
             return redirect()->back()->with('success',true);
         } else {
             return redirect()->back()->withInput()->with('error',true);
         }
 
+    }
+
+    public function supprimer_utilisateur($matricule = null){
+        $model = new ModelUtilisateur();
+        if ($model->delete($matricule)) {
+            return redirect()->to(session()->root.'/utilisateurs#tableau')->with('deleted',true);
+        } else {
+            return redirect()->to(session()->root.'/utilisateurs#tableau')->with('deleted',false);
+
+        }
+    }
+
+    public function liste_chauffeurs(){
+        $donnees = [
+            'chauffeurs' => (new ModelChauffeur())->findAll()
+        ];
+        session()->position = 'chauffeurs';
+        return view('');
     }
 }

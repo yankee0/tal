@@ -13,8 +13,8 @@ class ModelUtilisateur extends Model
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
-    protected $allowedFields    = ['matricule','profil','prenom','nom','mot_de_passe'];
+    protected $protectFields    = false;
+    protected $allowedFields    = [];
 
     // Dates
     protected $useTimestamps = false;

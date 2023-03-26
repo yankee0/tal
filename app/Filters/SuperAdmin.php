@@ -28,7 +28,6 @@ class SuperAdmin implements FilterInterface
         if (!session()->has('donnees_utilisateur') or session()->donnees_utilisateur['profil'] != 'SUPER ADMIN') {
             session()->setFlashdata('session');
             return redirect()->to('utilisateur/deconnexion');
-
         }
     }
 

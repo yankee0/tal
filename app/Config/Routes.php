@@ -43,6 +43,7 @@ $routes->group('',['filter' => 'session-check'], function($routes)
         $routes->get('/','SuperAdmin::index');
         $routes->get('utilisateurs','SuperAdmin::liste_utilisateurs');
         $routes->post('utilisateurs/nouveau','SuperAdmin::nouvel_utilisateur');
+        $routes->get('utilisateurs/supprimer/(:segment)','SuperAdmin::supprimer_utilisateur/$1');
     });
 
     //Admin Filter
