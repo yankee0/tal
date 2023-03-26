@@ -83,7 +83,7 @@ Super Admin - Chauffeurs - Liste
                 <td><?= $c['nom'] ?></td>
                 <td class="d-flex">
                   <button type="button" value="<?=$c['matricule']?>" class="del w-100 mx-1 btn btn-danger btn-sm" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                  <button type="button" value="<?=$c['matricule']?>" class="btn w-100 mx-1 btn-primary btn-sm" title="Réinitialiser le mot de passe"><i class="fa fa-lock" aria-hidden="true"></i></button>
+                  <button type="button" value="<?=$c['matricule']?>" class="btn w-100 mx-1 btn-primary btn-sm" title="Dossier"><i class="fa fa-folder" aria-hidden="true"></i></button>
                 </td>
               </tr>
             

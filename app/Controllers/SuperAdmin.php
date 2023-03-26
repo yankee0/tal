@@ -101,4 +101,46 @@ class SuperAdmin extends BaseController
 
         }
     }
+
+    public function liste_tracteurs()
+    {
+        session()->position = 'tracteurs';
+        $donnees = [
+            'tracteurs' => (new ModelTracteur())->findAll(),
+        ];
+        return view('utils/tracteurs/liste', $donnees);
+    }
+
+    public function nouveau_tracteur()
+    {
+
+        $donnees = [
+            'chrono' => strtoupper(''.$this->request->getPost('chrono')),
+            'immatriculation' => strtoupper(''.$this->request->getPost('immatriculation')),
+            'ancienne_immatriculation' => strtoupper(''.$this->request->getPost('ancienne_immatriculation')),
+            'genre' => strtoupper(''.$this->request->getPost('genre')),
+            'numero_chassis' => strtoupper(''.$this->request->getPost('numero_chassis')),
+            'remarque' => strtoupper(''.$this->request->getPost('remarque')),
+        ];
+
+        $model = new ModelTracteur();
+        $model->insert($donnees);
+
+        if ($model->first($donnees['chrono'])) {
+            return redirect()->back()->with('success',true);
+        } else {
+            return redirect()->back()->withInput()->with('error',true);
+        }
+
+    }
+
+    public function supprimer_tracteur($matricule = null){
+        $model = new ModelTracteur();
+        if ($model->delete($matricule)) {
+            return redirect()->to(session()->root.'/tracteurs#tableau')->with('deleted',true);
+        } else {
+            return redirect()->to(session()->root.'/tracteurs#tableau')->with('deleted',false);
+
+        }
+    }
 }

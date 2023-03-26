@@ -90,17 +90,9 @@ session()->root = $root;
 
         <!-- Nav Items - tracteurs -->
         <li class="nav-item <?= (session()->has('position') and session()->position == 'tracteurs') ? 'active' : '' ?>">
-          <a class="nav-link collapsed" href="<?= base_url($root . '/tracteurs') ?>" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+          <a class="nav-link" href="<?= base_url($root . '/tracteurs') ?>">
             <i class="fas fa-fw fa-truck"></i>
-            <span>Tracteurs</span>
-          </a>
-          <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Actions rapides:</h6>
-              <a class="collapse-item" href="buttons.html">Liste des tracteurs</a>
-              <a class="collapse-item" href="cards.html">Ajouter un tracteur</a>
-            </div>
-          </div>
+            <span>Tracteurs</span></a>
         </li>
 
         <!-- Nav Items - remorques -->
