@@ -64,7 +64,23 @@ $routes->group('',['filter' => 'session-check'], function($routes)
     //Admin Filter
     $routes->group('admin',['filter' => 'admin'], function($routes)
     {
-        $routes->get('/',static function () {echo "yan";});
+        $routes->get('/','Admin::index');
+
+        $routes->get('utilisateurs','Admin::liste_utilisateurs');
+        $routes->post('utilisateurs/nouveau','Admin::nouvel_utilisateur');
+        $routes->get('utilisateurs/supprimer/(:segment)','Admin::supprimer_utilisateur/$1');
+
+        $routes->get('chauffeurs','Admin::liste_chauffeurs');
+        $routes->post('chauffeurs/nouveau','Admin::nouveau_chauffeur');
+        $routes->get('chauffeurs/supprimer/(:segment)','Admin::supprimer_chauffeur/$1');
+
+        $routes->get('tracteurs','Admin::liste_tracteurs');
+        $routes->post('tracteurs/nouveau','Admin::nouveau_tracteur');
+        $routes->get('tracteurs/supprimer/(:segment)','Admin::supprimer_tracteur/$1');
+
+        $routes->get('remorques','Admin::liste_remorques');
+        $routes->post('remorques/nouveau','Admin::nouveau_remorque');
+        $routes->get('remorques/supprimer/(:segment)','Admin::supprimer_remorque/$1');
     });
 });
 

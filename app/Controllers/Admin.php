@@ -3,12 +3,13 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+
 use App\Models\ModelTracteur;
 use App\Models\ModelChauffeur;
 use App\Models\ModelRemorque;
 use App\Models\ModelUtilisateur;
 
-class SuperAdmin extends BaseController
+class Admin extends BaseController
 {
     public function index()
     {
@@ -19,7 +20,7 @@ class SuperAdmin extends BaseController
             'tracteurs' => (new ModelTracteur())->countAll(),
             'remorques' => (new ModelRemorque())->countAll(),
         ];
-        return view('super-admin/dashboard', $donnees);
+        return view('admin/dashboard', $donnees);
     }
 
     public function liste_utilisateurs()
