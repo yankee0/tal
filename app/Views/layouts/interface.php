@@ -143,7 +143,7 @@ session()->root = $root;
                 <a class="collapse-item" href="login.html">Lister les transferts</a>
                 <a class="collapse-item" href="register.html">Statistiques</a>
               <?php else : ?>
-                <a class="collapse-item" href="login.html">Nouveau transfert</a>
+                <a class="collapse-item" href="<?=base_url($root.'/transfert')?>">Nouveau transfert</a>
               <?php endif; ?>
 
             </div>
@@ -206,9 +206,12 @@ session()->root = $root;
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <div class="dropdown-item">
+                  Profil: <span class="text-primary"><?= session()->donnees_utilisateur['profil']?></span>
+                </div>
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profil
+                  Mon compte
                 </a>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

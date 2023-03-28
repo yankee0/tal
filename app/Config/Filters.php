@@ -3,6 +3,7 @@
 namespace Config;
 
 use App\Filters\Admin;
+use App\Filters\OpsTal;
 use App\Filters\SessionCheck;
 use App\Filters\SuperAdmin;
 use CodeIgniter\Config\BaseConfig;
@@ -27,6 +28,7 @@ class Filters extends BaseConfig
         'session-check' => SessionCheck::class,
         'super-admin'   => SuperAdmin::class,
         'admin'         => Admin::class,
+        'ops-tal'       => OpsTal::class,
     ];
 
     /**

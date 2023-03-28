@@ -15,7 +15,7 @@ class Transferts extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'type' => [
+            'type_operation' => [
                 'type' => 'ENUM("TOM","WALL")',
             ],
             'numero_conteneur' => [
@@ -24,10 +24,23 @@ class Transferts extends Migration
                 'null' => true,
             ],
             'type_conteneur' => [
-                'type' => 'ENUM("20TEUs","40TEUs")',
+                'type' => 'ENUM("20 pieds","40 pieds")',
+            ],
+            'charge' => [
+                'type' => 'ENUM("VIDE","PLEIN")',
             ],
             'date' => [
                 'type' => 'DATETIME',
+                'null' => true,
+            ],
+            'matricule_chauffeur' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'chrono_tracteur' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
                 'null' => true,
             ],
         ]);
