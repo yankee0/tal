@@ -58,8 +58,17 @@ Super Admin - Tracteurs - Liste
             <label for="modele">Modèle</label>
           </div>
         </div>
-
         <div class="col-md-4">
+          <div class="form-floating">
+            <select name="au_rebut" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+              <option value="OUI">OUI</option>
+              <option selected value="NON">NON</option>
+            </select>
+            <label for="floatingSelect">Au rebut?</label>
+          </div>
+        </div>
+
+        <div class="col-md">
           <div class="form-floating mb-3">
             <input value="<?= set_value('remarque') ?>" type="text" class="form-control" name="remarque" id="remarque" placeholder="remarque" required>
             <label for="remarque">Remarque</label>
@@ -93,6 +102,7 @@ Super Admin - Tracteurs - Liste
             <th>Ancienne immatriculation</th>
             <th>Marque</th>
             <th>Modèle</th>
+            <th>Au rebut</th>
             <th>Remarque</th>
             <th>Action</th>
 
@@ -106,6 +116,7 @@ Super Admin - Tracteurs - Liste
               <td><?= $t['ancienne_immatriculation'] ?></td>
               <td><?= $t['marque'] ?></td>
               <td><?= $t['modele'] ?></td>
+              <td><?= $t['au_rebut'] ?></td>
               <td><?= $t['remarque'] ?></td>
 
               <td class="d-flex">

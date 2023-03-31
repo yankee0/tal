@@ -119,6 +119,7 @@ class SuperAdmin extends BaseController
             'ancienne_immatriculation' => strtoupper('' . $this->request->getPost('ancienne_immatriculation')),
             'marque' => strtoupper('' . $this->request->getPost('marque')),
             'modele' => strtoupper('' . $this->request->getPost('modele')),
+            'au_rebut' => strtoupper('' . $this->request->getPost('au_rebut')),
             'remarque' => strtoupper('' . $this->request->getPost('remarque')),
         ];
 
