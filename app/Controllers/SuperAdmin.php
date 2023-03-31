@@ -117,8 +117,8 @@ class SuperAdmin extends BaseController
             'chrono' => strtoupper('' . $this->request->getPost('chrono')),
             'immatriculation' => strtoupper('' . $this->request->getPost('immatriculation')),
             'ancienne_immatriculation' => strtoupper('' . $this->request->getPost('ancienne_immatriculation')),
-            'genre' => strtoupper('' . $this->request->getPost('genre')),
-            'numero_chassis' => strtoupper('' . $this->request->getPost('numero_chassis')),
+            'marque' => strtoupper('' . $this->request->getPost('marque')),
+            'modele' => strtoupper('' . $this->request->getPost('modele')),
             'remarque' => strtoupper('' . $this->request->getPost('remarque')),
         ];
 

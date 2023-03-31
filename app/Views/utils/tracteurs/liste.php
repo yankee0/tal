@@ -48,18 +48,17 @@ Super Admin - Tracteurs - Liste
         </div>
         <div class="col-md-4">
           <div class="form-floating mb-3">
-            <input value="<?= set_value('genre') ?>" type="text" class="form-control" name="genre" id="genre" placeholder="genre" required>
-            <label for="genre">Genre</label>
+            <input value="<?= set_value('marque') ?>" type="text" class="form-control" name="marque" id="marque" placeholder="marque" required>
+            <label for="marque">Marque</label>
           </div>
         </div>
-        <div class="col-md form-floating">
-          <select class="form-select mb-3" id="numero_chassis" name="numero_chassis" aria-label="numero_chassis">
-            <?php foreach ($remorques as $r) : ?>
-              <option <?= set_select('numero_chassis') ?> value="<?= $r['chrono'] ?>"><?= $r['chrono'] ?></option>
-            <?php endforeach ?>
-          </select>
-          <label for="profil">Sélectionner une remorque</label>
+        <div class="col-md-4">
+          <div class="form-floating mb-3">
+            <input value="<?= set_value('modele') ?>" type="text" class="form-control" name="modele" id="modele" placeholder="modele" required>
+            <label for="modele">Modèle</label>
+          </div>
         </div>
+
         <div class="col-md-4">
           <div class="form-floating mb-3">
             <input value="<?= set_value('remarque') ?>" type="text" class="form-control" name="remarque" id="remarque" placeholder="remarque" required>
@@ -92,8 +91,8 @@ Super Admin - Tracteurs - Liste
             <th>Chrono</th>
             <th>Immatriculation</th>
             <th>Ancienne immatriculation</th>
-            <th>Genre</th>
-            <th>Numero de chassis</th>
+            <th>Marque</th>
+            <th>Modèle</th>
             <th>Remarque</th>
             <th>Action</th>
 
@@ -105,8 +104,8 @@ Super Admin - Tracteurs - Liste
               <td><?= $t['chrono'] ?></td>
               <td><?= $t['immatriculation'] ?></td>
               <td><?= $t['ancienne_immatriculation'] ?></td>
-              <td><?= $t['genre'] ?></td>
-              <td><?= $t['numero_chassis'] ?></td>
+              <td><?= $t['marque'] ?></td>
+              <td><?= $t['modele'] ?></td>
               <td><?= $t['remarque'] ?></td>
 
               <td class="d-flex">
