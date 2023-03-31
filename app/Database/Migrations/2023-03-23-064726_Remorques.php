@@ -32,6 +32,12 @@ class Remorques extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
+            'au_rebut' => [
+                'type' => 'CHAR',
+                'constraint' => 10,
+                'null' => true,
+                'default' => 'NON'
+            ],
         ]);
         $this->forge->addPrimaryKey('chrono');
         $this->forge->createTable('remorques');
