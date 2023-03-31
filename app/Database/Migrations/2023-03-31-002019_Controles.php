@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class VisitesTechniques extends Migration
+class Controles extends Migration
 {
     public function up()
     {
@@ -15,10 +15,21 @@ class VisitesTechniques extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
+            'type' => [
+                'type' => 'ENUM("VT","AS","CATS")',
+            ],
             'chrono_tracteur' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
+                'default' => null
+            ],
+            'chrono_remorque' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+                'default' => null
+
             ],
             'debut' => [
                 'type' => 'DATETIME',
@@ -30,13 +41,13 @@ class VisitesTechniques extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('chrono_tracteur','tracteurs','chrono','CASCADE','CASCADE');
-        $this->forge->createTable('visites_techniques');
+        $this->forge->addForeignKey('chrono_tracteur', 'tracteurs', 'chrono', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('chrono_remorque', 'remorques', 'chrono', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('controles');
     }
 
     public function down()
     {
-        $this->forge->dropTable('visites_techniques');
-        
+        $this->forge->dropTable('controles');
     }
 }

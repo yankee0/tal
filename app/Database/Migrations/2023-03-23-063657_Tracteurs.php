@@ -24,12 +24,12 @@ class Tracteurs extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
-            'genre' => [
+            'marque' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'numero_chassis' => [
+            'modele' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,

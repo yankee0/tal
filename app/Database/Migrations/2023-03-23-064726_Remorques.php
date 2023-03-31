@@ -14,6 +14,24 @@ class Remorques extends Migration
                 'constraint' => 255,
                 'null' => false,
             ],
+            'immatriculation' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'ancienne_immatriculation' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
+            'genre' => [
+                'type' => 'ENUM("SEMI-REMORQUE","REMORQUE")',
+            ],
+            'remarque' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
+            ],
         ]);
         $this->forge->addPrimaryKey('chrono');
         $this->forge->createTable('remorques');
