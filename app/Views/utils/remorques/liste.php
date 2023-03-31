@@ -28,13 +28,49 @@ Super Admin - Remorques - Liste
       </div>
       <form autocomplete="off" action="<?= base_url(session()->root . '/remorques/nouveau') ?>" method="post" id="formu" class="row">
         <?= csrf_field() ?>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="form-floating mb-3">
             <input value="<?= set_value('chrono') ?>" type="text" class="form-control" name="chrono" id="chrono" placeholder="chrono" required>
             <label for="chrono">Chrono</label>
           </div>
         </div>
-        
+        <div class="col-md-4">
+          <div class="form-floating mb-3">
+            <input value="<?= set_value('immatriculation') ?>" type="text" class="form-control" name="immatriculation" id="immatriculation" placeholder="immatriculation" required>
+            <label for="immatriculation">Immatriculation</label>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-floating mb-3">
+            <input value="<?= set_value('ancienne_immatriculation') ?>" type="text" class="form-control" name="ancienne_immatriculation" id="ancienne_immatriculation" placeholder="ancienne_immatriculation" required>
+            <label for="ancienne_immatriculation">Ancienne Immatriculation</label>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-floating">
+            <select name="genre" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+              <option value="SEMI-REMORQUE">SEMI-REMORQUE</option>
+              <option value="REMORQUE">REMORQUE</option>
+            </select>
+            <label for="floatingSelect">Genre</label>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-floating">
+            <select name="au_rebut" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+              <option value="OUI">OUI</option>
+              <option selected value="NON">NON</option>
+            </select>
+            <label for="floatingSelect">Au rebut?</label>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-floating mb-3">
+            <input value="<?= set_value('remarque') ?>" type="text" class="form-control" name="remarque" id="remarque" placeholder="remarque" required>
+            <label for="remarque">Remarque</label>
+          </div>
+        </div>
+
         <div class="m-auto col-md d-grid">
           <button form="formu" type="submit" class="btn mb-3 py-3  btn-primary">Ajouter</button>
         </div>
@@ -58,6 +94,11 @@ Super Admin - Remorques - Liste
         <thead>
           <tr>
             <th>Chrono</th>
+            <th>Immatriculation</th>
+            <th>Ancienne immatriculation</th>
+            <th>Genre</th>
+            <th>Au rebut</th>
+            <th>Remarque</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -65,6 +106,11 @@ Super Admin - Remorques - Liste
           <?php foreach ($remorques as $r) : ?>
             <tr>
               <td><?= $r['chrono'] ?></td>
+              <td><?= $r['immatriculation'] ?></td>
+              <td><?= $r['ancienne_immatriculation'] ?></td>
+              <td><?= $r['genre'] ?></td>
+              <td><?= $r['au_rebut'] ?></td>
+              <td><?= $r['remarque'] ?></td>
               <td class="d-flex">
                 <button type="button" value="<?= $r['chrono'] ?>" class="del w-100 mx-1 btn btn-danger btn-sm" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></button>
               </td>

@@ -120,6 +120,7 @@ class Admin extends BaseController
             'ancienne_immatriculation' => strtoupper('' . $this->request->getPost('ancienne_immatriculation')),
             'marque' => strtoupper('' . $this->request->getPost('marque')),
             'modele' => strtoupper('' . $this->request->getPost('modele')),
+            'au_rebut' => strtoupper('' . $this->request->getPost('au_rebut')),
             'remarque' => strtoupper('' . $this->request->getPost('remarque')),
         ];
 
@@ -157,6 +158,11 @@ class Admin extends BaseController
 
         $donnees = [
             'chrono' => strtoupper('' . $this->request->getPost('chrono')),
+            'immatriculation' => strtoupper('' . $this->request->getPost('immatriculation')),
+            'ancienne_immatriculation' => strtoupper('' . $this->request->getPost('ancienne_immatriculation')),
+            'genre' => strtoupper('' . $this->request->getPost('genre')),
+            'au_rebut' => strtoupper('' . $this->request->getPost('au_rebut')),
+            'remarque' => strtoupper('' . $this->request->getPost('remarque')),
         ];
 
         $model = new ModelRemorque();

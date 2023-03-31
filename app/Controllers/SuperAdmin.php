@@ -157,6 +157,11 @@ class SuperAdmin extends BaseController
 
         $donnees = [
             'chrono' => strtoupper('' . $this->request->getPost('chrono')),
+            'immatriculation' => strtoupper('' . $this->request->getPost('immatriculation')),
+            'ancienne_immatriculation' => strtoupper('' . $this->request->getPost('ancienne_immatriculation')),
+            'genre' => strtoupper('' . $this->request->getPost('genre')),
+            'au_rebut' => strtoupper('' . $this->request->getPost('au_rebut')),
+            'remarque' => strtoupper('' . $this->request->getPost('remarque')),
         ];
 
         $model = new ModelRemorque();
