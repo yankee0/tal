@@ -144,6 +144,13 @@ class Admin extends BaseController
         }
     }
 
+    public function controle_tracteur(string $id)
+    {
+        $data = (new ModelTracteur())->find($id);
+        return view('utils/control/index',$data);
+    }
+
+
     public function liste_remorques()
     {
         session()->position = 'remorques';
@@ -183,5 +190,10 @@ class Admin extends BaseController
         } else {
             return redirect()->to(session()->root . '/remorques#tableau')->with('deleted', false);
         }
+    }
+
+    public function ajouter_VT(string $chrono){
+        $data = ['chrono' => $chrono];
+        return view('utils/control/ajouter_VT',$data);
     }
 }

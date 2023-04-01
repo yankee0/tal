@@ -41,21 +41,23 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
 
         $routes->get('/', 'SuperAdmin::index');
 
-        $routes->get('utilisateurs', 'SuperAdmin::liste_utilisateurs');
-        $routes->post('utilisateurs/nouveau', 'SuperAdmin::nouvel_utilisateur');
-        $routes->get('utilisateurs/supprimer/(:segment)', 'SuperAdmin::supprimer_utilisateur/$1');
+        $routes->get('utilisateurs', 'Admin::liste_utilisateurs');
+        $routes->post('utilisateurs/nouveau', 'Admin::nouvel_utilisateur');
+        $routes->get('utilisateurs/supprimer/(:segment)', 'Admin::supprimer_utilisateur/$1');
 
-        $routes->get('chauffeurs', 'SuperAdmin::liste_chauffeurs');
-        $routes->post('chauffeurs/nouveau', 'SuperAdmin::nouveau_chauffeur');
-        $routes->get('chauffeurs/supprimer/(:segment)', 'SuperAdmin::supprimer_chauffeur/$1');
+        $routes->get('chauffeurs', 'Admin::liste_chauffeurs');
+        $routes->post('chauffeurs/nouveau', 'Admin::nouveau_chauffeur');
+        $routes->get('chauffeurs/supprimer/(:segment)', 'Admin::supprimer_chauffeur/$1');
 
-        $routes->get('tracteurs', 'SuperAdmin::liste_tracteurs');
-        $routes->post('tracteurs/nouveau', 'SuperAdmin::nouveau_tracteur');
-        $routes->get('tracteurs/supprimer/(:segment)', 'SuperAdmin::supprimer_tracteur/$1');
+        $routes->get('tracteurs', 'Admin::liste_tracteurs');
+        $routes->post('tracteurs/nouveau', 'Admin::nouveau_tracteur');
+        $routes->get('tracteurs/supprimer/(:segment)', 'Admin::supprimer_tracteur/$1');
+        $routes->get('tracteurs/VT/(:segment)', 'Admin::ajouter_vt/$1');
+        $routes->get('tracteurs/(:segment)', 'Admin::controle_tracteur/$1');
 
-        $routes->get('remorques', 'SuperAdmin::liste_remorques');
-        $routes->post('remorques/nouveau', 'SuperAdmin::nouveau_remorque');
-        $routes->get('remorques/supprimer/(:segment)', 'SuperAdmin::supprimer_remorque/$1');
+        $routes->get('remorques', 'Admin::liste_remorques');
+        $routes->post('remorques/nouveau', 'Admin::nouveau_remorque');
+        $routes->get('remorques/supprimer/(:segment)', 'Admin::supprimer_remorque/$1');
     });
 
     //Admin Filter
@@ -73,6 +75,9 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('tracteurs', 'Admin::liste_tracteurs');
         $routes->post('tracteurs/nouveau', 'Admin::nouveau_tracteur');
         $routes->get('tracteurs/supprimer/(:segment)', 'Admin::supprimer_tracteur/$1');
+        $routes->get('tracteurs/VT/(:segment)', 'Admin::ajouter_vt/$1');
+        $routes->get('tracteurs/(:segment)', 'Admin::control_tracteur/$1');
+
 
         $routes->get('remorques', 'Admin::liste_remorques');
         $routes->post('remorques/nouveau', 'Admin::nouveau_remorque');
@@ -80,13 +85,10 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
     });
 
     //OPS TAL filter
-    $routes->group('ops-tal',['filter' => 'ops-tal'], function($routes)
-    {
-        $routes->get('/','OpsTal::index');
-        
-        $routes->get('transfert','OpsTal::transfert');
-        $routes->post('transfert/ajouter','Opstal::ajouter_transfert');
-
+    $routes->group('ops-tal', ['filter' => 'ops-tal'], function ($routes) {
+        $routes->get('/', 'OpsTal::index');
+        $routes->get('transfert', 'OpsTal::transfert');
+        $routes->post('transfert/ajouter', 'Opstal::ajouter_transfert');
     });
 });
 

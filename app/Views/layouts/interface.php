@@ -55,11 +55,8 @@ session()->root = $root;
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url($root) ?>">
-        <img src="<?= base_url('img/tal.png') ?>" alt="" height="64px">
+        <img src="<?= base_url('img/tal.png') ?>" alt="" height="54px">
       </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0" />
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item <?= (session()->has('position') and session()->position == 'dashboard') ? 'active' : '' ?>">
@@ -102,8 +99,6 @@ session()->root = $root;
             <span>Remorques</span></a>
         </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider" />
       <?php endif ?>
 
 
@@ -143,13 +138,19 @@ session()->root = $root;
                 <a class="collapse-item" href="login.html">Lister les transferts</a>
                 <a class="collapse-item" href="register.html">Statistiques</a>
               <?php else : ?>
-                <a class="collapse-item" href="<?=base_url($root.'/transfert')?>">Nouveau transfert</a>
+                <a class="collapse-item" href="<?= base_url($root . '/transfert') ?>">Nouveau transfert</a>
               <?php endif; ?>
 
             </div>
           </div>
         </li>
       <?php endif ?>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider" />
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
 
     </ul>
     <!-- End of Sidebar -->
@@ -207,7 +208,7 @@ session()->root = $root;
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <div class="dropdown-item">
-                  Profil: <span class="text-primary"><?= session()->donnees_utilisateur['profil']?></span>
+                  Profil: <span class="text-primary"><?= session()->donnees_utilisateur['profil'] ?></span>
                 </div>
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>

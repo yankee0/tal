@@ -4,7 +4,7 @@ Super Admin - Tracteurs - Liste
 <?= $this->endSection(); ?>
 <?= $this->section('contenu'); ?>
 
-<h1 class="h3 mb-2 text-gray-800">tracteurs</h1>
+<h1 class="h3 mb-2 text-gray-800">Tracteurs</h1>
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Nouveau tracteur</h6>
@@ -59,7 +59,7 @@ Super Admin - Tracteurs - Liste
           </div>
         </div>
         <div class="col-md-4">
-          <div class="form-floating">
+          <div class="form-floating mb-3">
             <select name="au_rebut" class="form-select" id="floatingSelect" aria-label="Floating label select example">
               <option value="OUI">OUI</option>
               <option selected value="NON">NON</option>
@@ -121,7 +121,7 @@ Super Admin - Tracteurs - Liste
 
               <td class="d-flex">
                 <button type="button" value="<?= $t['chrono'] ?>" class="del w-100 mx-1 btn btn-danger btn-sm" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                <button type="button" value="<?= $t['chrono'] ?>" class="btn w-100 mx-1 btn-primary btn-sm" title="Dossier"><i class="fa fa-folder" aria-hidden="true"></i></button>
+                <a class="btn w-100 mx-1 btn-primary btn-sm" href="<?=base_url(session()->root.'/tracteurs/'.$t['chrono'])?>" role="button"><i class="fa fa-folder-open" aria-hidden="true"></i></a>
               </td>
             </tr>
 
