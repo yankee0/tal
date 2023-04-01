@@ -9,12 +9,6 @@ class Controles extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
-                'auto_increment' => true,
-            ],
             'type' => [
                 'type' => 'ENUM("VT","AS","CATS")',
             ],
@@ -40,7 +34,6 @@ class Controles extends Migration
                 'null' => true,
             ],
         ]);
-        $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('chrono_tracteur', 'tracteurs', 'chrono', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('chrono_remorque', 'remorques', 'chrono', 'CASCADE', 'CASCADE');
         $this->forge->createTable('controles');

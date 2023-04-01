@@ -97,6 +97,9 @@ Super Admin - Remorques - Liste
             <th>Immatriculation</th>
             <th>Ancienne immatriculation</th>
             <th>Genre</th>
+            <th>Visite technique</th>
+            <th>Assurrance</th>
+            <th>C.A.T.</th>
             <th>Au rebut</th>
             <th>Remarque</th>
             <th>Action</th>
@@ -109,10 +112,16 @@ Super Admin - Remorques - Liste
               <td><?= $r['immatriculation'] ?></td>
               <td><?= $r['ancienne_immatriculation'] ?></td>
               <td><?= $r['genre'] ?></td>
+              <td>[coding]</td>
+              <td>[coding]</td>
+              <td>[coding]</td>
               <td><?= $r['au_rebut'] ?></td>
               <td><?= $r['remarque'] ?></td>
-              <td class="d-flex">
-                <button type="button" value="<?= $r['chrono'] ?>" class="del w-100 mx-1 btn btn-danger btn-sm" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></button>
+              <td>
+                <div class="d-flex gap-1">
+                  <button type="button" value="<?= $r['chrono'] ?>" class="del w-100 mx-1 btn btn-danger btn-sm" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  <button type="button" value="<?= $r['chrono'] ?>" class="w-100 mx-1 btn btn-primary btn-sm" title="Supprimer"><i class="fa fa-folder" aria-hidden="true"></i></button>
+                </div>
               </td>
             </tr>
           <?php endforeach ?>

@@ -102,6 +102,9 @@ Super Admin - Tracteurs - Liste
             <th>Ancienne immatriculation</th>
             <th>Marque</th>
             <th>Modèle</th>
+            <th>Visite Techinque</th>
+            <th>Assurance</th>
+            <th>CAT</th>
             <th>Au rebut</th>
             <th>Remarque</th>
             <th>Action</th>
@@ -116,6 +119,9 @@ Super Admin - Tracteurs - Liste
               <td><?= $t['ancienne_immatriculation'] ?></td>
               <td><?= $t['marque'] ?></td>
               <td><?= $t['modele'] ?></td>
+              <td>[coding]</td>
+              <td>[coding]</td>
+              <td>[coding]</td>
               <td><?= $t['au_rebut'] ?></td>
               <td><?= $t['remarque'] ?></td>
 
