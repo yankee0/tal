@@ -9,12 +9,6 @@ class AddActiveOnControles extends Migration
     public function up()
     {
         $this->forge->addColumn('controles',[
-            'id' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
-                'primary_key' => true,
-            ],
             'actif' => [
                 'type' => 'CHAR',
                 'constraint' => 10,
@@ -27,6 +21,6 @@ class AddActiveOnControles extends Migration
 
     public function down()
     {
-        $this->forge->dropColumn('controles',['id','actif']);
+        $this->forge->dropColumn('controles','actif');
     }
 }

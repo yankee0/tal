@@ -8,6 +8,11 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
 
 <div class="row">
   <div class="col-md">
+
+    <div class="alert alert-info" role="alert">
+      <strong>Info!</strong> Le décompte jours restants est basé sur la date de votre système. Assurez-vous de l'avoir bien réglé.
+    </div>
+
     <!-- VT -->
     <div class="card shadow mb-3">
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -16,7 +21,7 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
           <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
           </a>
-          <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
+          <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
             <div class="dropdown-header">Actions:</div>
             <button class="dropdown-item act" value="Visite technique">Renouveler</button>
             <button class="dropdown-item" href="#">Supprimer</button>
@@ -30,7 +35,8 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
 
         if ($controle_vt) : ?>
           <?php
-          $start = Time::parse($controle_vt['debut']);
+          $now = date('Y-m-d');
+          $start = Time::parse($now);
           $end = Time::parse($controle_vt['fin']);
           $days = $start->difference($end)->getDays();
           ?>
@@ -54,9 +60,9 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
           <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
           </a>
-          <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
+          <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
             <div class="dropdown-header">Actions:</div>
-            <button value="C.A.T." class="dropdown-item act" >Renouveler</button>
+            <button value="C.A.T." class="dropdown-item act">Renouveler</button>
             <a class="dropdown-item" href="#">Supprimer</a>
           </div>
         </div>
@@ -65,7 +71,8 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
         <?php
         if ($controle_cat) : ?>
           <?php
-          $start = Time::parse($controle_cat['debut']);
+          $now = date('Y-m-d');
+          $start = Time::parse($now);
           $end = Time::parse($controle_cat['fin']);
           $days = $start->difference($end)->getDays();
           ?>
@@ -74,7 +81,7 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
           Fin: <span class="text-primary"><?= date_format(date_create($controle_cat['fin']), 'd-m-Y') ?></span>
         <?php else : ?>
           <div class="alert alert-warning text-center" role="alert">
-            <p>Aucun C.A.T. n'a été enregistrée pour cette remorque.</p>
+            <p>Aucun C.A.T. n'a été enregistré pour cette remorque.</p>
             <button class="btn btn-success act" value="C.A.T." role="button">Ajouter un C.A.T.</button>
           </div>
         <?php endif ?>
@@ -88,7 +95,7 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
           <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
           </a>
-          <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
+          <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
             <div class="dropdown-header">Actions:</div>
             <button class="dropdown-item act" value="Assurance" href="#">Renouveler</button>
             <a class="dropdown-item" href="#">Supprimer</a>
@@ -99,7 +106,8 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
         <?php
         if ($controle_as) : ?>
           <?php
-          $start = Time::parse($controle_as['debut']);
+          $now = date('Y-m-d');
+          $start = Time::parse($now);
           $end = Time::parse($controle_as['fin']);
           $days = $start->difference($end)->getDays();
           ?>
@@ -109,7 +117,7 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
         <?php else : ?>
           <div class="alert alert-warning text-center" role="alert">
             <p>Aucune Assurance n'a été enregistrée pour cette remorque.</p>
-            <button class="btn btn-success act" value="Assurance"  role="button">Ajouter une Assurance</button>
+            <button class="btn btn-success act" value="Assurance" role="button">Ajouter une Assurance</button>
           </div>
         <?php endif ?>
       </div>
@@ -137,7 +145,7 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
         Immatriculation: <span class="text-primary"><?= $remorque['immatriculation'] ?></span> <br>
         Ancienne immatriculation: <span class="text-primary"><?= $remorque['ancienne_immatriculation'] ?></span> <br>
         <div class="d-grid gap-2">
-          <button type="button" class="btn btn-warning">Modifier les imformations</button>
+          <button type="button" class="btn btn-warning">Modifier les informations</button>
           <button type="button" class="btn btn-danger">Supprimer</button>
         </div>
       </div>
@@ -183,13 +191,13 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
       let attr = null
       switch (item) {
         case 'Visite technique':
-          attr = './vt/<?=$remorque['chrono']?>'
+          attr = './VT/<?= $remorque['chrono'] ?>'
           break;
         case 'Assurance':
-          attr = './as/<?=$remorque['chrono']?>'
+          attr = './AS/<?= $remorque['chrono'] ?>'
           break;
         case 'C.A.T.':
-          attr = './cat/<?=$remorque['chrono']?>'
+          attr = './CATS/<?= $remorque['chrono'] ?>'
           break;
         default:
 
