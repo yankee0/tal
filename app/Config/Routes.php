@@ -52,6 +52,7 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('tracteurs', 'Admin::liste_tracteurs');
         $routes->post('tracteurs/nouveau', 'Admin::nouveau_tracteur');
         $routes->get('tracteurs/supprimer/(:segment)', 'Admin::supprimer_tracteur/$1');
+        $routes->get('tracteurs/(:segment)','Admin::dossier_tracteur/$1');
 
         $routes->get('remorques', 'Admin::liste_remorques');
         $routes->post('remorques/nouveau', 'Admin::nouveau_remorque');
@@ -73,6 +74,8 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('tracteurs', 'Admin::liste_tracteurs');
         $routes->post('tracteurs/nouveau', 'Admin::nouveau_tracteur');
         $routes->get('tracteurs/supprimer/(:segment)', 'Admin::supprimer_tracteur/$1');
+        $routes->get('tracteurs/(:segment)','Admin::dossier_tracteur/$1');
+
 
         $routes->get('remorques', 'Admin::liste_remorques');
         $routes->post('remorques/nouveau', 'Admin::nouveau_remorque');

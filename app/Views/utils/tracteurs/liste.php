@@ -106,7 +106,6 @@ Super Admin - Tracteurs - Liste
             <th>Assurance</th>
             <th>CAT</th>
             <th>Au rebut</th>
-            <th>Remarque</th>
             <th>Action</th>
 
           </tr>
@@ -123,11 +122,9 @@ Super Admin - Tracteurs - Liste
               <td>[coding]</td>
               <td>[coding]</td>
               <td><?= $t['au_rebut'] ?></td>
-              <td><?= $t['remarque'] ?></td>
-
               <td class="d-flex">
                 <button type="button" value="<?= $t['chrono'] ?>" class="del w-100 mx-1 btn btn-danger btn-sm" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                <button type="button" value="<?= $t['chrono'] ?>" class="btn w-100 mx-1 btn-primary btn-sm" title="Dossier"><i class="fa fa-folder" aria-hidden="true"></i></button>
+                <button type="button" onclick="window.location = '<?=base_url(session()->root.'/tracteurs/'.$t['chrono'])?>'" class="btn w-100 mx-1 btn-primary btn-sm" title="Dossier"><i class="fa fa-folder" aria-hidden="true"></i></button>
               </td>
             </tr>
 

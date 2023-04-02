@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 
 use App\Models\ModelTracteur;
 use App\Models\ModelChauffeur;
+use App\Models\ModeleControle;
 use App\Models\ModelRemorque;
 use App\Models\ModelUtilisateur;
 
@@ -183,5 +184,33 @@ class Admin extends BaseController
         } else {
             return redirect()->to(session()->root . '/remorques#tableau')->with('deleted', false);
         }
+    }
+
+    public function dossier_tracteur(string $chrono){
+        $data = [
+            'tracteur' => (new ModelTracteur())->find($chrono),
+            'controle_vt' => (new ModeleControle())->where(
+                [
+                    'chrono_tracteur' => $chrono,
+                    'actif' => 'y',
+                    'type' => 'VT' 
+                ]
+            )->first(),
+            'controle_as' => (new ModeleControle())->where(
+                [
+                    'chrono_tracteur' => $chrono,
+                    'actif' => 'y',
+                    'type' => 'AS' 
+                ]
+            )->first(),
+            'controle_cat' => (new ModeleControle())->where(
+                [
+                    'chrono_tracteur' => $chrono,
+                    'actif' => 'y',
+                    'type' => 'CATS' 
+                ]
+            )->first()
+        ];
+        return view('utils/controles/index',$data);
     }
 }
