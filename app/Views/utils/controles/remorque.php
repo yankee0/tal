@@ -18,14 +18,16 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
           </a>
           <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
             <div class="dropdown-header">Actions:</div>
-            <a class="dropdown-item" href="#">Renouveler</a>
-            <a class="dropdown-item" href="#">Supprimer</a>
+            <button class="dropdown-item act" value="Visite technique">Renouveler</button>
+            <button class="dropdown-item" href="#">Supprimer</button>
           </div>
         </div>
       </div>
       <div class="card-body">
         <?php
+
         use CodeIgniter\I18n\Time;
+
         if ($controle_vt) : ?>
           <?php
           $start = Time::parse($controle_vt['debut']);
@@ -38,7 +40,7 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
         <?php else : ?>
           <div class="alert alert-warning text-center" role="alert">
             <p>Aucune visite technique n'a été enregistrée pour cette remorque.</p>
-            <a class="btn btn-success" href="#" role="button">Ajouter une visite technique</a>
+            <button class="btn btn-success act" value="Visite technique" role="button">Ajouter une visite technique</button>
           </div>
         <?php endif ?>
       </div>
@@ -54,7 +56,7 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
           </a>
           <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
             <div class="dropdown-header">Actions:</div>
-            <a class="dropdown-item" href="#">Renouveler</a>
+            <button value="C.A.T." class="dropdown-item act" >Renouveler</button>
             <a class="dropdown-item" href="#">Supprimer</a>
           </div>
         </div>
@@ -73,7 +75,7 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
         <?php else : ?>
           <div class="alert alert-warning text-center" role="alert">
             <p>Aucun C.A.T. n'a été enregistrée pour cette remorque.</p>
-            <a class="btn btn-success" href="#" role="button">Ajouter un C.A.T.</a>
+            <button class="btn btn-success act" value="C.A.T." role="button">Ajouter un C.A.T.</button>
           </div>
         <?php endif ?>
       </div>
@@ -88,7 +90,7 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
           </a>
           <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
             <div class="dropdown-header">Actions:</div>
-            <a class="dropdown-item" href="#">Renouveler</a>
+            <button class="dropdown-item act" value="Assurance" href="#">Renouveler</button>
             <a class="dropdown-item" href="#">Supprimer</a>
           </div>
         </div>
@@ -107,12 +109,12 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
         <?php else : ?>
           <div class="alert alert-warning text-center" role="alert">
             <p>Aucune Assurance n'a été enregistrée pour cette remorque.</p>
-            <a class="btn btn-success" href="#" role="button">Ajouter une Assurance</a>
+            <button class="btn btn-success act" value="Assurance"  role="button">Ajouter une Assurance</button>
           </div>
         <?php endif ?>
       </div>
     </div>
-    
+
 
   </div>
   <div class="col-md">
@@ -151,5 +153,51 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
   </div>
 </div>
 
+<div id="add_control" class="card shadow-lg">
+  <div class="card-header">
+    <div class="d-flex align-items-center justify-content-between">
+      <span id="action"></span>
+      <button onclick="$('#add_control').fadeOut()" type="button" class="btn btn-secondary btn-sm">x</button>
+    </div>
+  </div>
+  <form id="actForm" method="post" class="card-body">
+    <div class="form-floating mb-3">
+      <input type="date" class="form-control" name="debut" id="debut" required placeholder="date">
+      <label for="debut">Début</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="date" class="form-control" name="fin" id="fin" required placeholder="date">
+      <label for="fin">Fin</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  </form>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('.act').click(function(e) {
+      e.preventDefault();
+      $('#add_control').fadeIn();
+      $('#action').html($(this).val());
+      let item = $(this).val()
+      let attr = null
+      switch (item) {
+        case 'Visite technique':
+          attr = './vt/<?=$remorque['chrono']?>'
+          break;
+        case 'Assurance':
+          attr = './as/<?=$remorque['chrono']?>'
+          break;
+        case 'C.A.T.':
+          attr = './cat/<?=$remorque['chrono']?>'
+          break;
+        default:
+
+          break;
+      }
+      $('#actForm').attr('action', attr);
+    });
+  });
+</script>
 
 <?= $this->endSection(); ?>
