@@ -57,6 +57,7 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('remorques', 'Admin::liste_remorques');
         $routes->post('remorques/nouveau', 'Admin::nouveau_remorque');
         $routes->get('remorques/supprimer/(:segment)', 'Admin::supprimer_remorque/$1');
+        $routes->get('remorques/(:segment)','Admin::dossier_remorque/$1');
     });
 
     //Admin Filter
@@ -80,6 +81,8 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('remorques', 'Admin::liste_remorques');
         $routes->post('remorques/nouveau', 'Admin::nouveau_remorque');
         $routes->get('remorques/supprimer/(:segment)', 'Admin::supprimer_remorque/$1');
+        $routes->get('remorques/(:segment)','Admin::dossier_remorque/$1');
+        
     });
 
     //OPS TAL filter

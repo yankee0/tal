@@ -211,6 +211,34 @@ class Admin extends BaseController
                 ]
             )->first()
         ];
-        return view('utils/controles/index',$data);
+        return view('utils/controles/tracteur',$data);
+    }
+
+    public function dossier_remorque(string $chrono){
+        $data = [
+            'remorque' => (new ModelRemorque())->find($chrono),
+            'controle_vt' => (new ModeleControle())->where(
+                [
+                    'chrono_remorque' => $chrono,
+                    'actif' => 'y',
+                    'type' => 'VT' 
+                ]
+            )->first(),
+            'controle_as' => (new ModeleControle())->where(
+                [
+                    'chrono_remorque' => $chrono,
+                    'actif' => 'y',
+                    'type' => 'AS' 
+                ]
+            )->first(),
+            'controle_cat' => (new ModeleControle())->where(
+                [
+                    'chrono_remorque' => $chrono,
+                    'actif' => 'y',
+                    'type' => 'CATS' 
+                ]
+            )->first()
+        ];
+        return view('utils/controles/remorque',$data);
     }
 }

@@ -1,6 +1,6 @@
 <?= $this->extend('layouts/interface'); ?>
 <?= $this->section('titre'); ?>
-Super Admin - Remorques - Liste
+Super Admin - Dossier <?= $tracteur['chrono'] ?>
 <?= $this->endSection(); ?>
 <?= $this->section('contenu'); ?>
 
