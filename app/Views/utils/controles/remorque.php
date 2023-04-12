@@ -144,9 +144,10 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
         Chrono: <span class="text-primary"><?= $remorque['chrono'] ?></span> <br>
         Immatriculation: <span class="text-primary"><?= $remorque['immatriculation'] ?></span> <br>
         Ancienne immatriculation: <span class="text-primary"><?= $remorque['ancienne_immatriculation'] ?></span> <br>
+        Genre: <span class="text-primary"><?= $remorque['genre'] ?></span> <br>
         <div class="d-grid gap-2">
           <button type="button" class="btn btn-warning">Modifier les informations</button>
-          <button type="button" class="btn btn-danger">Supprimer</button>
+          <button type="button" class="btn btn-danger del" value="<?= $remorque['chrono'] ?>">Supprimer</button>
         </div>
       </div>
     </div>
@@ -206,6 +207,25 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
       $('#actForm').attr('action', attr);
     });
   });
+
+  $('.del').click(function(e) {
+    e.preventDefault();
+    let target = $(this).val()
+    if (confirm('Supprimer le remorque chrono: ' + target)) {
+      window.location = '<?= base_url(session()->root . '/remorques/supprimer/') ?>' + target
+    }
+  });
 </script>
+<?php if (session()->has('deleted')) : ?>
+  <?php if (session()->deleted) : ?>
+    <script>
+      alert('Suppression réussie')
+    </script>
+  <?php else : ?>
+    <script>
+      alert('Echec de la supression')
+    </script>
+  <?php endif ?>
+<?php endif ?>
 
 <?= $this->endSection(); ?>

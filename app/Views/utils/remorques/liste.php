@@ -47,7 +47,7 @@ Super Admin - Remorques - Liste
           </div>
         </div>
         <div class="col-md-4">
-          <div class="form-floating">
+          <div class="form-floating mb-3">
             <select name="genre" class="form-select" id="floatingSelect" aria-label="Floating label select example">
               <option value="SEMI-REMORQUE">SEMI-REMORQUE</option>
               <option value="REMORQUE">REMORQUE</option>
@@ -56,7 +56,7 @@ Super Admin - Remorques - Liste
           </div>
         </div>
         <div class="col-md-4">
-          <div class="form-floating">
+          <div class="form-floating mb-3">
             <select name="au_rebut" class="form-select" id="floatingSelect" aria-label="Floating label select example">
               <option value="OUI">OUI</option>
               <option selected value="NON">NON</option>

@@ -145,7 +145,7 @@ Super Admin - Dossier <?= $tracteur['chrono'] ?>
         Modèle: <span class="text-primary"><?= $tracteur['modele'] ?></span> <br>
         <div class="d-grid gap-2">
           <button type="button" class="btn btn-warning">Modifier les informations</button>
-          <button type="button" class="btn btn-danger">Supprimer</button>
+          <button type="button" class="btn btn-danger del" value="<?=$tracteur['chrono']?>">Supprimer</button>
         </div>
       </div>
     </div>
@@ -206,5 +206,26 @@ Super Admin - Dossier <?= $tracteur['chrono'] ?>
     });
   });
 </script>
+
+<script>
+  $('.del').click(function(e) {
+    e.preventDefault();
+    let target = $(this).val()
+    if (confirm('Supprimer le tracteur chrono: ' + target)) {
+      window.location = '<?= base_url(session()->root . '/tracteurs/supprimer/') ?>' + target
+    }
+  });
+</script>
+<?php if (session()->has('deleted')) : ?>
+  <?php if (session()->deleted) : ?>
+    <script>
+      alert('Suppression réussie')
+    </script>
+  <?php else : ?>
+    <script>
+      alert('Echec de la supression')
+    </script>
+  <?php endif ?>
+<?php endif ?>
 
 <?= $this->endSection(); ?>
