@@ -30,6 +30,13 @@ class Users extends Seeder
                 'profil' => 'OPS TAL',
                 'mot_de_passe' => sha1('yankee')
             ],
+            [
+                'matricule' => 'TAL010',
+                'prenom' => 'Yankee',
+                'nom' => 'Major',
+                'profil' => 'OPS TOM',
+                'mot_de_passe' => sha1('yankee')
+            ],
 
         ];
 

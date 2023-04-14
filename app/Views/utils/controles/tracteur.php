@@ -52,14 +52,14 @@ Super Admin - Dossier <?= $tracteur['chrono'] ?>
     <!-- CAT -->
     <div class="card shadow mb-3">
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">C.A.T.</h6>
+        <h6 class="m-0 font-weight-bold text-primary">C.A.T.s</h6>
         <div class="dropdown no-arrow">
           <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
             <div class="dropdown-header">Actions:</div>
-            <button value="C.A.T." class="dropdown-item act" >Renouveler</button>
+            <button value="C.A.T.s" class="dropdown-item act" >Renouveler</button>
             <a class="dropdown-item" href="#">Supprimer</a>
           </div>
         </div>
@@ -78,8 +78,8 @@ Super Admin - Dossier <?= $tracteur['chrono'] ?>
           Fin: <span class="text-primary"><?= date_format(date_create($controle_cat['fin']), 'd-m-Y') ?></span>
         <?php else : ?>
           <div class="alert alert-warning text-center" role="alert">
-            <p>Aucun C.A.T. n'a été enregistré pour ce tracteur.</p>
-            <button class="btn btn-success act" value="C.A.T." role="button">Ajouter un C.A.T.</button>
+            <p>Aucun C.A.T.s n'a été enregistré pour ce tracteur.</p>
+            <button class="btn btn-success act" value="C.A.T.s" role="button">Ajouter un C.A.T.s</button>
           </div>
         <?php endif ?>
       </div>
@@ -195,7 +195,7 @@ Super Admin - Dossier <?= $tracteur['chrono'] ?>
         case 'Assurance':
           attr = './AS/<?=$tracteur['chrono']?>'
           break;
-        case 'C.A.T.':
+        case 'C.A.T.s':
           attr = './CATS/<?=$tracteur['chrono']?>'
           break;
         default:

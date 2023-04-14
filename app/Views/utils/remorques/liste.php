@@ -98,7 +98,6 @@ Super Admin - Remorques - Liste
             <th>Ancienne immatriculation</th>
             <th>Genre</th>
             <th>Au rebut</th>
-            <th>Remarque</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -110,7 +109,6 @@ Super Admin - Remorques - Liste
               <td><?= $r['ancienne_immatriculation'] ?></td>
               <td><?= $r['genre'] ?></td>
               <td><?= $r['au_rebut'] ?></td>
-              <td><?= $r['remarque'] ?></td>
               <td>
                 <div class="d-flex gap-1">
                   <button type="button" value="<?= $r['chrono'] ?>" class="del w-100 mx-1 btn btn-danger btn-sm" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></button>

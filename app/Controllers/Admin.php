@@ -155,6 +155,27 @@ class Admin extends BaseController
         }
     }
 
+    public function modifier_tracteur(string $matricule = null ){
+        $data = [
+            'tracteur' => (new ModelTracteur())->find($matricule)
+        ];
+        return view('utils/tracteurs/modifier',$data);
+    }
+
+    public function save_tracteur(string $chrono){
+        $data = [
+            'chrono' => strtoupper('' . $this->request->getPost('chrono')),
+            'immatriculation' => strtoupper('' . $this->request->getPost('immatriculation')),
+            'ancienne_immatriculation' => strtoupper('' . $this->request->getPost('ancienne_immatriculation')),
+            'marque' => strtoupper('' . $this->request->getPost('marque')),
+            'modele' => strtoupper('' . $this->request->getPost('modele')),
+            'au_rebut' => strtoupper('' . $this->request->getPost('au_rebut')),
+            'remarque' => strtoupper('' . $this->request->getPost('remarque')),
+        ];
+        $op = (new ModelTracteur())->update($chrono,$data);
+        return redirect()->to(session()->root . '/tracteurs#tableau')->with('updated', $op);
+    }
+
     public function liste_remorques()
     {
         session()->position = 'remorques';

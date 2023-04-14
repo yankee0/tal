@@ -104,7 +104,6 @@ Super Admin - Tracteurs - Liste
             <th>CAT</th>
             <th>Au rebut</th>
             <th>Action</th>
-
           </tr>
         </thead>
         <tbody>
@@ -118,6 +117,7 @@ Super Admin - Tracteurs - Liste
               <td><?= $t['au_rebut'] ?></td>
               <td class="d-flex">
                 <button type="button" value="<?= $t['chrono'] ?>" class="del w-100 mx-1 btn btn-danger btn-sm" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button type="button" value="" onclick="window.location = '<?=base_url(session()->root.'/modifier/tracteurs/'.$t['chrono'])?>'" class="mod w-100 mx-1 btn btn-warning btn-sm" title="Modifier"><i class="fa fa-edit" aria-hidden="true"></i></button>
                 <button type="button" onclick="window.location = '<?=base_url(session()->root.'/tracteurs/'.$t['chrono'])?>'" class="btn w-100 mx-1 btn-primary btn-sm" title="Dossier"><i class="fa fa-folder" aria-hidden="true"></i></button>
               </td>
             </tr>
@@ -129,6 +129,9 @@ Super Admin - Tracteurs - Liste
   </div>
 </div>
 <script>
+  
+    
+
   let table = new DataTable('#tableau');
   let r = null;
   $('.del').click(function(e) {
@@ -146,9 +149,18 @@ Super Admin - Tracteurs - Liste
     </script>
   <?php else : ?>
     <script>
-      alert('Echec de la supression')
+      alert('Echec de la suppression')
     </script>
   <?php endif ?>
 <?php endif ?>
+<?php if (session()->updated) : ?>
+    <script>
+      alert('Modification réussie')
+    </script>
+  <?php else : ?>
+    <script>
+      alert('Echec de la modification')
+    </script>
+  <?php endif ?>
 
 <?= $this->endSection(); ?>

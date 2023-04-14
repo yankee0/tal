@@ -55,6 +55,8 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('tracteurs/supprimer/(:segment)', 'Admin::supprimer_tracteur/$1');
         $routes->get('tracteurs/(:segment)','Admin::dossier_tracteur/$1');
         $routes->add('tracteurs/(:segment)/(:segment)','Admin::handle_t_controle/$1/$2');
+        $routes->get('modifier/tracteurs/(:segment)','Admin::modifier_tracteur/$1');
+        $routes->post('modifier/tracteurs/(:segment)','Admin::save_tracteur/$1');
 
         $routes->get('remorques', 'Admin::liste_remorques');
         $routes->post('remorques/nouveau', 'Admin::nouveau_remorque');
@@ -83,6 +85,9 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('tracteurs/supprimer/(:segment)', 'Admin::supprimer_tracteur/$1');
         $routes->get('tracteurs/(:segment)','Admin::dossier_tracteur/$1');
         $routes->add('tracteurs/(:segment)/(:segment)','Admin::handle_t_controle/$1/$2');
+        $routes->get('modifier/tracteurs/(:segment)','Admin::modifier_tracteur/$1');
+        $routes->post('modifier/tracteurs/(:segment)','Admin::save_tracteur/$1');
+
 
 
         $routes->get('remorques', 'Admin::liste_remorques');
