@@ -7,7 +7,6 @@ use App\Controllers\BaseController;
 use App\Models\ModelTracteur;
 use App\Models\ModelChauffeur;
 use App\Models\ModeleControle;
-use App\Models\ModeleControleR;
 use App\Models\ModelRemorque;
 use App\Models\ModelUtilisateur;
 
@@ -63,6 +62,16 @@ class Admin extends BaseController
         } else {
             return redirect()->to(session()->root . '/utilisateurs#tableau')->with('deleted', false);
         }
+    }
+
+    public function reset_utilisateur(string $matricule = null)
+    {
+        $data = [
+            'matricule' => $matricule,
+            'mot_de_passe' => sha1('TALSA1234')
+        ];
+        $op = (new ModelUtilisateur())->update($matricule,$data);
+        return redirect()->to(session()->root . '/utilisateurs#tableau')->with('updated', $op);
     }
 
     public function liste_chauffeurs()

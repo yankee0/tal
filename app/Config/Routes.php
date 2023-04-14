@@ -44,6 +44,7 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('utilisateurs', 'Admin::liste_utilisateurs');
         $routes->post('utilisateurs/nouveau', 'Admin::nouvel_utilisateur');
         $routes->get('utilisateurs/supprimer/(:segment)', 'Admin::supprimer_utilisateur/$1');
+        $routes->get('utilisateurs/reset/(:segment)', 'Admin::reset_utilisateur/$1');
 
         $routes->get('chauffeurs', 'Admin::liste_chauffeurs');
         $routes->post('chauffeurs/nouveau', 'Admin::nouveau_chauffeur');
@@ -70,6 +71,8 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('utilisateurs', 'Admin::liste_utilisateurs');
         $routes->post('utilisateurs/nouveau', 'Admin::nouvel_utilisateur');
         $routes->get('utilisateurs/supprimer/(:segment)', 'Admin::supprimer_utilisateur/$1');
+        $routes->get('utilisateurs/reset/(:segment)', 'Admin::reset_utilisateur/$1');
+
 
         $routes->get('chauffeurs', 'Admin::liste_chauffeurs');
         $routes->post('chauffeurs/nouveau', 'Admin::nouveau_chauffeur');
