@@ -4,7 +4,7 @@ Super Admin - Remorques - Liste
 <?= $this->endSection(); ?>
 <?= $this->section('contenu'); ?>
 
-<h1 class="h3 mb-2 text-gray-800">remorques</h1>
+<h1 class="h3 mb-2 text-gray-800">Remorques</h1>
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Nouvelle remorque</h6>
@@ -112,6 +112,7 @@ Super Admin - Remorques - Liste
               <td>
                 <div class="d-flex gap-1">
                   <button type="button" value="<?= $r['chrono'] ?>" class="del w-100 mx-1 btn btn-danger btn-sm" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  <button type="button" onclick="window.location = '<?=base_url(session()->root.'/modifier/remorques/'.$r['chrono'])?>'" class="w-100 mx-1 btn btn-warning btn-sm" title="Modifier"><i class="fa fa-edit" aria-hidden="true"></i></button>
                   <button type="button" onclick="window.location = '<?=base_url(session()->root.'/remorques/'.$r['chrono'])?>'" class="w-100 mx-1 btn btn-primary btn-sm" title="Supprimer"><i class="fa fa-folder" aria-hidden="true"></i></button>
                 </div>
               </td>
@@ -141,6 +142,17 @@ Super Admin - Remorques - Liste
   <?php else : ?>
     <script>
       alert('Echec de la supression')
+    </script>
+  <?php endif ?>
+<?php endif ?>
+<?php if (session()->has('updated')) : ?>
+  <?php if (session()->updated) : ?>
+    <script>
+      alert('Modification réussie')
+    </script>
+  <?php else : ?>
+    <script>
+      alert('Echec de la modification')
     </script>
   <?php endif ?>
 <?php endif ?>

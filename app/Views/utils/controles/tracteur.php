@@ -144,7 +144,6 @@ Super Admin - Dossier <?= $tracteur['chrono'] ?>
         Marque: <span class="text-primary"><?= $tracteur['marque'] ?></span> <br>
         Modèle: <span class="text-primary"><?= $tracteur['modele'] ?></span> <br>
         <div class="d-grid gap-2">
-          <button type="button" class="btn btn-warning">Modifier les informations</button>
           <button type="button" class="btn btn-danger del" value="<?=$tracteur['chrono']?>">Supprimer</button>
         </div>
       </div>

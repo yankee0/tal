@@ -146,7 +146,6 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
         Ancienne immatriculation: <span class="text-primary"><?= $remorque['ancienne_immatriculation'] ?></span> <br>
         Genre: <span class="text-primary"><?= $remorque['genre'] ?></span> <br>
         <div class="d-grid gap-2">
-          <button type="button" class="btn btn-warning">Modifier les informations</button>
           <button type="button" class="btn btn-danger del" value="<?= $remorque['chrono'] ?>">Supprimer</button>
         </div>
       </div>
@@ -216,6 +215,7 @@ Super Admin - Dossier <?= $remorque['chrono'] ?>
     }
   });
 </script>
+
 <?php if (session()->has('deleted')) : ?>
   <?php if (session()->deleted) : ?>
     <script>

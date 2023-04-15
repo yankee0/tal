@@ -217,6 +217,25 @@ class Admin extends BaseController
         }
     }
 
+    public function modifier_remorque(string $matricule = null ){
+        $data = [
+            'remorque' => (new ModelRemorque())->find($matricule)
+        ];
+        return view('utils/remorques/modifier',$data);
+    }
+
+    public function save_remorque(string $chrono){
+        $data = [
+            'chrono' => strtoupper('' . $this->request->getPost('chrono')),
+            'immatriculation' => strtoupper('' . $this->request->getPost('immatriculation')),
+            'ancienne_immatriculation' => strtoupper('' . $this->request->getPost('ancienne_immatriculation')),
+            'au_rebut' => strtoupper('' . $this->request->getPost('au_rebut')),
+            'remarque' => strtoupper('' . $this->request->getPost('remarque')),
+        ];
+        $op = (new ModelRemorque())->update($chrono,$data);
+        return redirect()->to(session()->root . '/remorques#tableau')->with('updated', $op);
+    }
+
     public function dossier_tracteur(string $chrono)
     {
         $data = [

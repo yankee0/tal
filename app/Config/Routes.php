@@ -63,6 +63,8 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('remorques/supprimer/(:segment)', 'Admin::supprimer_remorque/$1');
         $routes->get('remorques/(:segment)','Admin::dossier_remorque/$1');
         $routes->add('remorques/(:segment)/(:segment)','Admin::handle_r_controle/$1/$2');
+        $routes->get('modifier/remorques/(:segment)','Admin::modifier_remorque/$1');
+        $routes->post('modifier/remorques/(:segment)','Admin::save_remorque/$1');
 
     });
 
@@ -88,13 +90,13 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('modifier/tracteurs/(:segment)','Admin::modifier_tracteur/$1');
         $routes->post('modifier/tracteurs/(:segment)','Admin::save_tracteur/$1');
 
-
-
         $routes->get('remorques', 'Admin::liste_remorques');
         $routes->post('remorques/nouveau', 'Admin::nouveau_remorque');
         $routes->get('remorques/supprimer/(:segment)', 'Admin::supprimer_remorque/$1');
         $routes->get('remorques/(:segment)','Admin::dossier_remorque/$1');
         $routes->add('remorques/(:segment)/(:segment)','Admin::handle_r_controle/$1/$2');
+        $routes->get('modifier/remorques/(:segment)','Admin::modifier_remorque/$1');
+        $routes->post('modifier/remorques/(:segment)','Admin::save_remorque/$1');
         
     });
 

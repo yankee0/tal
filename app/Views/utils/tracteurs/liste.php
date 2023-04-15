@@ -4,7 +4,7 @@ Super Admin - Tracteurs - Liste
 <?= $this->endSection(); ?>
 <?= $this->section('contenu'); ?>
 
-<h1 class="h3 mb-2 text-gray-800">tracteurs</h1>
+<h1 class="h3 mb-2 text-gray-800">Tracteurs</h1>
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Nouveau tracteur</h6>
@@ -117,8 +117,8 @@ Super Admin - Tracteurs - Liste
               <td><?= $t['au_rebut'] ?></td>
               <td class="d-flex">
                 <button type="button" value="<?= $t['chrono'] ?>" class="del w-100 mx-1 btn btn-danger btn-sm" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                <button type="button" value="" onclick="window.location = '<?=base_url(session()->root.'/modifier/tracteurs/'.$t['chrono'])?>'" class="mod w-100 mx-1 btn btn-warning btn-sm" title="Modifier"><i class="fa fa-edit" aria-hidden="true"></i></button>
-                <button type="button" onclick="window.location = '<?=base_url(session()->root.'/tracteurs/'.$t['chrono'])?>'" class="btn w-100 mx-1 btn-primary btn-sm" title="Dossier"><i class="fa fa-folder" aria-hidden="true"></i></button>
+                <button type="button" value="" onclick="window.location = '<?= base_url(session()->root . '/modifier/tracteurs/' . $t['chrono']) ?>'" class="mod w-100 mx-1 btn btn-warning btn-sm" title="Modifier"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                <button type="button" onclick="window.location = '<?= base_url(session()->root . '/tracteurs/' . $t['chrono']) ?>'" class="btn w-100 mx-1 btn-primary btn-sm" title="Dossier"><i class="fa fa-folder" aria-hidden="true"></i></button>
               </td>
             </tr>
 
@@ -129,9 +129,6 @@ Super Admin - Tracteurs - Liste
   </div>
 </div>
 <script>
-  
-    
-
   let table = new DataTable('#tableau');
   let r = null;
   $('.del').click(function(e) {
@@ -153,7 +150,8 @@ Super Admin - Tracteurs - Liste
     </script>
   <?php endif ?>
 <?php endif ?>
-<?php if (session()->updated) : ?>
+<?php if (session()->has('updated')) : ?>
+  <?php if (session()->updated) : ?>
     <script>
       alert('Modification réussie')
     </script>
@@ -162,5 +160,6 @@ Super Admin - Tracteurs - Liste
       alert('Echec de la modification')
     </script>
   <?php endif ?>
+<?php endif ?>
 
 <?= $this->endSection(); ?>
