@@ -94,7 +94,9 @@ Super Admin - Chauffeurs - Liste
   </div>
 </div>
 <script>
-  let table = new DataTable('#tableau');
+  let table = new DataTable('#tableau',{
+    'pageLenght' : -1
+  });
   let r = null;
   $('.del').click(function (e) { 
     e.preventDefault();

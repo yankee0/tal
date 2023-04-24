@@ -39,8 +39,7 @@ Super Admin - Utilisateurs - Liste
                 <option <?= set_select('profil') ?> value="SUPER ADMIN">SUPER ADMIN</option>
                 <option <?= set_select('profil') ?> value="ADMIN">ADMIN</option>
               <?php endif; ?>
-              <option <?= set_select('profil') ?> value="OPS TAL">OPS TAL</option>
-              <option <?= set_select('profil') ?> value="OPS TOM">OPS TOM</option>
+              <option <?= set_select('profil') ?> value="OPS TOM">OPS</option>
             </select>
             <label for="profil">Sélectionner un profil</label>
           </div>
