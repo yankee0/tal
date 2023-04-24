@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Transferts extends Migration
+class Livraisons extends Migration
 {
     public function up()
     {
@@ -15,10 +15,11 @@ class Transferts extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'type_transfert' => [
-                'type' => 'ENUM("FULL IMPORT","FULL EXPORT","VIDE")',
+            'date_depot_bl' => [
+                'type' => 'DATETIME',
+                'null' => true,
             ],
-            'date_mvt' => [
+            'date_livraison' => [
                 'type' => 'DATETIME',
                 'null' => true,
             ],
@@ -27,66 +28,64 @@ class Transferts extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],
-            'type_conteneur' => [
+            'armateur' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'teus' => [
+            'type_tc' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'ligne' => [
+            'camion' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'rame' => [
+            'chauffeur_aller' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'mouvement' => [
+            'mvt_aller' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'p_v' => [
+            'adresse' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'chauffeur' => [
+            'zone' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'imm_tracteur' => [
+            'client' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'chrono' => [
+            'date_retour' => [
+                'type' => 'DATETIME',
+                'null' => true,
+            ],
+            'chauffeur_retour' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
             ],
-            'eirs' => [
+            'mvt_retour' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
-            ],
-            'remarque_sous_traitant' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
+            ],  
+            'date_validité' => [
+                'type' => 'DATETIME',
                 'null' => true,
-            ],
-            'auteur' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null' => true,
-            ],
+            ],          
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
@@ -99,17 +98,17 @@ class Transferts extends Migration
                 'type' => 'DATETIME',
                 'null' => true,
             ],
-
-
         ]);
-
-        $this->forge->addPrimaryKey('id');    
-        $this->forge->addForeignKey('auteur','utilisateurs','matricule','CASCADE','NO ACTION');    
-        $this->forge->createTable('transferts',true);
+        $this->forge->addPrimaryKey('id');
+        $this->forge->addForeignKey('chauffeur_aller','chauffeurs','matricule','CASCADE','NO ACTION');    
+        $this->forge->addForeignKey('chauffeur_retour','chauffeurs','matricule','CASCADE','NO ACTION');    
+        $this->forge->addForeignKey('camion','tracteurs','chrono','CASCADE','NO ACTION');    
+        $this->forge->createTable('livraisons',true);
+        
     }
-
+    
     public function down()
     {
-        $this->forge->dropTable('transferts',true);
+        $this->forge->dropTable('livraisons',true);
     }
 }
