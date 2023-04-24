@@ -127,7 +127,12 @@ Super Admin - Utilisateurs - Liste
   </div>
 </div>
 <script>
-  let table = new DataTable('#tableau');
+  // let table = new DataTable('#tableau');
+  $('#tableau').DataTable(
+    {
+      'pageLength' : -1
+    }
+  );
 
   $('.del').click(function (e) { 
     e.preventDefault();
