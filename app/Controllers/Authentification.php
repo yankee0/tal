@@ -45,12 +45,8 @@ class Authentification extends BaseController
         $destination  = '/admin';
         break;
 
-      case 'OPS TAL':
-        $destination  = '/ops-tal';
-        break;
-
-      case 'OPS TOM':
-        $destination  = '/ops-tom';
+      case 'OPS':
+        $destination  = '/ops';
         break;
 
       default:

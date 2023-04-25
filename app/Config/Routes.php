@@ -100,14 +100,18 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         
     });
 
-    //OPS TAL filter
-    $routes->group('ops-tal',['filter' => 'ops-tal'], function($routes)
+    //OPS
+    $routes->group('ops',['filter' => 'ops'], function($routes)
     {
-        $routes->get('/','OpsTal::index');
-        
-        $routes->get('transfert','OpsTal::transfert');
-        $routes->post('transfert/ajouter','Opstal::ajouter_transfert');
-
+        $routes->get('/','Ops::index');
+        $routes->group('livraisons', function($routes)
+        {
+            $routes->get('/','Ops::nouvelle_livraison');
+            $routes->add('innacheves','Ops::liste_livraison');
+            $routes->post('ajout','Ops::save_livraison');
+            $routes->post('complement','Ops::complement_livraison');
+            $routes->get('supprimer/(:segment)','Ops::suprimmer_livraison/$1');
+        });
     });
 });
 

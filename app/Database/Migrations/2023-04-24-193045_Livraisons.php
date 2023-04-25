@@ -82,7 +82,7 @@ class Livraisons extends Migration
                 'constraint' => 255,
                 'null' => true,
             ],  
-            'date_validité' => [
+            'date_validite' => [
                 'type' => 'DATETIME',
                 'null' => true,
             ],          

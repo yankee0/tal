@@ -9,13 +9,10 @@ switch (session()->donnees_utilisateur['profil']) {
     $root  = '/admin';
     break;
 
-  case 'OPS TAL':
-    $root  = '/ops-tal';
+  case 'OPS':
+    $root  = '/ops';
     break;
 
-  case 'OPS TOM':
-    $root  = '/ops-tom';
-    break;
 
   default:
     $root = null;
@@ -118,11 +115,11 @@ session()->root = $root;
           <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <?php if ($root == '/super-admin' or $root == '/admin') : ?>
-                <a class="collapse-item" href="login.html">Lister les livraisons</a>
+                <a class="collapse-item" href="login.html">Lister</a>
                 <a class="collapse-item" href="register.html">Statistiques</a>
               <?php else : ?>
-                <a class="collapse-item" href="login.html">Livraisons en innachevés</a>
-                <a class="collapse-item" href="login.html">Nouvelle livraison</a>
+                <a class="collapse-item" href="<?=base_url($root.'/livraisons/innacheves')?>">Livraisons innachevées</a>
+                <a class="collapse-item" href="<?= base_url($root . '/livraisons') ?>">Nouvelle livraison</a>
               <?php endif; ?>
             </div>
           </div>
@@ -284,26 +281,6 @@ session()->root = $root;
     </div>
   </div>
   
-  <!-- change password modal -->
-  <!-- <div id="reset" class="card shadow-lg position-absolute top-start">
-    <div class="card-header">
-      <div class="d-flex align-items-center justify-content-between">
-        <span id="action"></span>
-        <button onclick="$('#reset').fadeOut()" type="button" class="btn btn-secondary btn-sm">x</button>
-      </div>
-    </div>
-    <form id="actForm" method="post" class="card-body">
-      <div class="form-floating mb-3">
-        <input type="date" class="form-control" name="debut" id="debut" required placeholder="date">
-        <label for="debut">Début</label>
-      </div>
-      <div class="form-floating mb-3">
-        <input type="date" class="form-control" name="fin" id="fin" required placeholder="date">
-        <label for="fin">Fin</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Enregistrer</button>
-    </form>
-  </div> -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
