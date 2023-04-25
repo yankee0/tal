@@ -103,7 +103,7 @@ class SuperAdmin extends BaseController
                 }
             }
             foreach ($trans as $t ) {
-                if ($trac[$i]['chrono'] == $t['camion']) {
+                if ($trac[$i]['chrono'] == $t['chrono']) {
                     $trac[$i][0]++;
                 }
             }
