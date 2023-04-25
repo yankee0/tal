@@ -13,7 +13,27 @@ class Ops extends BaseController
 {
     public function index()
     {
-        return view('ops/dashboard');
+        $trans = (new ModelTransfert())->where('auteur',session()->donnees_utilisateur['matricule'])->findAll();
+        $trans_ok = [];
+        for ($i=0; $i < sizeof($trans); $i++) { 
+            if ($this->isCurrentWeek($trans[$i]['created_at'])) {
+                $trans_ok[$i] = $trans[$i];
+            }
+        }
+
+        $liv = (new ModeleLivraison())->where('auteur',session()->donnees_utilisateur['matricule'])->findAll();
+        $liv_ok = [];
+        for ($i=0; $i < sizeof($liv); $i++) { 
+            if ($this->isCurrentWeek($liv[$i]['created_at'])) {
+                $liv_ok[$i] = $liv[$i];
+            }
+        }
+
+        $data = [
+            'trans' => $trans_ok,
+            'liv' => $liv_ok
+        ];
+        return view('ops/dashboard',$data);
     }
 
     public function liste_livraison()
@@ -77,6 +97,20 @@ class Ops extends BaseController
 
         $op = (new ModelTransfert())->insert($data);
         return redirect()->back()->with('ajout',$op);
+    }
+
+    public function isCurrentWeek($date) {
+        $currentWeek = date('W'); // Semaine du jour d'aujourd'hui
+        $week = date('W', strtotime($date)); // Semaine de la date fournie en paramètre
+        $year = date('Y', strtotime($date)); // Année de la date fournie en paramètre
+        $currentYear = date('Y'); // Année du jour d'aujourd'hui
+        
+        // Vérifie si la date fournie en paramètre appartient à la semaine en cours
+        if ($currentWeek == $week && $currentYear == $year) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 

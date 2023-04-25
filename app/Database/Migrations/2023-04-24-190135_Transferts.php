@@ -100,7 +100,6 @@ class Transferts extends Migration
                 'null' => true,
             ],
 
-
         ]);
 
         $this->forge->addPrimaryKey('id');    

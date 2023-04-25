@@ -81,6 +81,11 @@ class Livraisons extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
                 'null' => true,
+            ],
+            'auteur' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+                'null' => true,
             ],  
             'date_validite' => [
                 'type' => 'DATETIME',
@@ -103,6 +108,7 @@ class Livraisons extends Migration
         $this->forge->addForeignKey('chauffeur_aller','chauffeurs','matricule','CASCADE','NO ACTION');    
         $this->forge->addForeignKey('chauffeur_retour','chauffeurs','matricule','CASCADE','NO ACTION');    
         $this->forge->addForeignKey('camion','tracteurs','chrono','CASCADE','NO ACTION');    
+        $this->forge->addForeignKey('auteur','utilisateurs','matricule','CASCADE','NO ACTION');    
         $this->forge->createTable('livraisons',true);
         
     }
