@@ -1,6 +1,6 @@
 <?= $this->extend('layouts/interface'); ?>
 <?= $this->section('titre'); ?>
-OPS TAL - Nouveau transfert
+OPS - Nouveau transfert
 <?= $this->endSection(); ?>
 <?= $this->section('contenu'); ?>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -15,68 +15,90 @@ OPS TAL - Nouveau transfert
     <form action="<?= base_url(session()->root . '/transfert/ajouter') ?>" class="row" method="post">
       <div class="col-md">
         <div class="mb-3">
-          <label for="camion" class="form-label">Matricule du camion</label>
-          <select class="form-select " name="chrono_tracteur" id="camion">
-            <option selected disabled>Selectionner</option>
-            <?php foreach ($tracteurs as $tracteur) : ?>
-              <option value="<?= $tracteur['chrono'] ?>"><?= $tracteur['immatriculation'] ?></option>
-            <?php endforeach ?>
+          <label for="type_transfert" class="form-label">Type de transfert</label>
+          <select class="form-select " name="type_transfert" id="type_transfert">
+            <option selected>Selectionner</option>
+            <option value="FULL IMPORT">FULL IMPORT</option>
+            <option value="FULL EXPORT">FULL EXPORT</option>
+            <option value="VIDE">VIDE</option>
           </select>
         </div>
         <div class="mb-3">
-          <label for="" class="form-label">Chauffeurs</label>
-          <select class="form-select " name="matricule_chauffeur" id="">
-            <option selected disabled>Selectionner</option>
-            <?php foreach ($chauffeurs as $chauffeur) : ?>
-              <option value="<?= $chauffeur['matricule'] ?>">Mat: <?= $chauffeur['matricule'] . ' - ' . $chauffeur['prenom'] . ' ' . $chauffeur['nom'] ?></option>
-            <?php endforeach ?>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label for="type_operation" class="form-label">Type d'opération</label>
-          <select class="form-control" id="type_operation" name="type_operation" required>
-            <option value="TOM">TOM</option>
-            <option value="WALL">WALL</option>
-          </select>
+          <label for="date_mvt" class="form-label">Date MVT</label>
+          <input type="date" class="form-control" name="date_mvt" id="date_mvt" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
-          <label for="numero_conteneur" class="form-label">Numéro de conteneur</label>
-          <input type="text" class="form-control" id="numero_conteneur" name="numero_conteneur" required>
+          <label for="conteneur" class="form-label">Conteneur</label>
+          <input type="text" class="form-control" name="conteneur" id="conteneur" aria-describedby="helpId" placeholder="">
+        </div>
+        <div class="mb-3">
+          <label for="type_conteneur" class="form-label">Type de conteneur</label>
+          <input type="text" class="form-control" name="type_conteneur" id="type_conteneur" aria-describedby="helpId" placeholder="">
+        </div>
+        <div class="mb-3">
+          <label for="teus" class="form-label">TEUS</label>
+          <input type="text" class="form-control" name="teus" id="teus" aria-describedby="helpId" placeholder="">
+        </div>
+        <div class="mb-3">
+          <label for="ligne" class="form-label">Ligne</label>
+          <input type="text" class="form-control" name="ligne" id="ligne" aria-describedby="helpId" placeholder="">
+        </div>
+        <div class="mb-3">
+          <label for="rame" class="form-label">Rame</label>
+          <input type="text" class="form-control" name="rame" id="rame" aria-describedby="helpId" placeholder="">
         </div>
       </div>
       <div class="col-md">
         <div class="mb-3">
-          <label for="charge" class="form-label">Charge</label>
-          <select class="form-control" id="charge" name="charge" required>
-            <option value="Vide">Vide</option>
-            <option value="Plein">Plein</option>
-          </select>
+          <label for="mouvement" class="form-label">Mouvement</label>
+          <input type="text" class="form-control" name="mouvement" id="mouvement" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
-          <label for="type" class="form-label">Type de conteneur</label>
-          <select class="form-control" id="type" name="type" required>
-            <option value="20">20 pieds</option>
-            <option value="40">40 pieds</option>
-          </select>
+          <label for="p_v" class="form-label">P/V</label>
+          <input type="text" class="form-control" name="p_v" id="p_v" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
-          <label for="nombre_teus" class="form-label">Nombre de TEUs</label>
-          <select class="form-control" id="nombre_teus" name="nombre_teus" required>
-            <option value="20 pieds">20 pieds</option>
-            <option value="40 pieds">40 pieds</option>
-          </select>
+          <label for="chauffeur" class="form-label">Chauffeur</label>
+          <input type="text" class="form-control" name="chauffeur" id="chauffeur" aria-describedby="helpId" placeholder="">
         </div>
-        <div class="form-group">
-          <label for="date">Date :</label>
-          <input type="date" id="date" name="date_operation" class="form-control" required>
+        <div class="mb-3">
+          <label for="imm_tracteur" class="form-label">Immatriculation tracteur</label>
+          <input type="text" class="form-control" name="imm_tracteur" id="imm_tracteur" aria-describedby="helpId" placeholder="">
         </div>
+        <div class="mb-3">
+          <label for="chrono" class="form-label">Chrono</label>
+          <input type="text" class="form-control" name="chrono" id="chrono" aria-describedby="helpId" placeholder="">
+        </div>
+        <div class="mb-3">
+          <label for="eirs" class="form-label">EIRS</label>
+          <input type="text"
+            class="form-control" name="eirs" id="eirs" aria-describedby="helpId" placeholder="">
+        </div>
+        <div class="mb-3">
+          <label for="remarque_sous_traitant" class="form-label">Remarque sous traitant</label>
+          <input type="text"
+            class="form-control" name="remarque_sous_traitant" id="remarque_sous_traitant" aria-describedby="helpId" placeholder="">
+        </div>
+
       </div>
-      <div class="d-flex gap-2">
-        <button type="submit" class="w-100 btn btn-primary btn-lg">Ajouter</button>
-        <button type="reset" class="w-100 btn btn-secondary btn-lg">Effacer</button>
+      <div class="col-12 d-grid d-md-block text-center">
+        <button type="submit" class="btn btn-primary btn-lg">Ajouter</button>
       </div>
     </form>
   </div>
 </div>
+
+<?php if (session()->has('ajout')) : ?>
+  <?php if (session()->ajout) : ?>
+    <script>
+      alert('ajout effectué');
+    </script>
+  <?php else : ?>
+    <script>
+      alert('Erreur');
+    </script>
+  <?php endif ?>
+<?php endif ?>
+
+
 <?= $this->endSection(); ?>

@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\ModelChauffeur;
 use App\Models\ModeleLivraison;
 use App\Models\ModelTracteur;
+use App\Models\ModelTransfert;
 use CodeIgniter\Model;
 
 class Ops extends BaseController
@@ -43,10 +44,10 @@ class Ops extends BaseController
             unset($data['mvt_retour']);
         }
         unset($data['choix']);
-        $author = [
-            'auteur' => session()
-        ];
-        array_merge($data,$author);
+
+        $data['auteur'] = session()->donnees_utilisateur['matricule'];
+
+
         $model = new ModeleLivraison();
         $op = $model->insert($data);
         return redirect()->back()->with('ajout',$op);
@@ -63,4 +64,20 @@ class Ops extends BaseController
         $op = (new ModeleLivraison())->where('conteneur',$cont)->delete();
         return redirect()->back()->with('delete',$op);
     }
+
+    public function nouveau_transfert(){
+        return view('utils/transferts/ajouter');
+    }
+
+    public function ajouter_transfert(){
+        $data = $this->request->getPost();
+
+        $data['auteur'] = session()->donnees_utilisateur['matricule'];
+
+
+        $op = (new ModelTransfert())->insert($data);
+        return redirect()->back()->with('ajout',$op);
+    }
+
+
 }

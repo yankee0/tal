@@ -112,6 +112,12 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
             $routes->post('complement','Ops::complement_livraison');
             $routes->get('supprimer/(:segment)','Ops::suprimmer_livraison/$1');
         });
+
+        $routes->group('transfert', function($routes)
+        {
+            $routes->get('/','Ops::nouveau_transfert');
+            $routes->post('ajouter','Ops::ajouter_transfert');
+        });
     });
 });
 
