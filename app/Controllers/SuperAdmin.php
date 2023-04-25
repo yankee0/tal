@@ -26,7 +26,8 @@ class SuperAdmin extends BaseController
             ],
             'gliv' => $this->countMonthlyDeliveriesLiv(),
             'gtrans' => $this->countMonthlyDeliveriesTrans(),
-            'top4' => $this->Top4Chauffeurs()
+            'top4c' => $this->Top4Chauffeurs(),
+            'top4t' => $this->top4Tracs()
         ];
         return view('super-admin/dashboard', $donnees);
     }
@@ -67,39 +68,55 @@ class SuperAdmin extends BaseController
 
     public function top4Chauffeurs()
     {
-        // Récupération des 4 chauffeurs ayant effectué le plus de transferts au cours du mois en cours
-        $top4Transferts = $this->db->table('transferts')
-            ->select('COUNT(*) AS totalTransferts, chauffeurs.matricule, chauffeurs.nom, chauffeurs.prenom')
-            ->join('chauffeurs', 'chauffeurs.matricule = transferts.chauffeur')
-            ->where('MONTH(date_mvt)', date('m'))
-            ->groupBy('chauffeurs.matricule')
-            ->orderBy('totalTransferts', 'DESC')
-            ->limit(4)
-            ->get()
-            ->getResultArray();
+        $chauffeurs = (new ModelChauffeur())->findAll();
+        $liv = (new ModeleLivraison())->findAll();
+        $trans = (new ModelTransfert())->findAll();
+        for ($i = 0; $i < sizeof($chauffeurs); $i++) {
 
-        // Récupération des 4 chauffeurs ayant effectué le plus de livraisons au cours du mois en cours
-        $top4Livraisons = $this->db->table('livraisons')
-            ->select('COUNT(*) AS totalLivraisons, chauffeurs.matricule, chauffeurs.nom, chauffeurs.prenom')
-            ->join('chauffeurs', 'chauffeurs.matricule = livraisons.chauffeur_retour')
-            ->where('MONTH(date_livraison)', date('m'))
-            ->groupBy('chauffeurs.matricule')
-            ->orderBy('totalLivraisons', 'DESC')
-            ->limit(4)
-            ->get()
-            ->getResultArray();
-
-        // Fusion des résultats
-        $result = array_merge($top4Transferts, $top4Livraisons);
-
-        // Tri des résultats par nombre total d'opérations (transferts + livraisons)
-        usort($result, function ($a, $b) {
-            return ($b['totalTransferts'] + $b['totalLivraisons']) - ($a['totalTransferts'] + $a['totalLivraisons']);
-        });
-
-        // Récupération des 4 premiers résultats
-        $top4 = array_slice($result, 0, 4);
-
-        return $top4;
+            array_push($chauffeurs[$i],0);
+            foreach ($liv as $l ) {
+                if ($chauffeurs[$i]['matricule'] == $l['chauffeur_aller'] or $chauffeurs[$i]['matricule'] == $l['chauffeur_retour']) {
+                    $chauffeurs[$i][0]++;
+                }
+            }
+            foreach ($trans as $t ) {
+                if ($chauffeurs[$i]['matricule'] == $t['chauffeur']) {
+                    $chauffeurs[$i][0]++;
+                }
+            }
+        }
+        
+        return $this->sortDriversByCount($chauffeurs);
     }
+
+    public function top4Tracs()
+    {
+        $trac = (new ModelTracteur())->findAll();
+        $liv = (new ModeleLivraison())->findAll();
+        $trans = (new ModelTransfert())->findAll();
+        for ($i = 0; $i < sizeof($trac); $i++) {
+
+            array_push($trac[$i],0);
+            foreach ($liv as $l ) {
+                if ($trac[$i]['chrono'] == $l['camion']) {
+                    $trac[$i][0]++;
+                }
+            }
+            foreach ($trans as $t ) {
+                if ($trac[$i]['chrono'] == $t['camion']) {
+                    $trac[$i][0]++;
+                }
+            }
+        }
+        
+        return $this->sortDriversByCount($trac);
+    }
+
+    public function sortDriversByCount($drivers) {
+        usort($drivers, function($a, $b) {
+          return $b[0] - $a[0];
+        });
+      
+        return $drivers;
+      }
 }

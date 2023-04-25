@@ -99,27 +99,28 @@ Super Admin - Dashboard
 
             <p>Classement chauffeur: </p>
             <ol>
-              <li>q</li>
-              <li>q</li>
-              <li>q</li>
-              <li>q</li>
+              <?php for ($i = 0; $i < sizeof($top4c); $i++) : ?>
+                <li><?= $top4c[$i]['matricule'] . ' - ' . $top4c[$i]['prenom'] . ' ' . $top4c[$i]['nom'] ?></li>
+                <?php if ($i > 4) {$i = sizeof($top4c);} ?>
+              <?php endfor; ?>
             </ol>
-            <div class="d-grid gap-2">
+            <!-- <div class="d-grid gap-2">
               <a class="btn btn-success  " href="" role="button">Télécharger</a>
-            </div>
+            </div> -->
+
           </div>
           <div class="col-md">
 
             <p>Classement tracteurs: </p>
             <ol>
-              <li>q</li>
-              <li>q</li>
-              <li>q</li>
-              <li>q</li>
+            <?php for ($i = 0; $i < sizeof($top4t); $i++) : ?>
+                <li><?= $top4t[$i]['chrono']?></li>
+                <?php if ($i > 4) break; ?>
+              <?php endfor; ?>
             </ol>
-            <div class="d-grid gap-2">
+            <!-- <div class="d-grid gap-2">
               <a class="btn btn-success  " href="" role="button">Télécharger</a>
-            </div>
+            </div> -->
 
           </div>
         </div>
