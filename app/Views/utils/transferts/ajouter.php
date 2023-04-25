@@ -1,6 +1,6 @@
 <?= $this->extend('layouts/interface'); ?>
 <?= $this->section('titre'); ?>
-OPS - Nouveau transfert
+Super Admin
 <?= $this->endSection(); ?>
 <?= $this->section('contenu'); ?>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -29,7 +29,7 @@ OPS - Nouveau transfert
         </div>
         <div class="mb-3">
           <label for="conteneur" class="form-label">Conteneur</label>
-          <input type="text" class="form-control" name="conteneur" id="conteneur" aria-describedby="helpId" placeholder="">
+          <input type="text" class="form-control" name="conteneur" required id="conteneur" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
           <label for="type_conteneur" class="form-label">Type de conteneur</label>

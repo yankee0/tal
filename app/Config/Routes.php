@@ -66,6 +66,25 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('modifier/remorques/(:segment)','Admin::modifier_remorque/$1');
         $routes->post('modifier/remorques/(:segment)','Admin::save_remorque/$1');
 
+        $routes->get('livraisons','SuperAdmin::livraisons');
+        $routes->get('transferts','SuperAdmin::transferts');
+
+        $routes->group('gen', function($routes)
+        {
+            $routes->get('transfert','Ops::generateMonthlyReportTransfert');
+            $routes->get('livraison','Ops::generateMonthlyReportLivraison');
+        });
+
+        $routes->group('transfert', function($routes)
+        {
+            $routes->get('supprimer/(:segment)','Ops::suprimmer_transfert/$1');
+
+        });
+        $routes->group('livraisons', function($routes)
+        {
+            $routes->get('supprimer/(:segment)','Ops::suprimmer_livraison/$1');
+        });
+
     });
 
     //Admin Filter
@@ -97,6 +116,10 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->add('remorques/(:segment)/(:segment)','Admin::handle_r_controle/$1/$2');
         $routes->get('modifier/remorques/(:segment)','Admin::modifier_remorque/$1');
         $routes->post('modifier/remorques/(:segment)','Admin::save_remorque/$1');
+
+        $routes->get('transferts','SuperAdmin::transferts');
+        $routes->get('livraisons','SuperAdmin::livraisons');
+
         
     });
 

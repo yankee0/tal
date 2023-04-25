@@ -115,8 +115,7 @@ session()->root = $root;
           <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <?php if ($root == '/super-admin' or $root == '/admin') : ?>
-                <a class="collapse-item" href="login.html">Lister</a>
-                <a class="collapse-item" href="register.html">Statistiques</a>
+                <a class="collapse-item" href="<?= base_url($root . '/livraisons') ?>">Lister</a>
               <?php else : ?>
                 <a class="collapse-item" href="<?=base_url($root.'/livraisons/innacheves')?>">Livraisons innachevées</a>
                 <a class="collapse-item" href="<?= base_url($root . '/livraisons') ?>">Nouvelle livraison</a>
@@ -135,8 +134,8 @@ session()->root = $root;
             <div class="bg-white py-2 collapse-inner rounded">
               <?php if ($root == '/super-admin' or $root == '/admin') : ?>
 
-                <a class="collapse-item" href="login.html">Lister les transferts</a>
-                <a class="collapse-item" href="register.html">Statistiques</a>
+                <a class="collapse-item" href="<?=base_url($root.'/transferts')?>">Lister</a>
+
               <?php else : ?>
                 <a class="collapse-item" href="<?= base_url($root . '/transfert') ?>">Nouveau transfert</a>
               <?php endif; ?>
@@ -173,11 +172,6 @@ session()->root = $root;
             <?php if ($root == '/super-admin' or $root == '/admin') : ?>
               <!-- Nav Item - Alerts -->
               <li class="nav-item dropdown no-arrow mx-1">
-                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-bell fa-fw"></i>
-                  <!-- Counter - Alerts -->
-                  <span class="badge badge-danger badge-counter">n+</span>
-                </a>
                 <!-- Dropdown - Alerts -->
                 <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                   <h6 class="dropdown-header">Centre d'alerts</h6>
