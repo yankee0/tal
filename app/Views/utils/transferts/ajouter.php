@@ -59,7 +59,24 @@ Super Admin
         </div>
         <div class="mb-3">
           <label for="chauffeur" class="form-label">Chauffeur</label>
-          <input type="text" class="form-control" name="chauffeur" id="chauffeur" aria-describedby="helpId" placeholder="">
+          <div class="form-check">
+            <input onclick="$('.tal').fadeIn();$('.tra').fadeOut()" class="form-check-input" type="radio" value="tal" name="choixch" id="tal">
+            <label onclick="$('.tal').fadeIn();$('.tra').fadeOut()" class="form-check-label" for="tal">
+              Chauffeur TAL
+            </label>
+          </div>
+          <div class="form-check">
+            <input onclick="$('.tra').fadeIn();$('.tal').fadeOut()" class="form-check-input" type="radio" value="tra" name="choixch" id="st" checked >
+            <label onclick="$('.tra').fadeIn();$('.tal').fadeOut()" class="form-check-label" for="st">
+              Sous traitant
+            </label>
+          </div>
+          <select style="display: none;" class="form-select form-select-lg tal" name="cht" id="chauffeur_aller">
+            <?php foreach ($chauf as $c) : ?>
+              <option value="<?= $c['matricule'] ?>"><?= $c['matricule'] . ' - ' . $c['prenom'] . ' ' . $c['nom'] ?></option>
+            <?php endforeach ?>
+          </select>
+          <input type="text" class="form-control tra" name="chs" id="chauffeur" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
           <label for="imm_tracteur" class="form-label">Immatriculation tracteur</label>

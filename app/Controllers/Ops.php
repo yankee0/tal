@@ -92,13 +92,25 @@ class Ops extends BaseController
 
     public function nouveau_transfert()
     {
-        return view('utils/transferts/ajouter');
+    
+        return view('utils/transferts/ajouter',[
+            'chauf' => (new ModelChauffeur())->findAll(),
+
+        ]);
     }
 
     public function ajouter_transfert()
     {
         $data = $this->request->getPost();
-
+        if ($data['choixch'] == 'tal') {
+            $data['chauffeur'] = $data['cht'];
+        }
+        else {
+            $data['chauffeur'] = $data['chs'];
+        }
+        unset($data['choixch']);
+        unset($data['cht']);
+        unset($data['chs']);
         $data['auteur'] = session()->donnees_utilisateur['matricule'];
 
 
