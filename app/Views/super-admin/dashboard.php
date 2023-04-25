@@ -97,10 +97,10 @@ Super Admin - Dashboard
 
           <div class="col-md">
 
-            <p>Classement chauffeur: </p>
+            <p class=" text-primary">Classement chauffeur: </p>
             <ol>
               <?php for ($i = 0; $i < sizeof($top4c); $i++) : ?>
-                <li><?= $top4c[$i]['matricule'] . ' - ' . $top4c[$i]['prenom'] . ' ' . $top4c[$i]['nom'] ?></li>
+                <li><?= $top4c[$i]['prenom'] . ' ' . $top4c[$i]['nom'] . ' - '.$top4c[$i][0].' opération(s)' ?></li>
                 <?php if ($i > 4) {$i = sizeof($top4c);} ?>
               <?php endfor; ?>
             </ol>
@@ -111,10 +111,10 @@ Super Admin - Dashboard
           </div>
           <div class="col-md">
 
-            <p>Classement tracteurs: </p>
+            <p class=" text-primary">Classement tracteurs: </p>
             <ol>
             <?php for ($i = 0; $i < sizeof($top4t); $i++) : ?>
-                <li><?= $top4t[$i]['chrono']?></li>
+                <li><?= $top4t[$i]['chrono'] . ' - '.$top4c[$i][0].' opération(s)' ?></li>
                 <?php if ($i > 4) break; ?>
               <?php endfor; ?>
             </ol>
