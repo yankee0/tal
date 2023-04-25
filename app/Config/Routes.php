@@ -117,6 +117,13 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         {
             $routes->get('/','Ops::nouveau_transfert');
             $routes->post('ajouter','Ops::ajouter_transfert');
+            $routes->get('supprimer/(:segment)','Ops::suprimmer_transfert/$1');
+
+        });
+        $routes->group('gen', function($routes)
+        {
+            $routes->get('transfert','Ops::generateMonthlyReportTransfert');
+            $routes->get('livraison','Ops::generateMonthlyReportLivraison');
         });
     });
 });

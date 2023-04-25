@@ -5,7 +5,7 @@ OPS - Livraisons ajout
 <?= $this->section('contenu'); ?>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Livraisons innachevés</h1>
+  <h1 class="h3 mb-0 text-gray-800">Livraisons</h1>
 </div>
 
 
@@ -94,7 +94,7 @@ OPS - Livraisons ajout
 
           <div class="mb-3">
             <label for="date_retour" class="form-label">Date de retour</label>
-            <input type="text" class="form-control" name="date_retour" id="date_retour" aria-describedby="helpId" placeholder="">
+            <input type="date" class="form-control" name="date_retour" id="date_retour" aria-describedby="helpId" placeholder="">
           </div>
           <div class="mb-3">
             <label for="chauffeur_retour" class="form-label">chauffeur retour</label>
