@@ -142,7 +142,7 @@ class Ops extends BaseController
     public function generateMonthlyReportTransfert()
     {
         // Récupération des transferts du mois en cours
-        $transfers = (new ModelTransfert())->where('MONTH(date_mvt)', date('m'))->findAll();
+        $transfers = (new ModelTransfert())->where('MONTH(date_mvt)', date('m'))->where('eirs','OK')->findAll();
 
         // Création du fichier Excel
         $spreadsheet = new Spreadsheet();

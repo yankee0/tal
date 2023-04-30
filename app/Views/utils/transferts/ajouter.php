@@ -34,7 +34,6 @@ Super Admin
         <div class="mb-3">
           <label for="type_conteneur" class="form-label">Type conteneur</label>
           <select class="form-select " name="type_conteneur" id="type_conteneur">
-            <option selected>Selectionner</option>
             <option value="20 DV">20 DV</option>
             <option value="40 DV">40 DV</option>
             <option value="40 HC">40 HC</option>
