@@ -95,7 +95,6 @@ Super Admin - Remorques - Liste
           <tr>
             <th>Chrono</th>
             <th>Immatriculation</th>
-            <th>Ancienne immatriculation</th>
             <th>Genre</th>
             <th>Au rebut</th>
             <th>Action</th>
@@ -106,7 +105,6 @@ Super Admin - Remorques - Liste
             <tr>
               <td><?= $r['chrono'] ?></td>
               <td><?= $r['immatriculation'] ?></td>
-              <td><?= $r['ancienne_immatriculation'] ?></td>
               <td><?= $r['genre'] ?></td>
               <td><?= $r['au_rebut'] ?></td>
               <td>

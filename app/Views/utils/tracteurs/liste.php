@@ -99,7 +99,6 @@ Super Admin - Tracteurs - Liste
           <tr>
             <th>Chrono</th>
             <th>Immatriculation</th>
-            <th>Ancienne immatriculation</th>
             <th>Marque</th>
             <th>CAT</th>
             <th>Au rebut</th>
@@ -111,7 +110,6 @@ Super Admin - Tracteurs - Liste
             <tr>
               <td><?= $t['chrono'] ?></td>
               <td><?= $t['immatriculation'] ?></td>
-              <td><?= $t['ancienne_immatriculation'] ?></td>
               <td><?= $t['marque'] ?></td>
               <td><?= $t['modele'] ?></td>
               <td><?= $t['au_rebut'] ?></td>
