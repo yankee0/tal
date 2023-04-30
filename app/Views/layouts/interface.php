@@ -9,13 +9,10 @@ switch (session()->donnees_utilisateur['profil']) {
     $root  = '/admin';
     break;
 
-  case 'OPS TAL':
-    $root  = '/ops-tal';
+  case 'OPS':
+    $root  = '/ops';
     break;
 
-  case 'OPS TOM':
-    $root  = '/ops-tom';
-    break;
 
   default:
     $root = null;
@@ -36,7 +33,7 @@ session()->root = $root;
   <meta name="author" content="">
   <title>TAL SA - <?= $this->renderSection('titre'); ?></title>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-  <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
   <link rel="shortcut icon" href="<?= base_url('img/tal.png') ?>" type="image/x-icon">
   <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -47,16 +44,17 @@ session()->root = $root;
 
 </head>
 
-<body id="page-top">
+<body id="page-top" class="sidebar-toggled">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url($root) ?>">
         <img src="<?= base_url('img/tal.png') ?>" alt="" height="54px">
       </a>
+
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item <?= (session()->has('position') and session()->position == 'dashboard') ? 'active' : '' ?>">
@@ -115,11 +113,10 @@ session()->root = $root;
           <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <?php if ($root == '/super-admin' or $root == '/admin') : ?>
-                <a class="collapse-item" href="login.html">Lister les livraisons</a>
-                <a class="collapse-item" href="register.html">Statistiques</a>
+                <a class="collapse-item" href="<?= base_url($root . '/livraisons') ?>">Lister</a>
               <?php else : ?>
-                <a class="collapse-item" href="login.html">Livraisons en innachevés</a>
-                <a class="collapse-item" href="login.html">Nouvelle livraison</a>
+                <a class="collapse-item" href="<?=base_url($root.'/livraisons/innacheves')?>">Livraisons innachevées</a>
+                <a class="collapse-item" href="<?= base_url($root . '/livraisons') ?>">Nouvelle livraison</a>
               <?php endif; ?>
             </div>
           </div>
@@ -135,8 +132,8 @@ session()->root = $root;
             <div class="bg-white py-2 collapse-inner rounded">
               <?php if ($root == '/super-admin' or $root == '/admin') : ?>
 
-                <a class="collapse-item" href="login.html">Lister les transferts</a>
-                <a class="collapse-item" href="register.html">Statistiques</a>
+                <a class="collapse-item" href="<?=base_url($root.'/transferts')?>">Lister</a>
+
               <?php else : ?>
                 <a class="collapse-item" href="<?= base_url($root . '/transfert') ?>">Nouveau transfert</a>
               <?php endif; ?>
@@ -145,13 +142,13 @@ session()->root = $root;
           </div>
         </li>
       <?php endif ?>
-
       <!-- Divider -->
-      <hr class="sidebar-divider" />
+      <hr class="sidebar-divider d-none d-md-block" />
+
+      <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
-
     </ul>
     <!-- End of Sidebar -->
 
@@ -173,11 +170,6 @@ session()->root = $root;
             <?php if ($root == '/super-admin' or $root == '/admin') : ?>
               <!-- Nav Item - Alerts -->
               <li class="nav-item dropdown no-arrow mx-1">
-                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-bell fa-fw"></i>
-                  <!-- Counter - Alerts -->
-                  <span class="badge badge-danger badge-counter">n+</span>
-                </a>
                 <!-- Dropdown - Alerts -->
                 <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                   <h6 class="dropdown-header">Centre d'alerts</h6>
@@ -211,8 +203,8 @@ session()->root = $root;
                   Profil: <span class="text-primary"><?= session()->donnees_utilisateur['profil'] ?></span>
                 </div>
                 <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Mon compte
+                  <i class="fas fa-lock fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Modifier le mot de passe
                 </a>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -280,6 +272,8 @@ session()->root = $root;
       </div>
     </div>
   </div>
+  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   <!-- Bootstrap core JavaScript-->

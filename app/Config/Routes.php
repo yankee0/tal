@@ -44,6 +44,7 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('utilisateurs', 'Admin::liste_utilisateurs');
         $routes->post('utilisateurs/nouveau', 'Admin::nouvel_utilisateur');
         $routes->get('utilisateurs/supprimer/(:segment)', 'Admin::supprimer_utilisateur/$1');
+        $routes->get('utilisateurs/reset/(:segment)', 'Admin::reset_utilisateur/$1');
 
         $routes->get('chauffeurs', 'Admin::liste_chauffeurs');
         $routes->post('chauffeurs/nouveau', 'Admin::nouveau_chauffeur');
@@ -52,12 +53,38 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('tracteurs', 'Admin::liste_tracteurs');
         $routes->post('tracteurs/nouveau', 'Admin::nouveau_tracteur');
         $routes->get('tracteurs/supprimer/(:segment)', 'Admin::supprimer_tracteur/$1');
-        $routes->get('tracteurs/VT/(:segment)', 'Admin::ajouter_vt/$1');
-        $routes->get('tracteurs/(:segment)', 'Admin::controle_tracteur/$1');
+        $routes->get('tracteurs/(:segment)','Admin::dossier_tracteur/$1');
+        $routes->add('tracteurs/(:segment)/(:segment)','Admin::handle_t_controle/$1/$2');
+        $routes->get('modifier/tracteurs/(:segment)','Admin::modifier_tracteur/$1');
+        $routes->post('modifier/tracteurs/(:segment)','Admin::save_tracteur/$1');
 
         $routes->get('remorques', 'Admin::liste_remorques');
         $routes->post('remorques/nouveau', 'Admin::nouveau_remorque');
         $routes->get('remorques/supprimer/(:segment)', 'Admin::supprimer_remorque/$1');
+        $routes->get('remorques/(:segment)','Admin::dossier_remorque/$1');
+        $routes->add('remorques/(:segment)/(:segment)','Admin::handle_r_controle/$1/$2');
+        $routes->get('modifier/remorques/(:segment)','Admin::modifier_remorque/$1');
+        $routes->post('modifier/remorques/(:segment)','Admin::save_remorque/$1');
+
+        $routes->get('livraisons','SuperAdmin::livraisons');
+        $routes->get('transferts','SuperAdmin::transferts');
+
+        $routes->group('gen', function($routes)
+        {
+            $routes->get('transfert','Ops::generateMonthlyReportTransfert');
+            $routes->get('livraison','Ops::generateMonthlyReportLivraison');
+        });
+
+        $routes->group('transfert', function($routes)
+        {
+            $routes->get('supprimer/(:segment)','Ops::suprimmer_transfert/$1');
+
+        });
+        $routes->group('livraisons', function($routes)
+        {
+            $routes->get('supprimer/(:segment)','Ops::suprimmer_livraison/$1');
+        });
+
     });
 
     //Admin Filter
@@ -67,6 +94,8 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('utilisateurs', 'Admin::liste_utilisateurs');
         $routes->post('utilisateurs/nouveau', 'Admin::nouvel_utilisateur');
         $routes->get('utilisateurs/supprimer/(:segment)', 'Admin::supprimer_utilisateur/$1');
+        $routes->get('utilisateurs/reset/(:segment)', 'Admin::reset_utilisateur/$1');
+
 
         $routes->get('chauffeurs', 'Admin::liste_chauffeurs');
         $routes->post('chauffeurs/nouveau', 'Admin::nouveau_chauffeur');
@@ -75,20 +104,50 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->get('tracteurs', 'Admin::liste_tracteurs');
         $routes->post('tracteurs/nouveau', 'Admin::nouveau_tracteur');
         $routes->get('tracteurs/supprimer/(:segment)', 'Admin::supprimer_tracteur/$1');
-        $routes->get('tracteurs/VT/(:segment)', 'Admin::ajouter_vt/$1');
-        $routes->get('tracteurs/(:segment)', 'Admin::control_tracteur/$1');
-
+        $routes->get('tracteurs/(:segment)','Admin::dossier_tracteur/$1');
+        $routes->add('tracteurs/(:segment)/(:segment)','Admin::handle_t_controle/$1/$2');
+        $routes->get('modifier/tracteurs/(:segment)','Admin::modifier_tracteur/$1');
+        $routes->post('modifier/tracteurs/(:segment)','Admin::save_tracteur/$1');
 
         $routes->get('remorques', 'Admin::liste_remorques');
         $routes->post('remorques/nouveau', 'Admin::nouveau_remorque');
         $routes->get('remorques/supprimer/(:segment)', 'Admin::supprimer_remorque/$1');
+        $routes->get('remorques/(:segment)','Admin::dossier_remorque/$1');
+        $routes->add('remorques/(:segment)/(:segment)','Admin::handle_r_controle/$1/$2');
+        $routes->get('modifier/remorques/(:segment)','Admin::modifier_remorque/$1');
+        $routes->post('modifier/remorques/(:segment)','Admin::save_remorque/$1');
+
+        $routes->get('transferts','SuperAdmin::transferts');
+        $routes->get('livraisons','SuperAdmin::livraisons');
+
+        
     });
 
-    //OPS TAL filter
-    $routes->group('ops-tal', ['filter' => 'ops-tal'], function ($routes) {
-        $routes->get('/', 'OpsTal::index');
-        $routes->get('transfert', 'OpsTal::transfert');
-        $routes->post('transfert/ajouter', 'Opstal::ajouter_transfert');
+    //OPS
+    $routes->group('ops',['filter' => 'ops'], function($routes)
+    {
+        $routes->get('/','Ops::index');
+        $routes->group('livraisons', function($routes)
+        {
+            $routes->get('/','Ops::nouvelle_livraison');
+            $routes->add('innacheves','Ops::liste_livraison');
+            $routes->post('ajout','Ops::save_livraison');
+            $routes->post('complement','Ops::complement_livraison');
+            $routes->get('supprimer/(:segment)','Ops::suprimmer_livraison/$1');
+        });
+
+        $routes->group('transfert', function($routes)
+        {
+            $routes->get('/','Ops::nouveau_transfert');
+            $routes->post('ajouter','Ops::ajouter_transfert');
+            $routes->get('supprimer/(:segment)','Ops::suprimmer_transfert/$1');
+
+        });
+        $routes->group('gen', function($routes)
+        {
+            $routes->get('transfert','Ops::generateMonthlyReportTransfert');
+            $routes->get('livraison','Ops::generateMonthlyReportLivraison');
+        });
     });
 });
 

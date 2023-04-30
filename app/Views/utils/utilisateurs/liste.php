@@ -39,8 +39,7 @@ Super Admin - Utilisateurs - Liste
                 <option <?= set_select('profil') ?> value="SUPER ADMIN">SUPER ADMIN</option>
                 <option <?= set_select('profil') ?> value="ADMIN">ADMIN</option>
               <?php endif; ?>
-              <option <?= set_select('profil') ?> value="OPS TAL">OPS TAL</option>
-              <option <?= set_select('profil') ?> value="OPS TOM">OPS TOM</option>
+              <option <?= set_select('profil') ?> value="OPS TOM">OPS</option>
             </select>
             <label for="profil">Sélectionner un profil</label>
           </div>
@@ -103,7 +102,7 @@ Super Admin - Utilisateurs - Liste
                 <td><?= $u['nom'] ?></td>
                 <td class="d-flex">
                   <button type="button" value="<?=$u['matricule']?>" class="del w-100 mx-1 btn btn-danger btn-sm" title="Supprimer"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                  <button type="button" value="<?=$u['matricule']?>" class="btn w-100 mx-1 btn-primary btn-sm" title="Réinitialiser le mot de passe"><i class="fa fa-lock" aria-hidden="true"></i></button>
+                  <button type="button" value="<?=$u['matricule']?>" class="res btn w-100 mx-1 btn-primary btn-sm" title="Réinitialiser le mot de passe"><i class="fa fa-lock" aria-hidden="true"></i></button>
                 </td>
               </tr>
             <?php else : ?>
@@ -128,13 +127,26 @@ Super Admin - Utilisateurs - Liste
   </div>
 </div>
 <script>
-  let table = new DataTable('#tableau');
-  let r = null;
+  // let table = new DataTable('#tableau');
+  $('#tableau').DataTable(
+    {
+      'pageLength' : -1
+    }
+  );
+
   $('.del').click(function (e) { 
     e.preventDefault();
     let target = $(this).val()
     if(confirm('Supprimer l\'utilisateur matricule: '+ target)){
       window.location = '<?=base_url(session()->root.'/utilisateurs/supprimer/')?>'+target
+    }
+  });
+
+  $('.res').click(function (e) { 
+    e.preventDefault();
+    let target = $(this).val()
+    if(confirm('Confirmer la réinitialisation du mot de passe du compte matricule: '+ target)){
+      window.location = '<?=base_url(session()->root.'/utilisateurs/reset/')?>'+target
     }
   });
 
@@ -144,6 +156,14 @@ Super Admin - Utilisateurs - Liste
     <script>alert('Suppression réussie')</script>
   <?php else : ?>
     <script>alert('Echec de la supression')</script>
+  <?php endif ?>
+<?php endif ?>
+
+<?php if (session()->has('updated')) : ?>
+  <?php if (session()->updated) : ?>
+    <script>alert('Réinitialisation réussie')</script>
+  <?php else : ?>
+    <script>alert('Echec de la réinitialisation')</script>
   <?php endif ?>
 <?php endif ?>
 
