@@ -65,7 +65,6 @@ Super Admin
           <?php endforeach ?>
         </tbody>
       </table>
-      <div class="my-3"></div>
     </div>
   </div>
 

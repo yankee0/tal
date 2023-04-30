@@ -94,9 +94,12 @@ Super Admin
         </div>
         <div class="mb-3">
           <label for="eirs" class="form-label">EIRS</label>
-          <input type="text"
-            class="form-control" name="eirs" id="eirs" aria-describedby="helpId" placeholder="">
+          <select class="form-select " name="eirs" id="eirs">
+            <option value="NON OK">NON OK</option>
+            <option value="OK">OK</option>
+          </select>
         </div>
+
         <div class="mb-3">
           <label for="remarque_sous_traitant" class="form-label">Remarque sous traitant</label>
           <input type="text"
