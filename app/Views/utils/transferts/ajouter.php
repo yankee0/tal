@@ -32,8 +32,14 @@ Super Admin
           <input type="text" class="form-control" name="conteneur" required id="conteneur" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
-          <label for="type_conteneur" class="form-label">Type de conteneur</label>
-          <input type="text" class="form-control" name="type_conteneur" id="type_conteneur" aria-describedby="helpId" placeholder="">
+          <label for="type_conteneur" class="form-label">Type conteneur</label>
+          <select class="form-select " name="type_conteneur" id="type_conteneur">
+            <option selected>Selectionner</option>
+            <option value="20 DV">20 DV</option>
+            <option value="40 DV">40 DV</option>
+            <option value="40 HC">40 HC</option>
+            <option value="40 RF">40 RF</option>
+          </select>
         </div>
         <div class="mb-3">
           <label for="teus" class="form-label">TEUS</label>
