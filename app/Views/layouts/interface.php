@@ -13,9 +13,9 @@ switch (session()->donnees_utilisateur['profil']) {
     $root  = '/ops';
     break;
 
-    case 'FACTURATION':
-      $root  = '/facturation';
-      break;
+  case 'FACTURATION':
+    $root  = '/facturation';
+    break;
 
 
   default:
@@ -106,7 +106,7 @@ session()->root = $root;
       <?php endif ?>
 
 
-      <?php if ($root != '/admin') : ?>
+      <?php if ($root != '/admin' and $root != '/facturation') : ?>
         <!-- Heading -->
         <div class="sidebar-heading">Opérations</div>
 
@@ -121,7 +121,7 @@ session()->root = $root;
               <?php if ($root == '/super-admin' or $root == '/admin') : ?>
                 <a class="collapse-item" href="<?= base_url($root . '/livraisons') ?>">Lister</a>
               <?php else : ?>
-                <a class="collapse-item" href="<?=base_url($root.'/livraisons/innacheves')?>">Livraisons innachevées</a>
+                <a class="collapse-item" href="<?= base_url($root . '/livraisons/innacheves') ?>">Livraisons innachevées</a>
                 <a class="collapse-item" href="<?= base_url($root . '/livraisons') ?>">Nouvelle livraison</a>
               <?php endif; ?>
             </div>
@@ -138,7 +138,7 @@ session()->root = $root;
             <div class="bg-white py-2 collapse-inner rounded">
               <?php if ($root == '/super-admin' or $root == '/admin') : ?>
 
-                <a class="collapse-item" href="<?=base_url($root.'/transferts')?>">Lister</a>
+                <a class="collapse-item" href="<?= base_url($root . '/transferts') ?>">Lister</a>
 
               <?php else : ?>
                 <a class="collapse-item" href="<?= base_url($root . '/transfert') ?>">Nouveau transfert</a>
@@ -149,6 +149,12 @@ session()->root = $root;
           </div>
         </li>
       <?php endif ?>
+      <li class="nav-item <?= (session()->has('position') and session()->position == 'remorques') ? 'active' : '' ?>">
+        <a class="nav-link" href="<?= base_url($root).'/rapports' ?>">
+          <i class="fas fa-fw fa-file-excel"></i>
+          <span>Rapport</span></a>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block" />
 
@@ -279,7 +285,7 @@ session()->root = $root;
       </div>
     </div>
   </div>
-  
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 

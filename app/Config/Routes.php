@@ -152,10 +152,12 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         });
     });
 
-    $routes->group('facturation',['filter' => 'facturation'], function($routes)
-    {
-        $routes->get('/','Facturation::index');
-    });
+    //Facturation
+    $routes->get('/(:segment)/rapports','Facturation::index');
+    $routes->get('/facturation','Facturation::index');
+    $routes->post('/(:segment)/rapports','Facturation::generate');
+    $routes->post('/facturation','Facturation::generate');
+
 });
 
 /*
