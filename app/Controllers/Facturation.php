@@ -26,12 +26,22 @@ class Facturation extends BaseController
 
     public function generateReportLivraison($m, $y)
     {
-        // Récupération des livraisons du mois courant
-        $livraisons = (new ModeleLivraison())
-            ->where('date_retour IS NOT NULL')
-            ->where('MONTH(date_livraison)', $m)
-            ->where('YEAR(date_livraison)', $y)
-            ->findAll();
+        if ($m == 'x') {
+
+            // Récupération des livraisons du mois courant
+            $livraisons = (new ModeleLivraison())
+                ->where('date_retour IS NOT NULL')
+                ->where('YEAR(date_livraison)', $y)
+                ->findAll();
+        }else {
+
+            // Récupération des livraisons du mois courant
+            $livraisons = (new ModeleLivraison())
+                ->where('date_retour IS NOT NULL')
+                ->where('MONTH(date_livraison)', $m)
+                ->where('YEAR(date_livraison)', $y)
+                ->findAll();
+        }
 
         // Création du fichier Excel
         $spreadsheet = new Spreadsheet();
@@ -76,11 +86,20 @@ class Facturation extends BaseController
     public function generateReportTransfert($m, $y)
     {
         // Récupération des transferts du mois en cours
-        $transfers = (new ModelTransfert())
-            ->where('eirs','OK')
-            ->where('MONTH(date_mvt)', $m)
-            ->where('YEAR(date_mvt)', $y)
-            ->findAll();
+        if ($m == 'x') {
+            # code...
+            $transfers = (new ModelTransfert())
+                ->where('eirs','OK')
+                ->where('MONTH(date_mvt)', $m)
+                ->where('YEAR(date_mvt)', $y)
+                ->findAll();
+        } else {
+            # code...
+            $transfers = (new ModelTransfert())
+                ->where('eirs','OK')
+                ->where('YEAR(date_mvt)', $y)
+                ->findAll();
+        }
 
         // Création du fichier Excel
         $spreadsheet = new Spreadsheet();

@@ -17,7 +17,6 @@ OPS - Dashboard
     <div class="table-responsive">
       <div class="d-flex justify-content-between mb-3">
         <h4>Récapitulatif hebdomadaire livraisons</h4>
-        <a class="btn btn-success btn-sm " href="<?=base_url(session()->root.'/gen/livraison')?>" role="button"> Rapport mensuel</a>
       </div>
       <table class="table table-bordered" id="tableau" width="100%" cellspacing="0">
         <thead>
@@ -68,7 +67,6 @@ OPS - Dashboard
       <div class="my-3"></div>
       <div class="d-flex justify-content-between mb-3">
         <h4>Récapitulatif hebdomadaire transfers</h4>
-        <a class="btn btn-success btn-sm " href="<?=base_url(session()->root.'/gen/transfert')?>" role="button">Rapport mensuel</a>
       </div>
 
       <table class="table table-bordered" id="tableau2" width="100%" cellspacing="0">

@@ -14,7 +14,7 @@ Rapports
   <div class="card-body">
     <form action="<?=base_url('AllahIsOne/rapports')?>" method="post">
       <div class="mb-3">
-        <label for="report-type" class="form-label">Type de rapport :</label>
+        <label for="report-type" class="form-label">Type de rapport : <br> <span class=" text-xs text-warning">(date mvt pour les transfert et date de livraison pour les livraisons)</span></label>
         <select id="report-type" name="type" class="form-select" required>
           <option value="" selected disabled hidden>Choisir un type de rapport...</option>
           <option value="livraison">Livraison</option>
@@ -22,9 +22,10 @@ Rapports
         </select>
       </div>
       <div class="mb-3">
-        <label for="month"  class="form-label">Mois :</label>
+        <label for="month"  class="form-label">Mois : <br> <span class=" text-xs text-warning">(cocher ignorer pour gérer du rapport annuel)</span> </label>
         <select id="month" name="m" class="form-select" required>
           <option value="" selected disabled hidden>Choisir un mois...</option>
+          <option value="x">Ignorer le mois</option>
           <option value="01">Janvier</option>
           <option value="02">Février</option>
           <option value="03">Mars</option>
