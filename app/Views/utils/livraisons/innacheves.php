@@ -60,7 +60,7 @@ OPS - Livraisons innachevé
         <div class="modal-body">
           <form id="formLiv" method="post" action="<?= base_url(session()->root . '/livraisons/complement') ?>">
             <div class="form-floating mb-3">
-              <input type="date" class="form-control" name="date_retour" id="date_retour" placeholder="date_retour">
+              <input type="datetime-local" class="form-control" name="date_retour" id="date_retour" placeholder="date_retour">
               <label for="date_retour">Date retour</label>
             </div>
             <div class="form-floating mb-3">

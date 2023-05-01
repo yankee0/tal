@@ -25,7 +25,7 @@ Super Admin
         </div>
         <div class="mb-3">
           <label for="date_mvt" class="form-label">Date MVT</label>
-          <input type="date" class="form-control" name="date_mvt" id="date_mvt" aria-describedby="helpId" placeholder="">
+          <input type="datetime-local" class="form-control" name="date_mvt" id="date_mvt" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
           <label for="conteneur" class="form-label">Conteneur</label>

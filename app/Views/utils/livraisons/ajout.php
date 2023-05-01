@@ -18,15 +18,15 @@ OPS - Livraisons ajout
       <div class="col-md">
         <div class="mb-3">
           <label for="date_depot_bl" class="form-label">Date de BL</label>
-          <input type="date" class="form-control" name="date_depot_bl" id="date_depot_bl" aria-describedby="helpId" placeholder="">
+          <input type="datetime-local" class="form-control" name="date_depot_bl" id="date_depot_bl" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
           <label for="date_validite" class="form-label">Date de validité</label>
-          <input type="date" class="form-control" name="date_validite" id="date_validite" aria-describedby="helpId" placeholder="">
+          <input type="datetime-local" class="form-control" name="date_validite" id="date_validite" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
           <label for="date_livraison" class="form-label">Date de livraison</label>
-          <input type="date" class="form-control" name="date_livraison" id="date_livraison" aria-describedby="helpId" placeholder="">
+          <input type="datetime-local" class="form-control" name="date_livraison" id="date_livraison" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
           <label for="conteneur" class="form-label">Conteneur</label>
@@ -94,7 +94,7 @@ OPS - Livraisons ajout
 
           <div class="mb-3">
             <label for="date_retour" class="form-label">Date de retour</label>
-            <input type="date" class="form-control" name="date_retour" id="date_retour" aria-describedby="helpId" placeholder="">
+            <input type="datetime-local" class="form-control" name="date_retour" id="date_retour" aria-describedby="helpId" placeholder="">
           </div>
           <div class="mb-3">
             <label for="chauffeur_retour" class="form-label">chauffeur retour</label>

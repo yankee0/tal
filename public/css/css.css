@@ -6,4 +6,8 @@
   display: none;
   position: fixed;
   top: 100px;
+}
+
+table * {
+  min-width: 200px;
 }/*# sourceMappingURL=css.css.map */
