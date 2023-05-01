@@ -81,53 +81,6 @@ Super Admin - Dashboard
   </div>
 </div>
 <div class="row">
-
-  <!-- Area Chart -->
-  <div class="col-xl-6 col-lg-6">
-    <div class="card shadow mb-4">
-      <!-- Card Header - Dropdown -->
-      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Rapports mensuels</h6>
-      </div>
-      <!-- Card Body -->
-      <div class="card-body">
-        <div class="my-3"></div>
-        <h5>Classement</h5>
-        <div class="row">
-
-          <div class="col-md">
-
-            <p class=" text-primary">Classement chauffeur: </p>
-            <ol>
-              <?php for ($i = 0; $i < sizeof($top4c); $i++) : ?>
-                <li><?= $top4c[$i]['prenom'] . ' ' . $top4c[$i]['nom'] . ' - '.$top4c[$i][0].' opération(s)' ?></li>
-                <?php if ($i > 4) {$i = sizeof($top4c);} ?>
-              <?php endfor; ?>
-            </ol>
-            <!-- <div class="d-grid gap-2">
-              <a class="btn btn-success  " href="" role="button">Télécharger</a>
-            </div> -->
-
-          </div>
-          <div class="col-md">
-
-            <p class=" text-primary">Classement tracteurs: </p>
-            <ol>
-            <?php for ($i = 0; $i < sizeof($top4t); $i++) : ?>
-                <li><?= $top4t[$i]['chrono'] . ' - '.$top4c[$i][0].' opération(s)' ?></li>
-                <?php if ($i > 4) break; ?>
-              <?php endfor; ?>
-            </ol>
-            <!-- <div class="d-grid gap-2">
-              <a class="btn btn-success  " href="" role="button">Télécharger</a>
-            </div> -->
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Pie Chart -->
   <div class="col-xl-6 col-lg-6">
     <div class="card shadow mb-4">
@@ -152,6 +105,73 @@ Super Admin - Dashboard
       </div>
     </div>
   </div>
+
+  <!-- Area Chart -->
+  <div class="col-xl-6 col-lg-6">
+    <div class="card shadow mb-4">
+      <!-- Card Header - Dropdown -->
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">Alertes expiration (VT ASS CATS)</h6>
+      </div>
+      <!-- Card Body -->
+      <div class="card-body rap">
+
+        <p class=" text-primary">Liste: </p>
+        <ol>
+          <?php foreach ($vt as $v) : ?>
+            <?php
+            $data = ($v['chrono_tracteur'] != null) ? $v['chrono_tracteur'] : $v['chrono_remorque'];
+            ?>
+            <li><a href="<?= base_url(session()->root) . '/tracteurs/' . $data ?>"><?= $v['type'] . ' - ' . $data ?></a> </li>
+          <?php endforeach ?>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Area Chart -->
+  <div class="col-xl-6 col-lg-6">
+    <div class="card shadow mb-4">
+      <!-- Card Header - Dropdown -->
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">Classement mensuels chauffeurs</h6>
+      </div>
+      <!-- Card Body -->
+      <div class="card-body rap">
+
+        <p class=" text-primary">Classement chauffeur: </p>
+        <ol>
+          <?php for ($i = 0; $i < sizeof($top4c); $i++) : ?>
+            <li><?= $top4c[$i]['prenom'] . ' ' . $top4c[$i]['nom'] . ' - ' . $top4c[$i][0] . ' opération(s)' ?></li>
+            <?php if ($i > 4) {
+              $i = sizeof($top4c);
+            } ?>
+          <?php endfor; ?>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-6 col-lg-6">
+    <div class="card shadow mb-4">
+      <!-- Card Header - Dropdown -->
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">Classement mensuels tracteurs</h6>
+      </div>
+      <!-- Card Body -->
+      <div class="card-body rap">
+        <p class=" text-primary">Classement tracteurs: </p>
+        <ol>
+          <?php for ($i = 0; $i < sizeof($top4t); $i++) : ?>
+            <li><?= $top4t[$i]['chrono'] . ' - ' . $top4c[$i][0] . ' opération(s)' ?></li>
+          <?php endfor; ?>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 
 <script>

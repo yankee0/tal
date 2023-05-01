@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ModelTracteur;
 use App\Models\ModelChauffeur;
+use App\Models\ModeleControle;
 use App\Models\ModeleLivraison;
 use App\Models\ModelRemorque;
 use App\Models\ModelTransfert;
@@ -27,7 +28,8 @@ class SuperAdmin extends BaseController
             'gliv' => $this->countMonthlyDeliveriesLiv(),
             'gtrans' => $this->countMonthlyDeliveriesTrans(),
             'top4c' => $this->Top4Chauffeurs(),
-            'top4t' => $this->top4Tracs()
+            'top4t' => $this->top4Tracs(),
+            'vt' => (new ModeleControle())->where('fin <', date('Y-m-d'))->findAll(),
         ];
         return view('super-admin/dashboard', $donnees);
     }
