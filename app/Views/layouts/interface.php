@@ -149,11 +149,14 @@ session()->root = $root;
           </div>
         </li>
       <?php endif ?>
-      <li class="nav-item <?= (session()->has('position') and session()->position == 'remorques') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url($root).'/rapports' ?>">
-          <i class="fas fa-fw fa-file-excel"></i>
-          <span>Rapport</span></a>
-      </li>
+
+      <?php if ($root == '/super-admin' or $root == '/facturation') : ?>
+        <li class="nav-item <?= (session()->has('position') and session()->position == 'remorques') ? 'active' : '' ?>">
+          <a class="nav-link" href="<?= base_url($root).'/rapports' ?>">
+            <i class="fas fa-fw fa-file-excel"></i>
+            <span>Rapport</span></a>
+        </li>
+      <?php endif ?>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block" />
