@@ -9,6 +9,13 @@
 
 }
 
-table * {
+table tr,table td,table th {
   min-width: 200px;
+
+
+}
+
+.rap {
+  max-height: 400px;
+  overflow-y: scroll;
 }
