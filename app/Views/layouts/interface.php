@@ -13,6 +13,10 @@ switch (session()->donnees_utilisateur['profil']) {
     $root  = '/ops';
     break;
 
+    case 'FACTURATION':
+      $root  = '/facturation';
+      break;
+
 
   default:
     $root = null;

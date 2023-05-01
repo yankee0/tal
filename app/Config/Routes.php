@@ -151,6 +151,11 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
             $routes->get('livraison','Ops::generateMonthlyReportLivraison');
         });
     });
+
+    $routes->group('facturation',['filter' => 'facturation'], function($routes)
+    {
+        $routes->get('/','Facturation::index');
+    });
 });
 
 /*

@@ -15,7 +15,7 @@ class Utilisateur extends Migration
                 'null' => false,
             ],
             'profil' => [
-                'type' => 'ENUM("SUPER ADMIN","ADMIN","OPS")',
+                'type' => 'ENUM("SUPER ADMIN","ADMIN","OPS","FACTURATION")',
             ],
             'prenom' => [
                 'type' => 'VARCHAR',

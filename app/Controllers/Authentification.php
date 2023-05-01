@@ -16,7 +16,7 @@ class Authentification extends BaseController
   {
 
     $matricule = strtoupper('' . $this->request->getPost('login'));
-    $mot_de_passe = sha1(''.$this->request->getPost('mdp'));
+    $mot_de_passe = sha1('' . $this->request->getPost('mdp'));
 
     $model = new ModelUtilisateur();
 
@@ -47,6 +47,10 @@ class Authentification extends BaseController
 
       case 'OPS':
         $destination  = '/ops';
+        break;
+
+      case 'FACTURATION':
+        $destination  = '/facturation';
         break;
 
       default:

@@ -3,6 +3,7 @@
 namespace Config;
 
 use App\Filters\Admin;
+use App\Filters\Facturation;
 use App\Filters\OpsFilter;
 use App\Filters\OpsTal;
 use App\Filters\SessionCheck;
@@ -29,7 +30,8 @@ class Filters extends BaseConfig
         'session-check' => SessionCheck::class,
         'super-admin'   => SuperAdmin::class,
         'admin'         => Admin::class,
-        'ops'           => OpsFilter::class 
+        'ops'           => OpsFilter::class,
+        'facturation'   => Facturation::class
     ];
 
     /**
