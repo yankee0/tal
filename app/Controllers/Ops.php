@@ -233,4 +233,17 @@ class Ops extends BaseController
         header('Content-Disposition: attachment; filename="' . $filename . '"');
         $writer->save('php://output');
     }
+
+    public function marquer_transfert(string $cont)
+    {
+        $op = (new ModelTransfert())->where('conteneur', $cont)->set('eirs','OK')->update();
+        return redirect()->back()->with('update', $op);
+    }
+
+    public function non_eirs_transfert(){
+        $data = [
+            'trans' => (new ModelTransfert())->where('eirs','NON OK')->find()
+        ];
+        return view('utils/transferts/non-eirs',$data);
+    }
 }

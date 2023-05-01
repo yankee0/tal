@@ -139,8 +139,10 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
         $routes->group('transfert', function($routes)
         {
             $routes->get('/','Ops::nouveau_transfert');
+            $routes->get('non-eirs','Ops::non_eirs_transfert');
             $routes->post('ajouter','Ops::ajouter_transfert');
             $routes->get('supprimer/(:segment)','Ops::suprimmer_transfert/$1');
+            $routes->get('marque/(:segment)','Ops::marquer_transfert/$1');
 
         });
         $routes->group('gen', function($routes)

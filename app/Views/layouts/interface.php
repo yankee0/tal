@@ -138,6 +138,7 @@ session()->root = $root;
 
               <?php else : ?>
                 <a class="collapse-item" href="<?= base_url($root . '/transfert') ?>">Nouveau transfert</a>
+                <a class="collapse-item" href="<?= base_url($root . '/transfert/non-eirs') ?>">En attente de EIRS</a>
               <?php endif; ?>
 
             </div>
