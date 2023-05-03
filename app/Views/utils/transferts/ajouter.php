@@ -34,10 +34,11 @@ Super Admin
         <div class="mb-3">
           <label for="type_conteneur" class="form-label">Type conteneur</label>
           <select class="form-select " name="type_conteneur" id="type_conteneur">
-            <option value="20 DV">20 DV</option>
-            <option value="40 DV">40 DV</option>
-            <option value="40 HC">40 HC</option>
-            <option value="40 RF">40 RF</option>
+            <option selected disabled>Selectionner</option>
+            <option class="teus1" value="20 DV">20 DV</option>
+            <option class="teus2" value="40 DV">40 DV</option>
+            <option class="teus2" value="40 HC">40 HC</option>
+            <option class="teus2" value="40 RF">40 RF</option>
           </select>
         </div>
         <div class="mb-3">
@@ -63,33 +64,38 @@ Super Admin
           <input type="text" class="form-control" name="p_v" id="p_v" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
-          <label for="chauffeur" class="form-label">Chauffeur</label>
+          <label for="chauffeur" class="form-label">Prestataire</label>
           <div class="form-check">
             <input onclick="$('.tal').fadeIn();$('.tra').fadeOut()" class="form-check-input" type="radio" value="tal" name="choixch" id="tal">
             <label onclick="$('.tal').fadeIn();$('.tra').fadeOut()" class="form-check-label" for="tal">
-              Chauffeur TAL
+              TAL
             </label>
           </div>
           <div class="form-check">
-            <input onclick="$('.tra').fadeIn();$('.tal').fadeOut()" class="form-check-input" type="radio" value="tra" name="choixch" id="st" checked >
+            <input onclick="$('.tra').fadeIn();$('.tal').fadeOut()" class="form-check-input" type="radio" value="tra" name="choixch" id="st" checked>
             <label onclick="$('.tra').fadeIn();$('.tal').fadeOut()" class="form-check-label" for="st">
               Sous traitant
             </label>
           </div>
+
           <select style="display: none;" class="form-select form-select-lg tal" name="cht" id="chauffeur_aller">
             <?php foreach ($chauf as $c) : ?>
               <option value="<?= $c['matricule'] ?>"><?= $c['matricule'] . ' - ' . $c['prenom'] . ' ' . $c['nom'] ?></option>
             <?php endforeach ?>
           </select>
-          <input type="text" class="form-control tra" name="chs" id="chauffeur" aria-describedby="helpId" placeholder="">
+          <input type="text" class="form-control tra" name="chs" id="chauffeur" aria-describedby="helpId" placeholder="Chauffeur">
         </div>
-        <div class="mb-3">
-          <label for="imm_tracteur" class="form-label">Immatriculation tracteur</label>
+        <div class="mb-3 tal" style="display: none">
+          <label for="camion" class="form-label">Camion</label>
+          <select class="form-select form-select-lg" name="camion" id="camion">
+            <?php foreach ($trac as $t) : ?>
+              <option value="<?= $t['chrono'] ?>"><?= $t['chrono'] ?></option>
+            <?php endforeach ?>
+          </select>
+        </div>
+        <div class="mb-3 tra">
+          <label for="imm_tracteur " class="form-label">Immatriculation tracteur</label>
           <input type="text" class="form-control" name="imm_tracteur" id="imm_tracteur" aria-describedby="helpId" placeholder="">
-        </div>
-        <div class="mb-3">
-          <label for="chrono" class="form-label">Chrono</label>
-          <input type="text" class="form-control" name="chrono" id="chrono" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
           <label for="eirs" class="form-label">EIRS</label>
@@ -101,8 +107,7 @@ Super Admin
 
         <div class="mb-3">
           <label for="remarque_sous_traitant" class="form-label">Remarque sous traitant</label>
-          <input type="text"
-            class="form-control" name="remarque_sous_traitant" id="remarque_sous_traitant" aria-describedby="helpId" placeholder="">
+          <input type="text" class="form-control" name="remarque_sous_traitant" id="remarque_sous_traitant" aria-describedby="helpId" placeholder="">
         </div>
 
       </div>
@@ -124,6 +129,27 @@ Super Admin
     </script>
   <?php endif ?>
 <?php endif ?>
+
+<script>
+  $('#type_conteneur').change(function(e) {
+  e.preventDefault();
+  let vals = ['40 DV', '40 HC', '40 RF'];
+  let myVal = $(this).val();
+  if (vals.includes(myVal)) {
+    $('#teus').val('2');
+  } else {
+    $('#teus').val('1');
+  }
+});
+
+  // $('.teus1').on('click', function() {
+  //   // $('#teus').val('1');
+  //   alert()
+  //   // $('#teus').val('2');
+  // });
+  // $('.teus2').on('click', function() {
+    // });
+</script>
 
 
 <?= $this->endSection(); ?>

@@ -95,6 +95,7 @@ class Ops extends BaseController
     
         return view('utils/transferts/ajouter',[
             'chauf' => (new ModelChauffeur())->findAll(),
+            'trac' => (new ModelTracteur())->findAll()
 
         ]);
     }
@@ -104,10 +105,12 @@ class Ops extends BaseController
         $data = $this->request->getPost();
         if ($data['choixch'] == 'tal') {
             $data['chauffeur'] = $data['cht'];
+            $data['chrono'] = $data['camion'];
         }
         else {
             $data['chauffeur'] = $data['chs'];
         }
+        unset($data['camion']);
         unset($data['choixch']);
         unset($data['cht']);
         unset($data['chs']);
