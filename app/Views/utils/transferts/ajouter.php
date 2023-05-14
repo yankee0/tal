@@ -43,7 +43,7 @@ Super Admin
         </div>
         <div class="mb-3">
           <label for="teus" class="form-label">TEUS</label>
-          <input type="text" class="form-control" name="teus" id="teus" aria-describedby="helpId" placeholder="">
+          <input type="number" class="form-control" name="teus" id="teus" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
           <label for="ligne" class="form-label">Ligne</label>
@@ -84,16 +84,16 @@ Super Admin
               <option value="<?= $c['matricule'] ?>"><?= $c['matricule'] . ' - ' . $c['prenom'] . ' ' . $c['nom'] ?></option>
             <?php endforeach ?>
           </select>
-          <select class="form-select form-select-lg tra" name="pres" id="chauffeur_aller">
+          <select class="form-select form-select-lg tra" name="pres">
             <option selected disabled>Prestataires</option>
             <?php foreach ($sous as $s) : ?>
               <option value="<?= $s['nom'] ?>"><?= $s['nom'] ?></option>
             <?php endforeach ?>
           </select>
-          <div class="mb-3">
-            <label for="chauffeur" class="form-label">Chauffeur</label>
+          <div class="mb-3 tra">
+            <label for="chauffe" class="form-label ">Chauffeur</label>
             <input type="text"
-              class="form-control" name="chauffeur" id="chauffeur" aria-describedby="helpId" placeholder="Nom du chauffeur">
+              class="form-control" name="chauffeur" id="chauffe" aria-describedby="helpId" placeholder="Nom du chauffeur">
           </div>
         </div>
         <div class="mb-3 tal" style="display: none">

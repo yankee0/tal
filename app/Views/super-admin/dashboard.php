@@ -144,9 +144,6 @@ Super Admin - Dashboard
         <ol>
           <?php for ($i = 0; $i < sizeof($top4c); $i++) : ?>
             <li><?= $top4c[$i]['prenom'] . ' ' . $top4c[$i]['nom'] . ' - ' . $top4c[$i][0] . ' opération(s)' ?></li>
-            <?php if ($i > 4) {
-              $i = sizeof($top4c);
-            } ?>
           <?php endfor; ?>
         </ol>
       </div>

@@ -33,8 +33,8 @@ class Transferts extends Migration
                 'null' => true,
             ],
             'teus' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
+                'type' => 'INT',
+                'constraint' => 11,
                 'null' => true,
             ],
             'ligne' => [

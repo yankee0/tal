@@ -71,11 +71,14 @@ class SuperAdmin extends BaseController
     public function top4Chauffeurs()
     {
         $chauffeurs = (new ModelChauffeur())->findAll();
-        $liv = (new ModeleLivraison())->findAll();
-        $trans = (new ModelTransfert())->findAll();
+        array_merge($chauffeurs,['yankee' => 1]);
+        $liv = (new ModeleLivraison())->where('MONTH(date_livraison)',date('m'))->findAll();
+        $trans = (new ModelTransfert())->where('MONTH(date_mvt)',date('m'))->findAll();
         for ($i = 0; $i < sizeof($chauffeurs); $i++) {
 
             array_push($chauffeurs[$i],0);
+            array_push($chauffeurs[$i],1);
+            $chauffeurs[$i]['yeet'] = "";
             foreach ($liv as $l ) {
                 if ($chauffeurs[$i]['matricule'] == $l['chauffeur_aller'] or $chauffeurs[$i]['matricule'] == $l['chauffeur_retour']) {
                     $chauffeurs[$i][0]++;
@@ -84,6 +87,7 @@ class SuperAdmin extends BaseController
             foreach ($trans as $t ) {
                 if ($chauffeurs[$i]['matricule'] == $t['chauffeur']) {
                     $chauffeurs[$i][0]++;
+                    // $chauffeurs[$i][1]++;
                 }
             }
         }
@@ -94,8 +98,8 @@ class SuperAdmin extends BaseController
     public function top4Tracs()
     {
         $trac = (new ModelTracteur())->findAll();
-        $liv = (new ModeleLivraison())->findAll();
-        $trans = (new ModelTransfert())->findAll();
+        $liv = (new ModeleLivraison())->where('MONTH(date_livraison)',date('m'))->findAll();
+        $trans = (new ModelTransfert())->where('MONTH(date_mvt)',date('m'))->findAll();
         for ($i = 0; $i < sizeof($trac); $i++) {
 
             array_push($trac[$i],0);
