@@ -90,6 +90,11 @@ Super Admin
               <option value="<?= $s['nom'] ?>"><?= $s['nom'] ?></option>
             <?php endforeach ?>
           </select>
+          <div class="mb-3">
+            <label for="chauffeur" class="form-label">Chauffeur</label>
+            <input type="text"
+              class="form-control" name="chauffeur" id="chauffeur" aria-describedby="helpId" placeholder="Nom du chauffeur">
+          </div>
         </div>
         <div class="mb-3 tal" style="display: none">
           <label for="camion" class="form-label">Camion</label>

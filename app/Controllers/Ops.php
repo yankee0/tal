@@ -110,9 +110,7 @@ class Ops extends BaseController
             $data['chrono'] = $data['camion'];
             unset($data['imm_tracteur']);
         }
-        else {
-            $data['chauffeur'] = $data['pres'];
-        }
+
         unset($data['camion']);
         unset($data['choixch']);
         unset($data['cht']);
