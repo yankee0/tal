@@ -79,11 +79,17 @@ Super Admin
           </div>
 
           <select style="display: none;" class="form-select form-select-lg tal" name="cht" id="chauffeur_aller">
+            <option selected disabled>Chauffeur TAL</option>
             <?php foreach ($chauf as $c) : ?>
               <option value="<?= $c['matricule'] ?>"><?= $c['matricule'] . ' - ' . $c['prenom'] . ' ' . $c['nom'] ?></option>
             <?php endforeach ?>
           </select>
-          <input type="text" class="form-control tra" name="chs" id="chauffeur" aria-describedby="helpId" placeholder="Chauffeur">
+          <select class="form-select form-select-lg tra" name="pres" id="chauffeur_aller">
+            <option selected disabled>Prestataires</option>
+            <?php foreach ($sous as $s) : ?>
+              <option value="<?= $s['nom'] ?>"><?= $s['nom'] ?></option>
+            <?php endforeach ?>
+          </select>
         </div>
         <div class="mb-3 tal" style="display: none">
           <label for="camion" class="form-label">Camion</label>

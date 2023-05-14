@@ -81,7 +81,7 @@ OPS - Dashboard
             <th>Rame</th>
             <th>Mouvement</th>
             <th>p/v</th>
-            <th>Chauffeur</th>
+            <th>Chauffeur/Prestataires</th>
             <th>Imm. Tract.</th>
             <th>Chrono</th>
             <th>EIRS</th>

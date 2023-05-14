@@ -8,6 +8,7 @@ use App\Models\ModelChauffeur;
 use App\Models\ModelTransfert;
 use App\Models\ModeleLivraison;
 use App\Controllers\BaseController;
+use App\Models\Prestataires;
 use PhpOffice\PhpSpreadsheet\Writer\Xls;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -95,7 +96,8 @@ class Ops extends BaseController
     
         return view('utils/transferts/ajouter',[
             'chauf' => (new ModelChauffeur())->findAll(),
-            'trac' => (new ModelTracteur())->findAll()
+            'trac' => (new ModelTracteur())->findAll(),
+            'sous' => (new Prestataires())->findAll(),
 
         ]);
     }
@@ -106,14 +108,15 @@ class Ops extends BaseController
         if ($data['choixch'] == 'tal') {
             $data['chauffeur'] = $data['cht'];
             $data['chrono'] = $data['camion'];
+            unset($data['imm_tracteur']);
         }
         else {
-            $data['chauffeur'] = $data['chs'];
+            $data['chauffeur'] = $data['pres'];
         }
         unset($data['camion']);
         unset($data['choixch']);
         unset($data['cht']);
-        unset($data['chs']);
+        unset($data['pres']);
         $data['auteur'] = session()->donnees_utilisateur['matricule'];
 
 

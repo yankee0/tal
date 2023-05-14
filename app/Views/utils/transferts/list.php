@@ -33,7 +33,7 @@ Super Admin
             <th>Rame</th>
             <th>Mouvement</th>
             <th>p/v</th>
-            <th>Chauffeur</th>
+            <th>Chauffeur/Prestataire</th>
             <th>Imm. Tract.</th>
             <th>Chrono</th>
             <th>EIRS</th>
