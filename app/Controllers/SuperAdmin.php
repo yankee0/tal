@@ -25,32 +25,83 @@ class SuperAdmin extends BaseController
                 'liv' => (new ModeleLivraison())->countAll(),
                 'trans' => (new ModelTransfert())->countAll(),
             ],
-            'gliv' => $this->countMonthlyDeliveriesLiv(),
-            'gtrans' => $this->countMonthlyDeliveriesTrans(),
-            'top4c' => $this->Top4Chauffeurs(),
-            'top4t' => $this->top4Tracs(),
+            'tcm' => $this->tcm(),
+            'mcm' => $this->mcm(),
+
             'vt' => (new ModeleControle())->where('fin <', date('Y-m-d'))->findAll(),
         ];
         return view('super-admin/dashboard', $donnees);
     }
 
-    public function countMonthlyDeliveriesLiv()
+    // mouvement camion mensuel
+    public function mcm()
     {
-        $this->db = \Config\Database::connect();
-        $builder = $this->db->table('livraisons');
-        $builder->select('MONTH(date_livraison) as month, COUNT(*) as count');
-        $builder->groupBy('month');
-        return $builder->get()->getResult();
+        $cs = (new ModelTracteur())->findAll();
+        $ts = (new ModelTransfert())->where('MONTH(date_mvt)', date('m'))->find();
+        $ls = (new ModeleLivraison())->where('MONTH(date_livraison)', date('m'))->find();
+        $rs = [];
+
+        for ($i = 0; $i < sizeof($cs); $i++) {
+            $rs[$i]['chrono'] = $cs[$i]['chrono'];
+            $rs[$i]['ops'] = 0;
+        }
+
+        foreach ($ts as $t) {
+            for ($i = 0; $i < sizeof($rs); $i++) {
+                if ($rs[$i]['chrono'] == $t['chrono']) {
+                    $rs[$i]['ops']++;
+                }
+            }
+        }
+
+        foreach ($ls as $l) {
+            for ($i = 0; $i < sizeof($rs); $i++) {
+                if ($rs[$i]['chrono'] == $l['camion']) {
+                    $rs[$i]['ops']++;
+                }
+            }
+        }
+
+        return $this->trierParTeus($rs);
     }
 
-    public function countMonthlyDeliveriesTrans()
+    //teus cheuffeur mensuel
+    public function tcm()
     {
-        $this->db = \Config\Database::connect();
-        $builder = $this->db->table('transferts');
-        $builder->select('MONTH(date_mvt) as month, COUNT(*) as count');
-        $builder->groupBy('month');
-        return $builder->get()->getResult();
+
+        $cs = (new ModelChauffeur())->findAll();
+        $ts = (new ModelTransfert())->where('MONTH(date_mvt)', date('m'))->find();
+        $rs = [];
+
+        for ($i = 0; $i < sizeof($cs); $i++) {
+            $rs[$i]['matricule'] = $cs[$i]['matricule'];
+            $rs[$i]['nom'] = $cs[$i]['prenom'] . ' ' . $cs[$i]['nom'];
+            $rs[$i]['teus'] = 0;
+        }
+
+        foreach ($ts as $t) {
+            foreach ($cs as $c) {
+                if ($t['chauffeur'] == $c['matricule']) {
+                    for ($i = 0; $i < sizeof($rs); $i++) {
+                        if ($rs[$i]['matricule'] == $c['matricule']) {
+                            $rs[$i]['teus'] += $t['teus'];
+                        }
+                    }
+                };
+            }
+        }
+
+        return $this->trierParTeus($rs);
     }
+
+    function trierParTeus($tableau)
+    {
+        usort($tableau, function ($a, $b) {
+            return $b['teus'] - $a['teus'];
+        });
+        return $tableau;
+    }
+
 
     public function livraisons()
     {
@@ -67,62 +118,4 @@ class SuperAdmin extends BaseController
         ];
         return view('utils/transferts/list', $data);
     }
-
-    public function top4Chauffeurs()
-    {
-        $chauffeurs = (new ModelChauffeur())->findAll();
-        array_merge($chauffeurs,['yankee' => 1]);
-        $liv = (new ModeleLivraison())->where('MONTH(date_livraison)',date('m'))->findAll();
-        $trans = (new ModelTransfert())->where('MONTH(date_mvt)',date('m'))->findAll();
-        for ($i = 0; $i < sizeof($chauffeurs); $i++) {
-
-            array_push($chauffeurs[$i],0);
-            array_push($chauffeurs[$i],1);
-            $chauffeurs[$i]['yeet'] = "";
-            foreach ($liv as $l ) {
-                if ($chauffeurs[$i]['matricule'] == $l['chauffeur_aller'] or $chauffeurs[$i]['matricule'] == $l['chauffeur_retour']) {
-                    $chauffeurs[$i][0]++;
-                }
-            }
-            foreach ($trans as $t ) {
-                if ($chauffeurs[$i]['matricule'] == $t['chauffeur']) {
-                    $chauffeurs[$i][0]++;
-                    // $chauffeurs[$i][1]++;
-                }
-            }
-        }
-        
-        return $this->sortDriversByCount($chauffeurs);
-    }
-
-    public function top4Tracs()
-    {
-        $trac = (new ModelTracteur())->findAll();
-        $liv = (new ModeleLivraison())->where('MONTH(date_livraison)',date('m'))->findAll();
-        $trans = (new ModelTransfert())->where('MONTH(date_mvt)',date('m'))->findAll();
-        for ($i = 0; $i < sizeof($trac); $i++) {
-
-            array_push($trac[$i],0);
-            foreach ($liv as $l ) {
-                if ($trac[$i]['chrono'] == $l['camion']) {
-                    $trac[$i][0]++;
-                }
-            }
-            foreach ($trans as $t ) {
-                if ($trac[$i]['chrono'] == $t['chrono']) {
-                    $trac[$i][0]++;
-                }
-            }
-        }
-        
-        return $this->sortDriversByCount($trac);
-    }
-
-    public function sortDriversByCount($drivers) {
-        usort($drivers, function($a, $b) {
-          return $b[0] - $a[0];
-        });
-      
-        return $drivers;
-      }
 }

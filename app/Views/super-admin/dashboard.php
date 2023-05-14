@@ -106,7 +106,6 @@ Super Admin - Dashboard
     </div>
   </div>
 
-  <!-- Area Chart -->
   <div class="col-xl-6 col-lg-6">
     <div class="card shadow mb-4">
       <!-- Card Header - Dropdown -->
@@ -129,24 +128,34 @@ Super Admin - Dashboard
     </div>
   </div>
 
-
-  <!-- Area Chart -->
   <div class="col-xl-6 col-lg-6">
     <div class="card shadow mb-4">
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Classement mensuels chauffeurs</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Classement chauffeurs par mois en fonction du nombre de teus</h6>
       </div>
-      <!-- Card Body -->
-      <div class="card-body rap">
+      <div class="table-responsive">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th scope="col">Matricule</th>
+              <th scope="col">Nom</th>
+              <th scope="col">TEUS</th>
 
-        <p class=" text-primary">Classement chauffeur: </p>
-        <ol>
-          <?php for ($i = 0; $i < sizeof($top4c); $i++) : ?>
-            <li><?= $top4c[$i]['prenom'] . ' ' . $top4c[$i]['nom'] . ' - ' . $top4c[$i][0] . ' opération(s)' ?></li>
-          <?php endfor; ?>
-        </ol>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($tcm as $t) : ?>
+              <tr class="">
+                <td scope="row"><?=$t['matricule']?></td>
+                <td><?=$t['nom']?></td>
+                <td><?=$t['teus']?></td>
+              </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
       </div>
+      
     </div>
   </div>
 
@@ -154,19 +163,34 @@ Super Admin - Dashboard
     <div class="card shadow mb-4">
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">Classement mensuels tracteurs</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Classement tracteurs par mois en fonction du nombre d'opération</h6>
       </div>
-      <!-- Card Body -->
-      <div class="card-body rap">
-        <p class=" text-primary">Classement tracteurs: </p>
-        <ol>
-          <?php for ($i = 0; $i < sizeof($top4t); $i++) : ?>
-            <li><?= $top4t[$i]['chrono'] . ' - ' . $top4c[$i][0] . ' opération(s)' ?></li>
-          <?php endfor; ?>
-        </ol>
+      <div class="table-responsive">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th scope="col">Chrono</th>
+              <th scope="col">Opérations</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($mcm as $t) : ?>
+              <tr class="">
+                <td scope="row"><?=$t['chrono']?></td>
+                <td><?=$t['ops']?></td>
+              </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
       </div>
+      
     </div>
   </div>
+
+      
+
+  
 
 
 </div>

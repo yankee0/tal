@@ -92,8 +92,7 @@ Super Admin
           </select>
           <div class="mb-3 tra">
             <label for="chauffe" class="form-label ">Chauffeur</label>
-            <input type="text"
-              class="form-control" name="chauffeur" id="chauffe" aria-describedby="helpId" placeholder="Nom du chauffeur">
+            <input type="text" class="form-control" name="chauffeur" id="chauffe" aria-describedby="helpId" placeholder="Nom du chauffeur">
           </div>
         </div>
         <div class="mb-3 tal" style="display: none">
@@ -143,15 +142,15 @@ Super Admin
 
 <script>
   $('#type_conteneur').change(function(e) {
-  e.preventDefault();
-  let vals = ['40 DV', '40 HC', '40 RF'];
-  let myVal = $(this).val();
-  if (vals.includes(myVal)) {
-    $('#teus').val('2');
-  } else {
-    $('#teus').val('1');
-  }
-});
+    e.preventDefault();
+    let vals = ['40 DV', '40 HC', '40 RF'];
+    let myVal = $(this).val();
+    if (vals.includes(myVal)) {
+      $('#teus').val('2');
+    } else {
+      $('#teus').val('1');
+    }
+  });
 
   // $('.teus1').on('click', function() {
   //   // $('#teus').val('1');
@@ -159,7 +158,7 @@ Super Admin
   //   // $('#teus').val('2');
   // });
   // $('.teus2').on('click', function() {
-    // });
+  // });
 </script>
 
 
