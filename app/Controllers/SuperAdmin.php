@@ -39,11 +39,15 @@ class SuperAdmin extends BaseController
         $cs = (new ModelTracteur())->findAll();
         $ts = (new ModelTransfert())->where('MONTH(date_mvt)', date('m'))->find();
         $ls = (new ModeleLivraison())->where('MONTH(date_livraison)', date('m'))->find();
+
         $rs = [];
 
         for ($i = 0; $i < sizeof($cs); $i++) {
             $rs[$i]['chrono'] = $cs[$i]['chrono'];
             $rs[$i]['ops'] = 0;
+        }
+        if (sizeof($ts) == 0 or sizeof($ls) == 0) {
+            return $rs;
         }
 
         foreach ($ts as $t) {
@@ -77,6 +81,10 @@ class SuperAdmin extends BaseController
             $rs[$i]['matricule'] = $cs[$i]['matricule'];
             $rs[$i]['nom'] = $cs[$i]['prenom'] . ' ' . $cs[$i]['nom'];
             $rs[$i]['teus'] = 0;
+        }
+
+        if (sizeof($ts) == 0) {
+            return $rs;
         }
 
         foreach ($ts as $t) {
