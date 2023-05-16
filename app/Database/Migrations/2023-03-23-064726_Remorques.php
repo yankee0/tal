@@ -25,7 +25,7 @@ class Remorques extends Migration
                 'null' => true,
             ],
             'genre' => [
-                'type' => 'ENUM("SEMI-REMORQUE","REMORQUE")',
+                'type' => 'ENUM("SEMI-REMORQUE","REMORQUE","HAMMAR")',
             ],
             'remarque' => [
                 'type' => 'VARCHAR',

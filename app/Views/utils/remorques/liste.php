@@ -51,6 +51,7 @@ Super Admin - Remorques - Liste
             <select name="genre" class="form-select" id="floatingSelect" aria-label="Floating label select example">
               <option value="SEMI-REMORQUE">SEMI-REMORQUE</option>
               <option value="REMORQUE">REMORQUE</option>
+              <option value="HAMMAR">HAMMAR</option>
             </select>
             <label for="floatingSelect">Genre</label>
           </div>

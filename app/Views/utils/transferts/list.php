@@ -18,7 +18,6 @@ Super Admin
       
       <div class="d-flex justify-content-between mb-3">
         <h4>Récapitulatif</h4>
-        <a class="btn btn-success btn-sm " href="<?= base_url(session()->root . '/gen/transfert') ?>" role="button">Rapport mensuel</a>
       </div>
 
       <table class="table table-bordered" id="tableau2" width="100%" cellspacing="0">

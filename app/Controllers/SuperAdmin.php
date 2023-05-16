@@ -66,7 +66,11 @@ class SuperAdmin extends BaseController
             }
         }
 
-        return $this->trierParTeus($rs);
+        $tab = $this->trierParTeus($rs);
+        while(sizeof($tab) > 6){
+            array_pop($tab);
+        }
+        return $tab;
     }
 
     //teus cheuffeur mensuel
@@ -99,7 +103,11 @@ class SuperAdmin extends BaseController
             }
         }
 
-        return $this->trierParTeus($rs);
+        $tab = $this->trierParTeus($rs);
+        while(sizeof($tab) > 6){
+            array_pop($tab);
+        }
+        return $tab;
     }
 
     function trierParTeus($tableau)

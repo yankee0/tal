@@ -17,7 +17,7 @@ Super Admin
     <div class="table-responsive">
       <div class="d-flex justify-content-between mb-3">
         <h4>Récapitulatif</h4>
-        <a class="btn btn-success btn-sm " href="<?=base_url(session()->root.'/gen/livraison')?>" role="button"> Rapport mensuel</a>
+
       </div>
       <table class="table table-bordered" id="tableau" width="100%" cellspacing="0">
         <thead>

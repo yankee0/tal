@@ -31,7 +31,10 @@ class Filters extends BaseConfig
         'super-admin'   => SuperAdmin::class,
         'admin'         => Admin::class,
         'ops'           => OpsFilter::class,
-        'facturation'   => Facturation::class
+        'facturation'   => Facturation::class,
+        //profils à implimenter
+        'garagiste',
+        'g_carburant'
     ];
 
     /**
