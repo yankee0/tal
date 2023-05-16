@@ -16,8 +16,10 @@ class SuperAdmin extends BaseController
     public function index()
     {
         session()->position = 'dashboard';
+        $r  = (new ModelTransfert())->where('MONTH(date_mvt)', date('m'))->selectSum('teus')->get()->getRow();
+
         $donnees = [
-            'utilisateurs' => (new ModelUtilisateur())->countAll(),
+            'r' => $r,
             'chauffeurs' => (new ModelChauffeur())->countAll(),
             'tracteurs' => (new ModelTracteur())->countAll(),
             'remorques' => (new ModelRemorque())->countAll(),
@@ -73,7 +75,7 @@ class SuperAdmin extends BaseController
         return $tab;
     }
 
-    //teus cheuffeur mensuel
+    //teus chauffeur mensuel
     public function tcm()
     {
 

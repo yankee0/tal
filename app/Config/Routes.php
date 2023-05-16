@@ -154,6 +154,7 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
 
     //Facturation
     $routes->get('/(:segment)/rapports','Facturation::index');
+    $routes->post('/(:segment)/rapportsclass','Rapports::index');
     $routes->get('/facturation','Facturation::index');
     $routes->post('/(:segment)/rapports','Facturation::generate');
     $routes->post('/facturation','Facturation::generate');
