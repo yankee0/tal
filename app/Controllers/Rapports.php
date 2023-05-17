@@ -203,4 +203,84 @@ class Rapports extends BaseController
         header('Content-Disposition: attachment; filename="' . $filename . '"');
         $writer->save('php://output');
     }
+
+    public function tracteur()
+    {
+        $m = $this->request->getVar('m');
+        $y = $this->request->getVar('y');
+
+        $trs = (new ModelTracteur())->findAll();
+        $tab = [];
+        // dd($trs);
+        foreach ($trs as $tr) {
+
+            //carburant
+            $carbs = (new Carburant())
+                ->where('chrono', $tr['chrono'])
+                ->where('MONTH(date)', $m)
+                ->where('YEAR(date)', $y)
+                ->find();
+            // dd($carbs);
+            $sumCarbs = 0;
+            foreach ($carbs as $carb) {
+                $sumCarbs += $carb['litres'];
+            }
+            // dd($sumCarbs);
+
+            //garages
+            $gars = (new Modelegarage())
+                ->where('chrono', $tr['chrono'])
+                ->where('MONTH(date)', $m)
+                ->where('YEAR(date)', $y)
+                ->find();
+            $sumGars = 0;
+            foreach ($gars as $gar) {
+                $sumGars += $gar['total'];
+            }
+            // dd($sumGars);
+
+            //teus
+            $teuss = (new ModelTransfert())
+                ->where('chrono', $tr['chrono'])
+                ->where('MONTH(date_mvt)', $m)
+                ->where('YEAR(date_mvt)', $y)
+                ->find();
+            $sumTeus = 0;
+            foreach ($teuss as $teus) {
+                $sumTeus += $teus['teus'];
+            }
+            // dd($sumTeus);
+
+            array_push($tab, [
+                'chrono' => $tr['chrono'],
+                'carburant' => $sumCarbs,
+                'garage' => $sumGars,
+                'teus' => $sumTeus,
+            ]);
+        }
+        // Création du fichier Excel
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        // Ajout des en-têtes de colonnes
+        $headers = ['Chrono', 'Carburant consommé', 'Dépannage','Teus transferts'];
+        $sheet->fromArray($headers, null, 'A1');
+        $row = 2;
+        foreach ($tab as $t) {
+            $data = [
+                $t['chrono'],
+                $t['carburant'],
+                $t['garage'],
+                $t['teus'],
+
+            ];
+            $sheet->fromArray($data, null, 'A' . $row);
+            $row++;
+        }
+        // Enregistrement du fichier
+        $filename = 'rapport_tracteur_(TEUS transferts - CARBURANT - DEPANNAGE)_' . $m . '_' . $y . '.xlsx';
+        $writer = new Xlsx($spreadsheet);
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        $writer->save('php://output');
+    }
 }
