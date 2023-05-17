@@ -41,6 +41,7 @@ Super Admin - Utilisateurs - Liste
               <?php endif; ?>
               <option <?= set_select('profil') ?> value="OPS">OPS</option>
               <option <?= set_select('profil') ?> value="FACTURATION">FACTURATION</option>
+              <option <?= set_select('profil') ?> value="GARAGISTE">GARAGISTE</option>
             </select>
             <label for="profil">Sélectionner un profil</label>
           </div>

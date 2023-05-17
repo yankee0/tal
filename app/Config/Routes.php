@@ -159,6 +159,40 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
     $routes->post('/(:segment)/rapports','Facturation::generate');
     $routes->post('/facturation','Facturation::generate');
 
+    $routes->group('garagiste', function($routes)
+    {
+        $routes->get('/','Garagiste::index');
+        $routes->post('/','Garagiste::ajouter');
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
 
 /*

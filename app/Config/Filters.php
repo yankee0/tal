@@ -4,6 +4,7 @@ namespace Config;
 
 use App\Filters\Admin;
 use App\Filters\Facturation;
+use App\Filters\Garagiste;
 use App\Filters\OpsFilter;
 use App\Filters\OpsTal;
 use App\Filters\SessionCheck;
@@ -33,7 +34,7 @@ class Filters extends BaseConfig
         'ops'           => OpsFilter::class,
         'facturation'   => Facturation::class,
         //profils à implimenter
-        'garagiste',
+        'garagiste'     => Garagiste::class,
         'g_carburant'
     ];
 

@@ -16,6 +16,9 @@ switch (session()->donnees_utilisateur['profil']) {
   case 'FACTURATION':
     $root  = '/facturation';
     break;
+  case 'GARARISTE':
+    $root  = '/garagiste';
+    break;
 
 
   default:
@@ -152,7 +155,7 @@ session()->root = $root;
 
       <?php if ($root == '/super-admin' or $root == '/facturation') : ?>
         <li class="nav-item <?= (session()->has('position') and session()->position == 'remorques') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= base_url($root).'/rapports' ?>">
+          <a class="nav-link" href="<?= base_url($root) . '/rapports' ?>">
             <i class="fas fa-fw fa-file-excel"></i>
             <span>Rapport</span></a>
         </li>
