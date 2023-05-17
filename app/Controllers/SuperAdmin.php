@@ -114,9 +114,12 @@ class SuperAdmin extends BaseController
 
     function trierParTeus($tableau)
     {
-        usort($tableau, function ($a, $b) {
-            return $b['teus'] - $a['teus'];
-        });
+        if(isset($tableau[0]['teus'])){
+            usort($tableau, function ($a, $b) {
+                return $b['teus'] - $a['teus'];
+            });
+        }
+        
         return $tableau;
     }
 
