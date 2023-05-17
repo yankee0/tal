@@ -64,10 +64,10 @@
           <select class="form-control" name="chrono" id="chrono">
             <option hidden value="">Selectionnez</option>
             <?php foreach ($trs as $tr) : ?>
-              <option value="<?= $tr ?>"><?= $tr ?></option>
+              <option value="<?= $tr['chrono'] ?>"><?= $tr['chrono'] ?></option>
             <?php endforeach ?>
             <?php foreach ($hms as $hm) : ?>
-              <option value="<?= $hm ?>"><?= $hm ?></option>
+              <option value="<?= $hm['chrono'] ?>"><?= $hm['chrono'] ?></option>
             <?php endforeach ?>
           </select>
         </div>
