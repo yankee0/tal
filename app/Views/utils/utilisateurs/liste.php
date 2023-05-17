@@ -42,6 +42,7 @@ Super Admin - Utilisateurs - Liste
               <option <?= set_select('profil') ?> value="OPS">OPS</option>
               <option <?= set_select('profil') ?> value="FACTURATION">FACTURATION</option>
               <option <?= set_select('profil') ?> value="GARAGISTE">GARAGISTE</option>
+              <option <?= set_select('profil') ?> value="G. CARBURANT">G. CARBURANT</option>
             </select>
             <label for="profil">Sélectionner un profil</label>
           </div>

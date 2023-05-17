@@ -56,6 +56,9 @@ class Authentification extends BaseController
       case 'GARAGISTE':
         $destination  = '/garagiste';
         break;
+      case 'G. CARBURANT':
+        $destination  = '/g_carburant';
+        break;
 
       default:
         $this->deconnexion();

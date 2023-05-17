@@ -159,37 +159,17 @@ $routes->group('', ['filter' => 'session-check'], function ($routes) {
     $routes->post('/(:segment)/rapports','Facturation::generate');
     $routes->post('/facturation','Facturation::generate');
 
-    $routes->group('garagiste', function($routes)
+    $routes->group('garagiste' ,['filter' => 'garage'], function($routes)
     {
         $routes->get('/','Garagiste::index');
         $routes->post('/','Garagiste::ajouter');
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    $routes->group('g_carburant' ,['filter' => 'g_carburant'], function($routes)
+    {
+        $routes->get('/','Carburant::index');
+        $routes->post('/','Carburant::ajouter');
+    });
 
 
 

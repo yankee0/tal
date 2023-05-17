@@ -44,6 +44,13 @@ class Data extends Seeder
                 'matricule' => 'TAL011',
                 'profil' => 'GARAGISTE',
                 'mot_de_passe' => sha1('yankee')
+            ],
+            [
+                'prenom' => 'Tal',
+                'nom' => 'Tal',
+                'matricule' => 'TAL012',
+                'profil' => 'G. CARBURANT',
+                'mot_de_passe' => sha1('yankee')
             ]
         ];
         $this->db->table('utilisateurs')->insertBatch($user);

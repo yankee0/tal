@@ -19,6 +19,9 @@ switch (session()->donnees_utilisateur['profil']) {
   case 'GARARISTE':
     $root  = '/garagiste';
     break;
+  case 'G. CARBURANT':
+    $root  = '/g_carburant';
+    break;
 
 
   default:

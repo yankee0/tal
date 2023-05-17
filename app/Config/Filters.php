@@ -3,6 +3,7 @@
 namespace Config;
 
 use App\Filters\Admin;
+use App\Filters\Carburant;
 use App\Filters\Facturation;
 use App\Filters\Garagiste;
 use App\Filters\OpsFilter;
@@ -35,7 +36,7 @@ class Filters extends BaseConfig
         'facturation'   => Facturation::class,
         //profils à implimenter
         'garagiste'     => Garagiste::class,
-        'g_carburant'
+        'g_carburant'   => Carburant::class
     ];
 
     /**
