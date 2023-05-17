@@ -35,7 +35,7 @@ class Filters extends BaseConfig
         'ops'           => OpsFilter::class,
         'facturation'   => Facturation::class,
         //profils à implimenter
-        'garagiste'     => Garagiste::class,
+        'garage'     => Garagiste::class,
         'g_carburant'   => Carburant::class
     ];
 
