@@ -7,6 +7,8 @@ use App\Models\ModelChauffeur;
 use App\Models\ModelTransfert;
 use App\Models\ModeleLivraison;
 use App\Controllers\BaseController;
+use App\Models\Carburant;
+use App\Models\Modelegarage;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -19,7 +21,7 @@ class Rapports extends BaseController
         $t = $this->request->getVar('type');
 
         if ($t == 'chauffeur') {
-            $chs = $this->rmcc($m,$y);
+            $chs = $this->rmcc($m, $y);
             // Création du fichier Excel
             $spreadsheet = new Spreadsheet();
             $sheet = $spreadsheet->getActiveSheet();
@@ -39,7 +41,7 @@ class Rapports extends BaseController
             // Enregistrement du fichier
             $filename = 'rapport_classement_chauffeurs_TEUs_Transferts_' . $m . '_' . $y . '.xlsx';
         } else {
-            $trs = $this->mcm($m,$y);
+            $trs = $this->mcm($m, $y);
             // Création du fichier Excel
             $spreadsheet = new Spreadsheet();
             $sheet = $spreadsheet->getActiveSheet();
@@ -65,7 +67,7 @@ class Rapports extends BaseController
         $writer->save('php://output');
     }
     //rapport mensuel classement chauffeurs
-    public function rmcc($m,$y)
+    public function rmcc($m, $y)
     {
         $cs = (new ModelChauffeur())->findAll();
         $ts = (new ModelTransfert())->where('MONTH(date_mvt)', $m)->where('YEAR(date_mvt)', $y)->find();
@@ -97,7 +99,7 @@ class Rapports extends BaseController
     }
 
     // mouvement camion mensuel
-    public function mcm($m,$y)
+    public function mcm($m, $y)
     {
         $cs = (new ModelTracteur())->findAll();
         $ts = (new ModelTransfert())->where('MONTH(date_mvt)', $m)->where('YEAR(date_mvt)', $y)->find();
@@ -139,5 +141,66 @@ class Rapports extends BaseController
             return $b['teus'] - $a['teus'];
         });
         return $tableau;
+    }
+
+    public function garage()
+    {
+        $m = $this->request->getVar('m');
+        $y = $this->request->getVar('y');
+
+        $gs = (new Modelegarage())->where('MONTH(date)', $m)->where('YEAR(date)', $y)->findAll();
+        // Création du fichier Excel
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        // Ajout des en-têtes de colonnes
+        $headers = ['Chrono', 'Total', 'Date', 'Commentaire'];
+        $sheet->fromArray($headers, null, 'A1');
+        $row = 2;
+        foreach ($gs as $g) {
+            $data = [
+                $g['chrono'],
+                $g['total'],
+                $g['date'],
+                $g['commentaire'],
+            ];
+            $sheet->fromArray($data, null, 'A' . $row);
+            $row++;
+        }
+        // Enregistrement du fichier
+        $filename = 'rapport_garage_' . $m . '_' . $y . '.xlsx';
+        $writer = new Xlsx($spreadsheet);
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        $writer->save('php://output');
+    }
+
+    public function carburant()
+    {
+        $m = $this->request->getVar('m');
+        $y = $this->request->getVar('y');
+
+        $gs = (new Carburant())->where('MONTH(date)', $m)->where('YEAR(date)', $y)->findAll();
+        // Création du fichier Excel
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        // Ajout des en-têtes de colonnes
+        $headers = ['Chrono', 'Litres', 'Date'];
+        $sheet->fromArray($headers, null, 'A1');
+        $row = 2;
+        foreach ($gs as $g) {
+            $data = [
+                $g['chrono'],
+                $g['litres'],
+                $g['date'],
+            ];
+            $sheet->fromArray($data, null, 'A' . $row);
+            $row++;
+        }
+        // Enregistrement du fichier
+        $filename = 'rapport_carburant_' . $m . '_' . $y . '.xlsx';
+        $writer = new Xlsx($spreadsheet);
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        $writer->save('php://output');
     }
 }

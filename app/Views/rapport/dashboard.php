@@ -94,6 +94,74 @@ Rapports
     </div>
   </div>
 
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Rapport garage</h6>
+    </div>
+    <div class="card-body">
+      <form class="col-md" action="<?= base_url('AllahIsOne/rapportsgarage') ?>" method="post">
+        <div class="mb-3">
+          <label for="month" class="form-label">Mois : <br>  </label>
+          <select id="month" name="m" class="form-select" required>
+            <option selected disabled hidden>Choisir un mois...</option>
+            <option value="01">Janvier</option>
+            <option value="02">Février</option>
+            <option value="03">Mars</option>
+            <option value="04">Avril</option>
+            <option value="05">Mai</option>
+            <option value="06">Juin</option>
+            <option value="07">Juillet</option>
+            <option value="08">Août</option>
+            <option value="09">Septembre</option>
+            <option value="10">Octobre</option>
+            <option value="11">Novembre</option>
+            <option value="12">Décembre</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="year" class="form-label">Année :</label>
+          <input type="number" name="y" id="year" class="form-control" min="2000" max="2100" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Générer le rapport</button>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Rapport carburant</h6>
+    </div>
+    <div class="card-body">
+      <form class="col-md" action="<?= base_url('AllahIsOne/rapportscarburant') ?>" method="post">
+        <div class="mb-3">
+          <label for="month" class="form-label">Mois : <br>  </label>
+          <select id="month" name="m" class="form-select" required>
+            <option selected disabled hidden>Choisir un mois...</option>
+            <option value="01">Janvier</option>
+            <option value="02">Février</option>
+            <option value="03">Mars</option>
+            <option value="04">Avril</option>
+            <option value="05">Mai</option>
+            <option value="06">Juin</option>
+            <option value="07">Juillet</option>
+            <option value="08">Août</option>
+            <option value="09">Septembre</option>
+            <option value="10">Octobre</option>
+            <option value="11">Novembre</option>
+            <option value="12">Décembre</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="year" class="form-label">Année :</label>
+          <input type="number" name="y" id="year" class="form-control" min="2000" max="2100" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Générer le rapport</button>
+      </form>
+
+    </div>
+  </div>
+
 
 <?php endif ?>
 
