@@ -30,7 +30,7 @@ OPS - Livraisons ajout
         </div>
         <div class="mb-3">
           <label for="conteneur" class="form-label">Conteneur</label>
-          <input type="text" maxlength="11" class="form-control" name="conteneur" required id="conteneur" aria-describedby="helpId" >
+          <input type="text" maxlength="11" minlength="11" class="form-control" name="conteneur" required id="conteneur" aria-describedby="helpId" >
         </div>
         <div class="mb-3">
           <label for="armateur" class="form-label">Armateur</label>

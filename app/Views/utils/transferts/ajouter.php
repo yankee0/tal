@@ -29,7 +29,7 @@ Super Admin
         </div>
         <div class="mb-3">
           <label for="conteneur" class="form-label">Conteneur</label>
-          <input type="text" maxlength="11" class="form-control" name="conteneur" required id="conteneur" aria-describedby="helpId" placeholder="">
+          <input type="text" maxlength="11" minlength="11" class="form-control" name="conteneur" required id="conteneur" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
           <label for="type_conteneur" class="form-label">Type conteneur</label>

@@ -271,7 +271,6 @@ class Rapports extends BaseController
                 $t['carburant'],
                 $t['garage'],
                 $t['teus'],
-
             ];
             $sheet->fromArray($data, null, 'A' . $row);
             $row++;
