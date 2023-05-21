@@ -30,7 +30,7 @@ class SuperAdmin extends BaseController
             'tcm' => $this->tcm(),
             'mcm' => $this->mcm(),
 
-            'vt' => (new ModeleControle())->where('fin <', date('Y-m-d'))->findAll(),
+            'vt' => (new ModeleControle())->where('fin >', date('Y-m-d'))->findAll(),
         ];
         return view('super-admin/dashboard', $donnees);
     }

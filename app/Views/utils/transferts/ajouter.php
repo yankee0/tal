@@ -29,7 +29,7 @@ Super Admin
         </div>
         <div class="mb-3">
           <label for="conteneur" class="form-label">Conteneur</label>
-          <input type="text" class="form-control" name="conteneur" required id="conteneur" aria-describedby="helpId" placeholder="">
+          <input type="text" maxlength="11" class="form-control" name="conteneur" required id="conteneur" aria-describedby="helpId" placeholder="">
         </div>
         <div class="mb-3">
           <label for="type_conteneur" class="form-label">Type conteneur</label>
@@ -99,7 +99,7 @@ Super Admin
           <label for="camion" class="form-label">Camion</label>
           <select class="form-select form-select-lg" name="camion" id="camion">
             <?php foreach ($trac as $t) : ?>
-              <option value="<?= $t['chrono'] ?>"><?= $t['chrono'] ?></option>
+              <option value="<?= $t['chrono'] ?>"><?= $t['immatriculation'] . ' / ' . $t['chrono'] ?></option>
             <?php endforeach ?>
           </select>
         </div>
