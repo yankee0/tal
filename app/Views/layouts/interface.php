@@ -1,34 +1,33 @@
 <?php
-switch (session()->donnees_utilisateur['profil']) {
+// switch (session()->donnees_utilisateur['profil']) {
+//   case 'SUPER ADMIN':
+//     session()->root  = '/super-admin';
+//     break;
 
-  case 'SUPER ADMIN':
-    $root  = '/super-admin';
-    break;
+//   case 'ADMIN':
+//     $root  = '/admin';
+//     break;
 
-  case 'ADMIN':
-    $root  = '/admin';
-    break;
+//   case 'OPS':
+//     $root  = '/ops';
+//     break;
 
-  case 'OPS':
-    $root  = '/ops';
-    break;
-
-  case 'FACTURATION':
-    $root  = '/facturation';
-    break;
-  case 'GARARISTE':
-    $root  = '/garagiste';
-    break;
-  case 'G. CARBURANT':
-    $root  = '/g_carburant';
-    break;
+//   case 'FACTURATION':
+//     $root  = '/facturation';
+//     break;
+//   case 'GARARISTE':
+//     $root  = '/garagiste';
+//     break;
+//   case 'G. CARBURANT':
+//     $root  = '/g_carburant';
+//     break;
 
 
-  default:
-    $root = null;
-    break;
-}
-session()->root = $root;
+//   default:
+//     $root = null;
+//     break;
+// }
+// session()->root = session()->root;
 
 ?>
 <!DOCTYPE html>
@@ -63,48 +62,48 @@ session()->root = $root;
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url($root) ?>">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url(session()->root) ?>">
         <img src="<?= base_url('img/tal.png') ?>" alt="" height="54px">
       </a>
 
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item <?= (session()->has('position') and session()->position == 'dashboard') ? 'active' : '' ?>">
-        <a class="nav-link" href="<?= base_url($root) ?>">
+        <a class="nav-link" href="<?= base_url(session()->root) ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider" />
-      <?php if ($root == '/super-admin' or $root == '/admin') : ?>
+      <?php if (session()->root == '/super-admin' or session()->root == '/admin') : ?>
         <!-- Heading -->
         <div class="sidebar-heading">Ressources</div>
 
         <!-- Nav Items - utilisateurs -->
         <li class="nav-item <?= (session()->has('position') and session()->position == 'utilisateurs') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= base_url($root . '/utilisateurs') ?>">
+          <a class="nav-link" href="<?= base_url(session()->root . '/utilisateurs') ?>">
             <i class="fas fa-fw fa-user"></i>
             <span>Utilisateurs</span></a>
         </li>
 
         <!-- Nav Items - chauffeurs -->
         <li class="nav-item <?= (session()->has('position') and session()->position == 'chauffeurs') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= base_url($root . '/chauffeurs') ?>">
+          <a class="nav-link" href="<?= base_url(session()->root . '/chauffeurs') ?>">
             <i class="fas fa-fw fa-user-tie"></i>
             <span>Chauffeurs</span></a>
         </li>
 
         <!-- Nav Items - tracteurs -->
         <li class="nav-item <?= (session()->has('position') and session()->position == 'tracteurs') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= base_url($root . '/tracteurs') ?>">
+          <a class="nav-link" href="<?= base_url(session()->root . '/tracteurs') ?>">
             <i class="fas fa-fw fa-truck"></i>
             <span>Tracteurs</span></a>
         </li>
 
         <!-- Nav Items - remorques -->
         <li class="nav-item <?= (session()->has('position') and session()->position == 'remorques') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= base_url($root . '/remorques') ?>">
+          <a class="nav-link" href="<?= base_url(session()->root . '/remorques') ?>">
             <i class="fas fa-fw fa-trailer"></i>
             <span>Remorques</span></a>
         </li>
@@ -112,7 +111,7 @@ session()->root = $root;
       <?php endif ?>
 
 
-      <?php if ($root != '/admin' and $root != '/facturation') : ?>
+      <?php if (session()->root != '/admin' and session()->root != '/facturation') : ?>
         <!-- Heading -->
         <div class="sidebar-heading">Opérations</div>
 
@@ -124,11 +123,11 @@ session()->root = $root;
           </a>
           <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <?php if ($root == '/super-admin' or $root == '/admin') : ?>
-                <a class="collapse-item" href="<?= base_url($root . '/livraisons') ?>">Lister</a>
+              <?php if (session()->root == '/super-admin' or session()->root == '/admin') : ?>
+                <a class="collapse-item" href="<?= base_url(session()->root . '/livraisons') ?>">Lister</a>
               <?php else : ?>
-                <a class="collapse-item" href="<?= base_url($root . '/livraisons/innacheves') ?>">Livraisons innachevées</a>
-                <a class="collapse-item" href="<?= base_url($root . '/livraisons') ?>">Nouvelle livraison</a>
+                <a class="collapse-item" href="<?= base_url(session()->root . '/livraisons/innacheves') ?>">Livraisons innachevées</a>
+                <a class="collapse-item" href="<?= base_url(session()->root . '/livraisons') ?>">Nouvelle livraison</a>
               <?php endif; ?>
             </div>
           </div>
@@ -142,13 +141,13 @@ session()->root = $root;
           </a>
           <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <?php if ($root == '/super-admin' or $root == '/admin') : ?>
+              <?php if (session()->root == '/super-admin' or session()->root == '/admin') : ?>
 
-                <a class="collapse-item" href="<?= base_url($root . '/transferts') ?>">Lister</a>
+                <a class="collapse-item" href="<?= base_url(session()->root . '/transferts') ?>">Lister</a>
 
               <?php else : ?>
-                <a class="collapse-item" href="<?= base_url($root . '/transfert') ?>">Nouveau transfert</a>
-                <a class="collapse-item" href="<?= base_url($root . '/transfert/non-eirs') ?>">En attente de EIRS</a>
+                <a class="collapse-item" href="<?= base_url(session()->root . '/transfert') ?>">Nouveau transfert</a>
+                <a class="collapse-item" href="<?= base_url(session()->root . '/transfert/non-eirs') ?>">En attente de EIRS</a>
               <?php endif; ?>
 
             </div>
@@ -156,9 +155,9 @@ session()->root = $root;
         </li>
       <?php endif ?>
 
-      <?php if ($root == '/super-admin' or $root == '/facturation') : ?>
+      <?php if (session()->root == '/super-admin' or session()->root == '/facturation') : ?>
         <li class="nav-item <?= (session()->has('position') and session()->position == 'remorques') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= base_url($root) . '/rapports' ?>">
+          <a class="nav-link" href="<?= base_url(session()->root) . '/rapports' ?>">
             <i class="fas fa-fw fa-file-excel"></i>
             <span>Rapport</span></a>
         </li>
@@ -189,7 +188,7 @@ session()->root = $root;
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-            <?php if ($root == '/super-admin' or $root == '/admin') : ?>
+            <?php if (session()->root == '/super-admin' or session()->root == '/admin') : ?>
               <!-- Nav Item - Alerts -->
               <li class="nav-item dropdown no-arrow mx-1">
                 <!-- Dropdown - Alerts -->
@@ -289,7 +288,7 @@ session()->root = $root;
         <div class="modal-body">Appuyez sur "Se déconnecter" pour fermer la session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Retour</button>
-          <a class="btn btn-primary" href="<?= base_url($root . '/deconnexion') ?>">Se déconnecter</a>
+          <a class="btn btn-primary" href="<?= base_url(session()->root . '/deconnexion') ?>">Se déconnecter</a>
         </div>
       </div>
     </div>

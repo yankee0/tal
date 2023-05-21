@@ -38,26 +38,32 @@ class Authentification extends BaseController
     switch (session()->donnees_utilisateur['profil']) {
 
       case 'SUPER ADMIN':
-        $destination  = '/super-admin';
+        session()->set('root');
+        session()->root = $destination  = '/super-admin';
         break;
 
       case 'ADMIN':
-        $destination  = '/admin';
+        session()->set('root');
+        session()->root = $destination  = '/admin';
         break;
 
       case 'OPS':
-        $destination  = '/ops';
+        session()->set('root');
+        session()->root = $destination  = '/ops';
         break;
 
       case 'FACTURATION':
-        $destination  = '/facturation';
+        session()->set('root');
+        session()->root = $destination  = '/facturation';
         break;
 
       case 'GARAGISTE':
-        $destination  = '/garagiste';
+        session()->set('root');
+        session()->root = $destination  = '/garagiste';
         break;
       case 'G. CARBURANT':
-        $destination  = '/g_carburant';
+        session()->set('root');
+        session()->root = $destination  = '/g_carburant';
         break;
 
       default:
