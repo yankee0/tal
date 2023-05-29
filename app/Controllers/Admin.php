@@ -297,6 +297,7 @@ class Admin extends BaseController
     public function handle_r_controle(string $action, string $chrono)
     {
 
+        
         (new ModeleControle())->where(
             [
                 'chrono_remorque' => $chrono,

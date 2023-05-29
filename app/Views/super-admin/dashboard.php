@@ -120,8 +120,9 @@ Super Admin - Dashboard
           <?php foreach ($vt as $v) : ?>
             <?php
             $data = ($v['chrono_tracteur'] != null) ? $v['chrono_tracteur'] : $v['chrono_remorque'];
+            $link = (!empty($v['chrono_tracteur'])) ? '/tracteurs/' : '/remorques/';
             ?>
-            <li><a href="<?= base_url(session()->root) . '/tracteurs/' . $data ?>"><?= $v['type'] . ' - ' . $data ?></a> </li>
+            <li><a href="<?= base_url(session()->root) . $link . $data ?>"><?= $v['type'] . ' - ' . $data ?></a> </li>
           <?php endforeach ?>
         </ol>
       </div>
