@@ -36,7 +36,7 @@
     <div class="d-flex justify-content-end py-3">
       <a name="" id="" class="btn btn-danger" href="<?= base_url('ye/deconnexion') ?>" role="button">Se déconnecter</a>
     </div>
-    <h1 class="mt-3 mb-4">Intervention de garage</h1>
+    <h1 class="mt-3 mb-4">Intervention garage</h1>
     <?php if (session()->has('ops')) : ?>
       <?php if (session()->ops) : ?>
         <div class="alert alert-success" role="alert">
