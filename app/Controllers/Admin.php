@@ -45,7 +45,11 @@ class Admin extends BaseController
         ];
 
         $model = new ModelUtilisateur();
-        $model->insert($donnees);
+        try {
+            $model->insert($donnees);
+        } catch (\Throwable $th) {
+            return redirect()->back()->withInput()->with('error', true);
+        }
 
         if ($model->first($donnees['matricule'])) {
             return redirect()->back()->with('success', true);
@@ -93,7 +97,13 @@ class Admin extends BaseController
         ];
 
         $model = new ModelChauffeur();
-        $model->insert($donnees);
+        try {
+            $model->insert($donnees);
+            
+        } catch (\Throwable $th) {
+            return redirect()->back()->withInput()->with('error', true);
+            
+        }
 
         if ($model->first($donnees['matricule'])) {
             return redirect()->back()->with('success', true);
@@ -136,7 +146,11 @@ class Admin extends BaseController
         ];
 
         $model = new ModelTracteur();
-        $model->insert($donnees);
+        try {
+            $model->insert($donnees);
+        } catch (\Throwable $th) {
+            return redirect()->back()->withInput()->with('error', true);
+        }
 
         if ($model->first($donnees['chrono'])) {
             return redirect()->back()->with('success', true);
@@ -198,7 +212,12 @@ class Admin extends BaseController
         ];
 
         $model = new ModelRemorque();
-        $model->insert($donnees);
+        try {
+            $model->insert($donnees);
+        } catch (\Throwable $th) {
+            return redirect()->back()->withInput()->with('error', true);
+
+        }
 
         if ($model->first($donnees['chrono'])) {
             return redirect()->back()->with('success', true);
@@ -297,7 +316,7 @@ class Admin extends BaseController
     public function handle_r_controle(string $action, string $chrono)
     {
 
-        
+
         (new ModeleControle())->where(
             [
                 'chrono_remorque' => $chrono,
