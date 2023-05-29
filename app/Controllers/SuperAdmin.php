@@ -51,7 +51,7 @@ class SuperAdmin extends BaseController
 
         for ($i = 0; $i < sizeof($cs); $i++) {
             $rs[$i]['chrono'] = $cs[$i]['chrono'];
-            $rs[$i]['ops'] = 0;
+            $rs[$i]['teus'] = 0;
         }
         if (sizeof($ts) == 0 or sizeof($ls) == 0) {
             return $rs;
@@ -60,7 +60,7 @@ class SuperAdmin extends BaseController
         foreach ($ts as $t) {
             for ($i = 0; $i < sizeof($rs); $i++) {
                 if ($rs[$i]['chrono'] == $t['chrono']) {
-                    $rs[$i]['ops']++;
+                    $rs[$i]['teus']++;
                 }
             }
         }
@@ -68,7 +68,7 @@ class SuperAdmin extends BaseController
         foreach ($ls as $l) {
             for ($i = 0; $i < sizeof($rs); $i++) {
                 if ($rs[$i]['chrono'] == $l['camion']) {
-                    $rs[$i]['ops']++;
+                    $rs[$i]['teus']++;
                 }
             }
         }
