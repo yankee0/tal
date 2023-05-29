@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Formulaire de garage</title>
+  <title>Intervention de garage</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
