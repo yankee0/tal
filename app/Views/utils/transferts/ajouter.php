@@ -78,8 +78,8 @@ Super Admin
             </label>
           </div>
 
-          <select style="display: none;" class="form-select form-select-lg tal" name="cht" id="chauffeur_aller">
-            <option selected disabled>Chauffeur TAL</option>
+          <select style="display: none;" class="form-select form-select-lg tal" name="cht" id="chauffeur_aller" required>
+            <option selected hidden value="">Chauffeur TAL</option>
             <?php foreach ($chauf as $c) : ?>
               <option value="<?= $c['matricule'] ?>"><?= $c['matricule'] . ' - ' . $c['prenom'] . ' ' . $c['nom'] ?></option>
             <?php endforeach ?>
@@ -97,7 +97,8 @@ Super Admin
         </div>
         <div class="mb-3 tal" style="display: none">
           <label for="camion" class="form-label">Camion</label>
-          <select class="form-select form-select-lg" name="camion" id="camion">
+          <select class="form-select form-select-lg" name="camion" id="camion" required>
+            <option value="" selected hidden>Selectionnez un camion</option>
             <?php foreach ($trac as $t) : ?>
               <option value="<?= $t['chrono'] ?>"><?= $t['immatriculation'] . ' / ' . $t['chrono'] ?></option>
             <?php endforeach ?>

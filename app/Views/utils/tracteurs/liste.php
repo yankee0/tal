@@ -42,7 +42,7 @@ Super Admin - Tracteurs - Liste
         </div>
         <div class="col-md-4">
           <div class="form-floating mb-3">
-            <input value="<?= set_value('ancienne_immatriculation') ?>" type="text" class="form-control" name="ancienne_immatriculation" id="ancienne_immatriculation" placeholder="ancienne_immatriculation" required>
+            <input value="<?= set_value('ancienne_immatriculation') ?>" type="text" class="form-control" name="ancienne_immatriculation" id="ancienne_immatriculation" placeholder="ancienne_immatriculation">
             <label for="ancienne_immatriculation">Ancienne Immatriculation</label>
           </div>
         </div>

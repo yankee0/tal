@@ -34,7 +34,7 @@
 <body>
   <div class="container">
     <div class="d-flex justify-content-end py-3">
-      <a name="" id="" class="btn btn-danger" href="<?=base_url('ye/deconnexion')?>" role="button">Se déconnecter</a>
+      <a name="" id="" class="btn btn-danger" href="<?= base_url('ye/deconnexion') ?>" role="button">Se déconnecter</a>
     </div>
     <h1 class="mt-3 mb-4">Formulaire de garage</h1>
     <?php if (session()->has('ops')) : ?>
@@ -42,7 +42,7 @@
         <div class="alert alert-success" role="alert">
           <strong>Enregistré</strong>
         </div>
-      <?php else :?>
+      <?php else : ?>
         <div class="alert alert-danger" role="alert">
           <strong>Echec</strong>
         </div>
@@ -61,24 +61,24 @@
                 </div>
                 <div class="form-group">
                   <label>Choisir le type de véhicule :</label>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" value="r" name="type" required id="rad1">
-                      <label class="form-check-label" for="rad1">
-                        Remorque
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" value="h" name="type" required id="rad2">
-                      <label class="form-check-label" for="rad2">
-                        Hammar
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" value="t" name="type" required id="rad3">
-                      <label class="form-check-label" for="rad3">
-                        Tracteur
-                      </label>
-                    </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" value="r" name="type" required id="rad1">
+                    <label class="form-check-label" for="rad1">
+                      Remorque
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" value="h" name="type" required id="rad2">
+                    <label class="form-check-label" for="rad2">
+                      Hammar
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" value="t" name="type" required id="rad3">
+                    <label class="form-check-label" for="rad3">
+                      Tracteur
+                    </label>
+                  </div>
                 </div>
                 <div class="form-group">
                   <div class="form-group">
@@ -91,7 +91,7 @@
                       <?php foreach ($rms as $rm) : ?>
                         <option value="<?= $rm['chrono'] ?>"><?= $rm['chrono'] ?></option>
                       <?php endforeach ?>
-                      
+
                     </select>
                   </div>
                   <small class="form-text text-muted">Veuillez saisir le chrono du véhicule.</small>
@@ -100,7 +100,7 @@
                     <label for="commentaire">Commentaire pour la ou les pièces changées:</label>
                     <textarea class="form-control" id="commentaire" name="commentaire"></textarea>
                     <small class="form-text text-muted">Veuillez saisir le commentaire pour la ou les pièces changées.</small>
-                  </div <div class="form-group">
+                  </div class="form-group">
                   <label for="total">Montant total:</label>
                   <input type="number" step="0.01" class="form-control" id="total" name="total">
                   <small class="form-text text-muted">Veuillez saisir le montant total.</small>
@@ -111,8 +111,8 @@
           </div>
         </div>
       </div>
-  </div>
-  </form>
+
+    </form>
   </div>
 </body>
 

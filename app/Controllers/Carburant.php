@@ -18,10 +18,12 @@ class Carburant extends BaseController
     }
 
     public function ajouter(){
-        if ((new ModelsCarburant())->insert($this->request->getVar())) {
-            return redirect()->back()->with('ops',true);
-        } else {
+        try {
+            (new ModelsCarburant())->insert($this->request->getVar());
+        } catch (\Throwable $th) {
+
             return redirect()->back()->with('ops',false);
         }
+        return redirect()->back()->with('ops',true);
     }
 }

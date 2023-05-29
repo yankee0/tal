@@ -22,10 +22,13 @@ class Garagiste extends BaseController
         $data = $this->request->getVar();
         unset($data['type']);
         $model = new Modelegarage();
-        if ($model->insert($data)) {
-            return redirect()->back()->with('ops',true);
-        } else {
+        try {
+            $model->insert($data);
+        } catch (\Throwable $th) {
+
             return redirect()->back()->with('ops',false);
         }
+        return redirect()->back()->with('ops',true);
+
     }
 }
