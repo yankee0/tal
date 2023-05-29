@@ -51,7 +51,7 @@ class SuperAdmin extends BaseController
 
         for ($i = 0; $i < sizeof($cs); $i++) {
             $rs[$i]['chrono'] = $cs[$i]['chrono'];
-            $rs[$i]['teus'] = 0;
+            $rs[$i]['ops'] = 0;
         }
         if (sizeof($ts) == 0 or sizeof($ls) == 0) {
             return $rs;
@@ -60,7 +60,7 @@ class SuperAdmin extends BaseController
         foreach ($ts as $t) {
             for ($i = 0; $i < sizeof($rs); $i++) {
                 if ($rs[$i]['chrono'] == $t['chrono']) {
-                    $rs[$i]['teus']++;
+                    $rs[$i]['ops']++;
                 }
             }
         }
@@ -68,12 +68,12 @@ class SuperAdmin extends BaseController
         foreach ($ls as $l) {
             for ($i = 0; $i < sizeof($rs); $i++) {
                 if ($rs[$i]['chrono'] == $l['camion']) {
-                    $rs[$i]['teus']++;
+                    $rs[$i]['ops']++;
                 }
             }
         }
 
-        $tab = $this->trierParTeus($rs);
+        $tab = $this->trierParOps($rs);
         while(sizeof($tab) > 6){
             array_pop($tab);
         }
@@ -122,6 +122,17 @@ class SuperAdmin extends BaseController
         if(isset($tableau[0]['teus'])){
             usort($tableau, function ($a, $b) {
                 return $b['teus'] - $a['teus'];
+            });
+        }
+        
+        return $tableau;
+    }
+
+    function trierParOps($tableau)
+    {
+        if(isset($tableau[0]['ops'])){
+            usort($tableau, function ($a, $b) {
+                return $b['ops'] - $a['ops'];
             });
         }
         
